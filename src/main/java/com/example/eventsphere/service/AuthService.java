@@ -46,8 +46,6 @@ public class AuthService {
         return verifyAndGenerateResponse(user, password);
     }
 
-
-
     public LoginResponse loginAdmin(String identifier, String password) {
         User user = userRepository.findByUsernameOrEmail(identifier, identifier)
                 .orElseThrow(() -> new RuntimeException("Invalid Credentials"));
@@ -74,9 +72,7 @@ public class AuthService {
         log.info("Successful login for user: {}", user.getUsername());
         return new LoginResponse(
                 token,
-                user.getRole().name(),
-                user.getUsername(),
-                user.getName()
+                user.getRole().name()
         );
     }
 
@@ -86,6 +82,7 @@ public class AuthService {
             String jwt = authHeader.substring(7);
             tokenBlackList.add(jwt);
             log.info("User successfully logged out and token blacklisted.");
+            return;
         }
         throw new RuntimeException("No valid token provided for logout."); // Triggers Global Handler!
     }

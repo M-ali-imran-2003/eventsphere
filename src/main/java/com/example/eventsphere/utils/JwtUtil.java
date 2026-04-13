@@ -77,5 +77,16 @@ public class JwtUtil {
         return extractClaim(token, Claims::getExpiration);
     }
 
+    public long getRemainingTimeInMilliseconds(String token) {
+        // Find out exactly when the token is supposed to die
+        Date expirationDate = extractExpiration(token);
+
+        // Calculate the difference between that time and right now
+        long timeLeft = expirationDate.getTime() - System.currentTimeMillis();
+
+        // If the token is already expired, return 0 instead of a negative number
+        return Math.max(timeLeft, 0);
+    }
+
 
 }
