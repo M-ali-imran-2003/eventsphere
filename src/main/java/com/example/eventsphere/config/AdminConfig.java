@@ -3,6 +3,7 @@ package com.example.eventsphere.config;
 import com.example.eventsphere.entity.User;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -41,7 +42,7 @@ public class AdminConfig {
         return args -> {
             try {
                 // THE UPGRADE: We now safely rely on the immutable username
-                if (userRepository.findByUsername(adminUsername).isEmpty()) {
+                if (!userRepository.existsByUsername(adminUsername)) {
 
                     User admin = new User();
                     admin.setName("System Admin");
@@ -49,7 +50,7 @@ public class AdminConfig {
                     admin.setEmail(adminEmail);       // Changeable via profile update
                     admin.setPassword(encoder.encode(adminPassword));
                     admin.setRole(UserRole.ADMIN);
-                    admin.setStatus(AppStatus.ACTIVE);
+                    admin.setStatus(UserStatus.ACTIVE);
                     admin.setProfilePic(adminPic);
                     admin.setCnic(adminCnic);
                     admin.setPhoneNo(adminPhone);

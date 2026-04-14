@@ -2,6 +2,7 @@ package com.example.eventsphere.entity;
 
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*; // Added for Java validation
 import lombok.Data;
@@ -54,7 +55,7 @@ public class User implements UserDetails {
     private String profilePic;
 
     @NotBlank(message = "Phone number is required")
-    @Size(max = 20)
+    @Size(max = 13, message="Phone Number should be less then 13")
     @Column(name = "phone_no")
     private String phoneNo;
 
@@ -64,7 +65,7 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private AppStatus Status;
+    private UserStatus Status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

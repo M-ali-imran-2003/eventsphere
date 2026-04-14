@@ -8,13 +8,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Getter
-public enum AppStatus {
+public enum UserStatus {
+
     ACTIVE("Active"),
-    INACTIVE("InActive");
+    INACTIVE("Inactive"),
+    SUSPENDED("Suspended");
 
     private final String label;
 
-    AppStatus(String label) { this.label = label; }
+    UserStatus(String label) { this.label = label; }
 
     // Helper to get everything the UI needs for a dropdown
     public static List<Map<String, String>> getDropdownValues() {

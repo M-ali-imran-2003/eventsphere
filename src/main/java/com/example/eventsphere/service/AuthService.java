@@ -3,6 +3,7 @@ package com.example.eventsphere.service;
 import com.example.eventsphere.dto.LoginResponse;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.UserRepository;
 import com.example.eventsphere.entity.User;
 import com.example.eventsphere.security.TokenBlackList;
@@ -60,13 +61,15 @@ public class AuthService {
     }
 
     private LoginResponse verifyAndGenerateResponse(User user, String password) {
-        if (!user.getStatus().equals(AppStatus.ACTIVE)) {
-            throw new RuntimeException("Account is inactive or suspended.");
-        }
-
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid credentials");
         }
+
+        if (!user.getStatus().equals(UserStatus.ACTIVE)) {
+            throw new RuntimeException("Account is inactive or suspended.");
+        }
+
+
 
         String token = jwtUtil.generateToken(user.getId(), user.getRole().name());
         log.info("Successful login for user: {}", user.getUsername());

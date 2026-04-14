@@ -8,30 +8,20 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public class SaveUserDTO {
+public class UsersDTO {
+
+    private UUID id;
 
     private String name;
 
     private String username;
 
-    private String cnic;
-
     private String email;
 
     private String profilePic;
 
-    private String phoneNo;
-
     private UserRole role;
 
     private AppStatus Status;
-
-    private LocalDateTime createdAt;
-
-    private UUID createdBy;
-
-    private LocalDateTime modifiedAt;
-
-    private UUID modifiedBy;
 
 }

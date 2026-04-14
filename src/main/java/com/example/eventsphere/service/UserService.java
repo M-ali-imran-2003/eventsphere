@@ -1,13 +1,14 @@
 package com.example.eventsphere.service;
 
-import com.example.eventsphere.dto.ProfileDTO;
-import com.example.eventsphere.dto.UpdateProfileDTO;
-import com.example.eventsphere.dto.UserDTO;
+import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.User;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.FileType;
+import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.UserRepository;
+import com.example.eventsphere.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,19 +27,22 @@ public class UserService {
  private final UserRepository userRepository;
  private final PasswordEncoder passwordEncoder;
  private final GenericMapper mapper;
+ private final SecurityUtil securityUtil;
+
  private final FileService fileService;
 
  @Autowired
- public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, GenericMapper mapper, FileService fileService){
+ public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, GenericMapper mapper, SecurityUtil securityUtil, FileService fileService){
   this.userRepository = userRepository;
      this.passwordEncoder = passwordEncoder;
      this.mapper = mapper;
+     this.securityUtil = securityUtil;
      this.fileService = fileService;
  }
 
- public List<UserDTO> findAllUsers(){
+ public List<UsersDTO> findAllUsers(){
 
-  return mapper.mapList(userRepository.findAll(),UserDTO.class);
+  return mapper.mapList(userRepository.findAll(), UsersDTO.class);
  }
 
  public void saveUser(User user){
@@ -48,13 +52,64 @@ public class UserService {
  public UserDTO findById(UUID id)
  {
   User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
-  return mapper.map(user,UserDTO.class);
+  return mapper.map(user, UserDTO.class);
+ }
+
+ public void updateUser(UpdateUserDTO userDTO, UUID id)
+ {
+   User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
+   if (userDTO.getStatus() != null && !userDTO.getStatus().name().isBlank()) {
+    if (!userDTO.getStatus().equals(UserStatus.ACTIVE) && id == securityUtil.getCurrentUser().getId())
+    {
+     throw new RuntimeException("Cannot Change the status of Current User");
+    }
+    user.setStatus(userDTO.getStatus());
+   }
+
+   user.setModifiedBy(securityUtil.getCurrentUser().getId());
+   user.setModifiedAt(LocalDateTime.now());
+   userRepository.save(user);
+ }
+
+ public void addAdmin(NewUserDTO userDTO) {
+  if (!userRepository.findConflicts(userDTO.getUsername(), userDTO.getEmail(), userDTO.getPhoneNo(), userDTO.getCnic(), null).isEmpty()) {
+
+   throw new RuntimeException("User already exists with provided credentials (Email, Username, CNIC, or Phone)");
+  }
+  User user = mapper.map(userDTO,User.class);
+
+// 3. Encode the password! (Never save raw text)
+  user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+
+  // 4. Force the Admin Role
+  user.setRole(UserRole.ADMIN);
+
+  // 5. Set Status (Assuming your Admin should be active immediately)
+  user.setStatus(UserStatus.ACTIVE);
+  user.setCreatedAt(LocalDateTime.now());
+  user.setCreatedBy(securityUtil.getCurrentUser().getId());
+  user.setModifiedAt(LocalDateTime.now());
+  user.setModifiedBy(securityUtil.getCurrentUser().getId());
+
+  // 6. Handle the profile pic if provided
+  if (userDTO.getProfilePic() != null && !userDTO.getProfilePic().isEmpty()) {
+   try {
+    String imageUrl = fileService.saveFile(userDTO.getProfilePic(), FileType.IMAGE);
+    user.setProfilePic(imageUrl);
+   } catch (IOException e) {
+    log.error("Failed to save admin profile picture", e);
+    // Decide if you want to fail the whole creation or just continue without a pic
+   }
+  }
+
+  userRepository.save(user);
+  log.info("New Admin added successfully: {}", user.getUsername());
  }
 
  public ProfileDTO getProfile(UUID id)
  {
   User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
-  if(!user.getStatus().equals(AppStatus.ACTIVE)) throw new RuntimeException("User is Not Active");
+  if(!user.getStatus().equals(UserStatus.ACTIVE)) throw new RuntimeException("User is Not Active");
 
   return mapper.map(user,ProfileDTO.class);
  }

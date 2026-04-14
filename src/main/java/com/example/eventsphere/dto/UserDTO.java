@@ -2,9 +2,7 @@ package com.example.eventsphere.dto;
 
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -32,7 +30,7 @@ public class UserDTO {
 
     private UserRole role;
 
-    private AppStatus Status;
+    private AppStatus status;
 
     private LocalDateTime createdAt;
 
@@ -41,5 +39,4 @@ public class UserDTO {
     private LocalDateTime modifiedAt;
 
     private UUID modifiedBy;
-
 }

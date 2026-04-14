@@ -1,0 +1,586 @@
+2026-04-14 02:49:52 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-14 02:49:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 17784 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-14 02:49:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-14 02:49:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 02:49:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-14 02:49:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 556 ms. Found 1 JPA repository interface.
+2026-04-14 02:49:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 02:49:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-14 02:49:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 02:49:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 0 Redis repository interfaces.
+2026-04-14 02:49:59 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-14 02:50:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-14 02:50:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-14 02:50:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-14 02:50:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-14 02:50:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7849 ms
+2026-04-14 02:50:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-14 02:50:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-14 02:50:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-14 02:50:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-14 02:50:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-14 02:50:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43778371
+2026-04-14 02:50:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-14 02:50:06 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-14 02:50:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-14 02:50:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 02:50:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-14 02:50:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 02:50:08 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 02:50:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-14 02:50:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 02:50:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-14 02:50:17 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-14 02:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-14 02:50:17 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-14 02:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-14 02:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-14 02:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 30.333 seconds (process running for 34.221)
+2026-04-14 02:50:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-14 02:50:34 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-14 02:50:34 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-14 02:50:34 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2026-04-14 02:50:34 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:50:35 [http-nio-8080-exec-2] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/admin/login: Invalid credentials
+2026-04-14 02:50:35 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1526 ms with status 400
+2026-04-14 02:50:46 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:50:46 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-14 02:50:46 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 735 ms with status 200
+2026-04-14 02:51:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:51:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 274940ms
+2026-04-14 02:51:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-14 02:51:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 41 ms with status 200
+2026-04-14 02:51:43 [http-nio-8080-exec-6] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Attempted access with REVOKED/BLACKLISTED token
+2026-04-14 02:52:17 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:52:17 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-14 02:52:17 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 476 ms with status 200
+2026-04-14 02:52:30 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/profile/getProfile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:52:31 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/profile/getProfile] c.e.e.filter.RequestLoggingFilter - Completed in 469 ms with status 200
+2026-04-14 02:53:54 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/profile/getProfile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:53:55 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/profile/getProfile] c.e.e.filter.RequestLoggingFilter - Completed in 361 ms with status 200
+2026-04-14 02:54:10 [http-nio-8080-exec-2] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Invalid JWT signature/format intercepted
+2026-04-14 02:54:34 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllUsers] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 02:54:35 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllUsers] c.e.e.filter.RequestLoggingFilter - Completed in 1466 ms with status 200
+2026-04-14 02:55:25 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-14 02:55:27 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-14 02:55:27 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 02:55:27 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-14 02:55:28 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-14 04:46:14 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-14 04:46:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 11656 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-14 04:46:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 547 ms. Found 2 JPA repository interfaces.
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-14 04:46:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 04:46:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 04:46:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 0 Redis repository interfaces.
+2026-04-14 04:46:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-14 04:46:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-14 04:46:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-14 04:46:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-14 04:46:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-14 04:46:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8369 ms
+2026-04-14 04:46:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-14 04:46:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-14 04:46:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-14 04:46:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-14 04:46:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-14 04:46:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43778371
+2026-04-14 04:46:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-14 04:46:29 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-14 04:46:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-14 04:46:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 04:46:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-14 04:46:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 04:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 04:46:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-14 04:46:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 04:46:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-14 04:46:41 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-14 04:46:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-14 04:46:42 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-14 04:46:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-14 04:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-14 04:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 33.01 seconds (process running for 37.073)
+2026-04-14 04:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-14 04:49:49 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-14 04:49:49 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-14 04:49:49 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-14 04:49:49 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:49:49 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 19 ms with status 403
+2026-04-14 04:51:14 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:51:15 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-14 04:51:16 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1225 ms with status 200
+2026-04-14 04:51:38 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:51:38 [http-nio-8080-exec-6] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.e.GlobalExceptionHandler - CRITICAL: Unhandled exception at /api/admin/addCategory
+org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:236)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:176)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:150)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:227)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-14 04:51:38 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 70 ms with status 500
+2026-04-14 04:52:08 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:52:08 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 677 ms with status 200
+2026-04-14 04:52:22 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:52:22 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.service.CategoryService - Category Already Exists With Name: Technology
+2026-04-14 04:52:22 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/admin/addCategory: Category already exists
+2026-04-14 04:52:22 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 181 ms with status 400
+2026-04-14 04:52:35 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:52:35 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 528 ms with status 200
+2026-04-14 04:52:52 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:52:52 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/admin/addCategory] c.e.e.filter.RequestLoggingFilter - Completed in 519 ms with status 200
+2026-04-14 04:53:21 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllCategories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:53:22 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllCategories] c.e.e.filter.RequestLoggingFilter - Completed in 377 ms with status 200
+2026-04-14 04:54:17 [http-nio-8080-exec-4] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Invalid JWT signature/format intercepted
+2026-04-14 04:54:46 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getCategoryById/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:54:46 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getCategoryById/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 365 ms with status 200
+2026-04-14 04:55:22 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllUsers] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 04:55:23 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/getAllUsers] c.e.e.filter.RequestLoggingFilter - Completed in 438 ms with status 200
+2026-04-14 04:57:00 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-14 04:57:02 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-14 04:57:02 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 04:57:02 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-14 04:57:02 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-14 21:04:48 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-14 21:04:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 16284 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-14 21:04:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 454 ms. Found 2 JPA repository interfaces.
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 21:04:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 0 Redis repository interfaces.
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-14 21:05:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13515 ms
+2026-04-14 21:05:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-14 21:05:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-14 21:05:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-14 21:05:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-14 21:05:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-14 21:05:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@459e120b
+2026-04-14 21:05:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-14 21:05:09 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-14 21:05:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-14 21:05:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:05:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-14 21:05:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:05:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:05:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-14 21:05:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 21:05:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-14 21:05:24 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [D:\SpringBoot\eventsphere\target\classes\com\example\eventsphere\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'categoryService' defined in file [D:\SpringBoot\eventsphere\target\classes\com\example\eventsphere\service\CategoryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'categoryRepository' defined in com.example.eventsphere.repository.CategoryRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.eventsphere.repository.CategoryRepository.findCategoryConflicts(java.lang.String,java.util.UUID); Reason: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+2026-04-14 21:05:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 21:05:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-14 21:05:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-14 21:05:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-04-14 21:05:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-14 21:05:25 [main] ERROR [IP:  | User Name:  | User ID:  |  ] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [D:\SpringBoot\eventsphere\target\classes\com\example\eventsphere\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'categoryService' defined in file [D:\SpringBoot\eventsphere\target\classes\com\example\eventsphere\service\CategoryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'categoryRepository' defined in com.example.eventsphere.repository.CategoryRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.eventsphere.repository.CategoryRepository.findCategoryConflicts(java.lang.String,java.util.UUID); Reason: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:991)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:628)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.eventsphere.EventsphereApplication.main(EventsphereApplication.java:25)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'categoryService' defined in file [D:\SpringBoot\eventsphere\target\classes\com\example\eventsphere\service\CategoryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'categoryRepository' defined in com.example.eventsphere.repository.CategoryRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.eventsphere.repository.CategoryRepository.findCategoryConflicts(java.lang.String,java.util.UUID); Reason: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 21 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'categoryRepository' defined in com.example.eventsphere.repository.CategoryRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.eventsphere.repository.CategoryRepository.findCategoryConflicts(java.lang.String,java.util.UUID); Reason: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 34 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.eventsphere.repository.CategoryRepository.findCategoryConflicts(java.lang.String,java.util.UUID); Reason: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:434)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:355)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:361)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	... 44 common frames omitted
+Caused by: org.springframework.data.jpa.repository.query.BadJpqlGrammarException: At 1:69 and token ')', no viable alternative at input 'SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR *) AND (:id IS NULL OR c.id <> :id)'; Bad HQL grammar [SELECT c FROM Category c WHERE ((:name IS NULL OR c.name = :name) OR ) AND (:id IS NULL OR c.id <> :id)]
+	at org.springframework.data.jpa.repository.query.BadJpqlGrammarErrorListener.syntaxError(BadJpqlGrammarErrorListener.java:53)
+	at org.antlr.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:41)
+	at org.antlr.v4.runtime.Parser.notifyErrorListeners(Parser.java:544)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.reportNoViableAlternative(DefaultErrorStrategy.java:310)
+	at org.antlr.v4.runtime.DefaultErrorStrategy.reportError(DefaultErrorStrategy.java:136)
+	at org.springframework.data.jpa.repository.query.HqlParser.predicate(HqlParser.java:15880)
+	at org.springframework.data.jpa.repository.query.HqlParser.whereClause(HqlParser.java:3934)
+	at org.springframework.data.jpa.repository.query.HqlParser.query(HqlParser.java:1348)
+	at org.springframework.data.jpa.repository.query.HqlParser.orderedQuery(HqlParser.java:1172)
+	at org.springframework.data.jpa.repository.query.HqlParser.queryExpression(HqlParser.java:541)
+	at org.springframework.data.jpa.repository.query.HqlParser.selectStatement(HqlParser.java:473)
+	at org.springframework.data.jpa.repository.query.HqlParser.ql_statement(HqlParser.java:403)
+	at org.springframework.data.jpa.repository.query.HqlParser.start(HqlParser.java:340)
+	at org.springframework.data.jpa.repository.query.JpaQueryEnhancer.parse(JpaQueryEnhancer.java:104)
+	at org.springframework.data.jpa.repository.query.JpaQueryEnhancer$HqlQueryParser.<init>(JpaQueryEnhancer.java:319)
+	at org.springframework.data.jpa.repository.query.JpaQueryEnhancer$HqlQueryParser.parseQuery(JpaQueryEnhancer.java:331)
+	at org.springframework.data.jpa.repository.query.JpaQueryEnhancer.forHql(JpaQueryEnhancer.java:167)
+	at org.springframework.data.jpa.repository.query.QueryEnhancerFactory.forQuery(QueryEnhancerFactory.java:68)
+	at org.springframework.data.jpa.repository.query.StringQuery.<init>(StringQuery.java:100)
+	at org.springframework.data.jpa.repository.query.StringQuery.<init>(StringQuery.java:79)
+	at org.springframework.data.jpa.repository.query.ExpressionBasedStringQuery.<init>(ExpressionBasedStringQuery.java:76)
+	at org.springframework.data.jpa.repository.query.ExpressionBasedStringQuery.<init>(ExpressionBasedStringQuery.java:63)
+	at org.springframework.data.jpa.repository.query.AbstractStringBasedJpaQuery.<init>(AbstractStringBasedJpaQuery.java:86)
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.<init>(SimpleJpaQuery.java:65)
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromMethodWithQueryString(JpaQueryFactory.java:49)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$DeclaredQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:174)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
+	... 56 common frames omitted
+2026-04-14 21:06:38 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-14 21:06:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 16424 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-14 21:06:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-14 21:06:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 21:06:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 461 ms. Found 2 JPA repository interfaces.
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-14 21:06:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+2026-04-14 21:06:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-14 21:06:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-14 21:06:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-14 21:06:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-14 21:06:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-14 21:06:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8675 ms
+2026-04-14 21:06:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-14 21:06:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-14 21:06:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-14 21:06:48 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-14 21:06:48 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-14 21:06:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@31f1b268
+2026-04-14 21:06:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-14 21:06:52 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-14 21:06:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-14 21:06:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:06:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-14 21:06:54 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:06:55 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-14 21:06:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-14 21:06:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 21:06:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-14 21:07:06 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-14 21:07:08 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-14 21:07:08 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-14 21:07:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-14 21:07:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-14 21:07:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 35.136 seconds (process running for 37.068)
+2026-04-14 21:07:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-14 21:07:52 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-14 21:07:52 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-14 21:07:52 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-14 21:07:52 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-14 21:07:53 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-14 21:07:53 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1338 ms with status 200
+2026-04-14 21:08:17 [http-nio-8080-exec-2] ERROR [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Could not set user authentication in security context
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1869)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1800)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1597)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.lambda$getConnection$0(LettuceConnectionFactory.java:1577)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.doInLock(LettuceConnectionFactory.java:1538)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1574)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:1260)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:1061)
+	at org.springframework.data.redis.core.RedisConnectionUtils.fetchConnection(RedisConnectionUtils.java:195)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:144)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:105)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:401)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:381)
+	at org.springframework.data.redis.core.RedisTemplate.doWithKeys(RedisTemplate.java:781)
+	at org.springframework.data.redis.core.RedisTemplate.hasKey(RedisTemplate.java:579)
+	at com.example.eventsphere.security.TokenBlackList.isBlacklisted(TokenBlackList.java:34)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:63)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:41)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:354)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:220)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:112)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:112)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1798)
+	... 80 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-14 21:08:28 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-14 21:08:29 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-14 21:08:30 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-14 21:08:30 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-14 21:08:30 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

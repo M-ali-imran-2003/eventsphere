@@ -1,18 +1,11 @@
 package com.example.eventsphere.service;
 
-import com.example.eventsphere.dto.UserDTO;
-import com.example.eventsphere.entity.User;
-import com.example.eventsphere.enums.AppStatus;
-import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.UserRepository;
 import com.example.eventsphere.utils.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @Service
 public class AdminService {
