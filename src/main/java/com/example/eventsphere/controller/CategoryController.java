@@ -26,28 +26,28 @@ public class CategoryController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/getAllCategories")
+    @GetMapping("/get-all-categories")
     public ResponseEntity<List<CategoryDTO>> getAllCategories() {
         List<CategoryDTO> categories = categoryService.getAllCategories(); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok(categories);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/getCategoryById/{id}")
+    @GetMapping("/get-category-by-id/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable UUID id) {
         Category category = categoryService.findCategory(id); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok(category);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/addCategory")
+    @PostMapping("/add-category")
     public ResponseEntity<?> addCategory(@RequestBody NewCategoryRequest categoryRequest) {
         categoryService.addCategory(categoryRequest.getName()); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok().build();
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PatchMapping("/updateCategory/{id}")
+    @PatchMapping("/update-category/{id}")
     public ResponseEntity<?> updateCategory(@PathVariable UUID id,@Valid @RequestBody UpdateCategoryDTO updateCategory) {
         categoryService.updateCategory(id,updateCategory); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok().build();

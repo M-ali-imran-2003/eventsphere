@@ -23,8 +23,9 @@ public class Category {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private AppStatus Status = AppStatus.ACTIVE;
+    private AppStatus Status;
 
     @Column(name = "code")
     private String code;

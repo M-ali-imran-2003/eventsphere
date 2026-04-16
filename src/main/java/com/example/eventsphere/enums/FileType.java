@@ -17,7 +17,4 @@ public enum FileType {
         this.mimeTypes = mimeTypes;
     }
 
-    public List<String> getMimeTypes() {
-        return mimeTypes;
-    }
 }

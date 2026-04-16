@@ -1,10 +1,12 @@
 package com.example.eventsphere.controller;
 
 
+import com.example.eventsphere.dto.DashboardStatsDTO;
 import com.example.eventsphere.service.AdminService;
 import com.example.eventsphere.service.CategoryService;
 import com.example.eventsphere.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,17 +27,11 @@ public class AdminController {
     }
 
 
-//    @PostMapping("/addAdmin")
-//    public ResponseEntity<?> addAdmin(@RequestBody UserDTO user) {
-//        try{
-//            adminService.addAdmin(user);
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        }
-//        catch (RuntimeException e){
-//            return ResponseEntity.badRequest().body(Map.of(
-//                    "Error", e.getMessage(),
-//                    "Status", "Failed"));
-//        }
-//
-//        }
+    @GetMapping("/dashboard/total-count")
+    public ResponseEntity<DashboardStatsDTO> getAllEvents() {
+        DashboardStatsDTO stats = adminService.getGlobalStats(); // If not found, throws RuntimeException -> GlobalHandler
+        return ResponseEntity.ok(stats);
+    }
+
 }
+

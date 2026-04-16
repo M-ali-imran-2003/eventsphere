@@ -7,5 +7,4 @@ import lombok.Data;
 @Data
 public class UpdateUserDTO {
 
-    private UserStatus status;
 }

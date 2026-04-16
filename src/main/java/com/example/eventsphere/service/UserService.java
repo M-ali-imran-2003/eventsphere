@@ -2,7 +2,6 @@ package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.User;
-import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.FileType;
 import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
@@ -40,9 +39,9 @@ public class UserService {
      this.fileService = fileService;
  }
 
- public List<UsersDTO> findAllUsers(){
+ public List<UserListDTO> findAllUsers(){
 
-  return mapper.mapList(userRepository.findAll(), UsersDTO.class);
+  return mapper.mapList(userRepository.findAll(), UserListDTO.class);
  }
 
  public void saveUser(User user){
@@ -55,11 +54,11 @@ public class UserService {
   return mapper.map(user, UserDTO.class);
  }
 
- public void updateUser(UpdateUserDTO userDTO, UUID id)
+ public void updateUserStatus(ChangeUserStatusDTO userDTO, UUID id)
  {
    User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
    if (userDTO.getStatus() != null && !userDTO.getStatus().name().isBlank()) {
-    if (!userDTO.getStatus().equals(UserStatus.ACTIVE) && id == securityUtil.getCurrentUser().getId())
+    if (!userDTO.getStatus().equals(UserStatus.ACTIVE) && id.equals(securityUtil.getCurrentUser().getId()))
     {
      throw new RuntimeException("Cannot Change the status of Current User");
     }
