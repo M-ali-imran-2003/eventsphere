@@ -2,6 +2,7 @@ package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.EventDTO;
 import com.example.eventsphere.dto.EventListDTO;
+import com.example.eventsphere.dto.EventMapMarkerDTO;
 import com.example.eventsphere.service.EventService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,12 @@ public class EventController {
     public ResponseEntity<EventDTO> getEventById(@PathVariable UUID id) {
         EventDTO event = eventService.getEventByIdForAdmin(id); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok(event);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/get-all-events-location-map")
+    public ResponseEntity<List<EventMapMarkerDTO>> getAllEventsLocationMap() {
+        List<EventMapMarkerDTO> events = eventService.getAllEventsLocation(); // If not found, throws RuntimeException -> GlobalHandler
+        return ResponseEntity.ok(events);
     }
 }

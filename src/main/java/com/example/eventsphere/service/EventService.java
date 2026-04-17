@@ -3,6 +3,7 @@ package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.EventDTO;
 import com.example.eventsphere.dto.EventListDTO;
+import com.example.eventsphere.dto.EventMapMarkerDTO;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,11 @@ public class EventService {
 
         return eventRepository.findAdminEventDetailsById(id).orElseThrow(()-> new RuntimeException("Event Not Found With ID: "+ id));
 
+    }
 
+    public List<EventMapMarkerDTO> getAllEventsLocation(){
 
+        return eventRepository.findAllEventLocationsForMap();
 
     }
 

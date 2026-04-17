@@ -26,7 +26,6 @@ public class AdminController {
         this.categoryService = categoryService;
     }
 
-
     @GetMapping("/dashboard/total-count")
     public ResponseEntity<DashboardStatsDTO> getAllEvents() {
         DashboardStatsDTO stats = adminService.getGlobalStats(); // If not found, throws RuntimeException -> GlobalHandler

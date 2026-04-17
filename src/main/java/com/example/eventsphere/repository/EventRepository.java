@@ -1,7 +1,7 @@
 package com.example.eventsphere.repository;
 
 import com.example.eventsphere.dto.EventDTO;
-import com.example.eventsphere.dto.EventListDTO;
+import com.example.eventsphere.dto.EventMapMarkerDTO;
 import com.example.eventsphere.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -38,4 +38,18 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
         WHERE e.id = :eventId
         """)
     Optional<EventDTO> findAdminEventDetailsById(@Param("eventId") UUID eventId);
+
+    @Query("""
+    SELECT new com.example.eventsphere.dto.EventMapMarkerDTO(
+        e.id, 
+        e.title, 
+        w.name, 
+        e.location, 
+        e.status
+    )
+    FROM Event e
+    JOIN Workspace w ON e.workspaceId = w.id
+    WHERE e.location IS NOT NULL
+    """)
+    List<EventMapMarkerDTO> findAllEventLocationsForMap();
 }
