@@ -17,22 +17,27 @@ import java.util.function.Function;
 public class JwtUtil {
 
     private final long LONG_EXPIRY;
-    private final long SHORT_EXPIRY;
-    private final String SECRET_KEY;
-    public JwtUtil(@Value("${jwt.secret}") String SECRET_KEY,
-                   @Value("${jwt.short.expiration}") long SHORT_EXPIRY,
-                   @Value("${jwt.refresh.expiration}") long LONG_EXPIRY) {
-        this.SECRET_KEY = SECRET_KEY;
-        this.SHORT_EXPIRY = SHORT_EXPIRY;
+    private final long shortExpiry;
+    private final String secretKey;
+    private final long regExpiry;
+    public JwtUtil(@Value("${jwt.secret}") String secretKey,
+                   @Value("${jwt.short.expiration}") long shortExpiry,
+                   @Value("${jwt.refresh.expiration}") long LONG_EXPIRY, @Value("${jwt.reg.expiration}") long regExpiry) {
+        this.secretKey = secretKey;
+        this.shortExpiry = shortExpiry * 1000 * 60;
         this.LONG_EXPIRY = LONG_EXPIRY;
+        this.regExpiry = regExpiry * 1000 * 60;
     }
 
     private Key getSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
     public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+    public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -69,10 +74,21 @@ public class JwtUtil {
                 .setSubject(id.toString())
                 .claim("role", role)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + SHORT_EXPIRY))
+                .setExpiration(new Date(System.currentTimeMillis() + shortExpiry))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
+
+    public String generateRegistrationToken(String email) {
+        return Jwts.builder()
+                .setSubject(email) // The email is the main identity here
+                .claim("type", "PRE_REGISTER") // Helps us identify this token later
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + regExpiry))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .compact();
+    }
+
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }

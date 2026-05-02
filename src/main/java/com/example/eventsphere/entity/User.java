@@ -30,32 +30,23 @@ public class User implements UserDetails {
     @Column(name = "name")
     private String name;
 
-
-    @NotBlank(message = "Username is required")
-    @Size(max = 30, message = "Username must be under 30 characters")
     @Column(name = "username")
     private String username;
 
-    @NotBlank(message = "CNIC is required")
-    @Size(max = 13, message = "CNIC must be under 13 characters")
     @Column(name = "cnic")
     private String cnic;
 
     @NotBlank(message = "Email is required")
     @Email(message = "Please provide a valid email")
-    @Size(max = 30, message = "Email must be under 30 characters")
     @Column(name = "email")
     private String email;
 
-    @NotBlank(message = "Password is required")
     @Column(name = "password")
     private String password;
 
     @Column(name = "profile_pic")
     private String profilePic;
 
-    @NotBlank(message = "Phone number is required")
-    @Size(max = 13, message="Phone Number should be less then 13")
     @Column(name = "phone_no")
     private String phoneNo;
 

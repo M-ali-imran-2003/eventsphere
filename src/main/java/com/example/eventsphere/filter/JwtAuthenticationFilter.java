@@ -89,6 +89,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return null;
     }
 
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI();
+        // Tell the filter to IGNORE any requests going to the AuthController.
+        // We want the Controller to manually read the tokens for these specific routes.
+        return path.startsWith("/api/auth/");
+    }
+
     private void sendErrorResponse(HttpServletResponse response, int status, String detail) throws IOException {
         response.setStatus(status);
         response.setContentType("application/problem+json"); // Official RFC 9457 Content-Type

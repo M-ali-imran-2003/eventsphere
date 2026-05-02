@@ -1,0 +1,852 @@
+2026-04-17 01:39:04 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 01:39:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 24180 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 01:39:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 01:39:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:39:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 553 ms. Found 4 JPA repository interfaces.
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:39:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-04-17 01:39:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 01:39:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:39:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 01:39:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 01:39:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 01:39:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8047 ms
+2026-04-17 01:39:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 01:39:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 01:39:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 01:39:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 01:39:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 01:39:18 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e3c36d
+2026-04-17 01:39:18 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 01:39:18 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 01:39:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 01:39:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:39:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 01:39:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:39:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:39:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 01:39:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:39:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 01:39:33 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 01:39:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 01:39:34 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 01:39:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:39:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 01:39:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 35.277 seconds (process running for 38.546)
+2026-04-17 01:39:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 01:41:17 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 01:41:17 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 01:41:17 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-04-17 01:41:17 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:41:18 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.arsam
+2026-04-17 01:41:18 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1362 ms with status 200
+2026-04-17 01:41:58 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:42:00 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1531 ms with status 200
+2026-04-17 01:42:09 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:42:11 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1676 ms with status 200
+2026-04-17 01:42:14 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:42:16 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1711 ms with status 200
+2026-04-17 01:42:37 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:42:37 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 507 ms with status 200
+2026-04-17 01:43:24 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:43:24 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 564 ms with status 200
+2026-04-17 01:43:50 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:43:50 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 497 ms with status 200
+2026-04-17 01:44:08 [http-nio-8080-exec-9] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Invalid JWT signature/format intercepted
+2026-04-17 01:44:14 [http-nio-8080-exec-10] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Invalid JWT signature/format intercepted
+2026-04-17 01:45:10 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:45:14 [http-nio-8080-exec-2] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/event/get-all-events: ModelMapper mapping errors:
+
+1) Failed to instantiate instance of destination com.example.eventsphere.dto.EventListDTO. Ensure that com.example.eventsphere.dto.EventListDTO has a non-private no-argument constructor.
+
+1 error
+2026-04-17 01:45:14 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 4448 ms with status 400
+2026-04-17 01:46:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 01:46:05 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 01:46:05 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:46:05 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 01:46:05 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 01:46:27 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 01:46:27 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 18492 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 01:46:27 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 01:46:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:46:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 548 ms. Found 4 JPA repository interfaces.
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:46:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-04-17 01:46:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 01:46:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:46:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 01:46:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 01:46:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 01:46:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8231 ms
+2026-04-17 01:46:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 01:46:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 01:46:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 01:46:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 01:46:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 01:46:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@55682482
+2026-04-17 01:46:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 01:46:43 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 01:46:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 01:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 01:46:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:46:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:46:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 01:46:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:46:48 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 01:46:57 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 01:46:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 01:46:58 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 01:47:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:47:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 01:47:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 35.642 seconds (process running for 37.565)
+2026-04-17 01:47:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 01:47:12 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 01:47:12 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 01:47:12 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2026-04-17 01:47:12 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:47:13 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.arsam
+2026-04-17 01:47:13 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1178 ms with status 200
+2026-04-17 01:47:39 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:47:46 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 6678 ms with status 200
+2026-04-17 01:47:53 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:47:53 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 415 ms with status 200
+2026-04-17 01:48:39 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:48:40 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Completed in 312 ms with status 200
+2026-04-17 01:49:48 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:49:48 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 410 ms with status 200
+2026-04-17 01:50:15 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:50:16 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 42804
+2026-04-17 01:50:16 [http-nio-8080-exec-9] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: column "current_plan_id" is of type uuid but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 155
+2026-04-17 01:50:16 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e: could not execute statement [ERROR: column "current_plan_id" is of type uuid but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 155] [update workspace set created_at=?,created_by=?,email=?,image_url=?,modified_at=?,modified_by=?,workspace_name=?,pending_balance=?,current_plan_id=?,status=?,subscription_end_date=?,subscription_status=? where workspace_id=?]; SQL [update workspace set created_at=?,created_by=?,email=?,image_url=?,modified_at=?,modified_by=?,workspace_name=?,pending_balance=?,current_plan_id=?,status=?,subscription_end_date=?,subscription_status=? where workspace_id=?]
+2026-04-17 01:50:16 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 976 ms with status 400
+2026-04-17 01:51:15 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 01:51:16 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 01:51:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:51:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 01:51:18 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 01:52:44 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 01:52:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 20076 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 01:52:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 01:52:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:52:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 01:52:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 637 ms. Found 4 JPA repository interfaces.
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:52:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+2026-04-17 01:52:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 01:52:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:52:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 01:52:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 01:52:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 01:52:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11921 ms
+2026-04-17 01:52:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 01:52:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 01:52:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 01:52:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 01:52:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 01:53:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ffa078d
+2026-04-17 01:53:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 01:53:06 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 01:53:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 01:53:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:53:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 01:53:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:53:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:53:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 01:53:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:53:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 01:53:22 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 01:53:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 01:53:23 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 01:53:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:53:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 01:53:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 44.231 seconds (process running for 46.716)
+2026-04-17 01:53:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 01:53:39 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 01:53:39 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 01:53:39 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-04-17 01:53:39 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:53:41 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.arsam
+2026-04-17 01:53:41 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1862 ms with status 200
+2026-04-17 01:54:10 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:54:11 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 1061 ms with status 200
+2026-04-17 01:54:45 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:54:45 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 446 ms with status 200
+2026-04-17 01:55:02 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 01:55:02 [http-nio-8080-exec-5] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5: No enum constant com.example.eventsphere.enums.AppStatus.0
+2026-04-17 01:55:02 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 473 ms with status 400
+2026-04-17 01:57:14 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 01:57:15 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 01:57:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:57:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 01:57:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 01:59:36 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 01:59:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 25704 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 01:59:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 01:59:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:59:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 515 ms. Found 4 JPA repository interfaces.
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 01:59:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 01:59:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8036 ms
+2026-04-17 01:59:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 01:59:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 01:59:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 01:59:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 01:59:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 01:59:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f4964f2
+2026-04-17 01:59:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 01:59:50 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 01:59:50 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 01:59:50 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:59:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 01:59:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:59:52 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 01:59:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 01:59:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 01:59:54 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 02:00:02 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 02:00:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 02:00:03 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 02:00:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 02:00:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 02:00:04 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 31.189 seconds (process running for 32.605)
+2026-04-17 02:00:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 02:09:18 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 02:09:18 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 02:09:18 [http-nio-8080-exec-2] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-04-17 02:09:25 [http-nio-8080-exec-2] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-17 02:09:49 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:09:50 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.arsam
+2026-04-17 02:09:50 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1134 ms with status 200
+2026-04-17 02:10:21 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:10:21 [http-nio-8080-exec-5] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5: No enum constant com.example.eventsphere.enums.AppStatus.0
+2026-04-17 02:10:21 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 642 ms with status 400
+2026-04-17 02:17:15 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 02:17:16 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 02:17:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 02:17:16 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 02:17:17 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 02:17:55 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 02:17:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 22408 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 02:17:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 02:18:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 02:18:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 522 ms. Found 4 JPA repository interfaces.
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:18:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+2026-04-17 02:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 02:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 02:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 02:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 02:18:08 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 02:18:08 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11548 ms
+2026-04-17 02:18:08 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 02:18:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 02:18:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 02:18:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 02:18:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 02:18:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@32dbca45
+2026-04-17 02:18:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 02:18:25 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 02:18:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 02:18:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:18:27 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 02:18:27 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:18:28 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:18:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 02:18:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 02:18:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 02:18:39 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 02:18:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 02:18:40 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 02:18:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 02:18:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 02:18:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 51.553 seconds (process running for 54.032)
+2026-04-17 02:18:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 02:19:43 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 02:19:43 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 02:19:44 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-04-17 02:19:46 [http-nio-8080-exec-1] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-17 02:19:54 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:19:55 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.arsam
+2026-04-17 02:19:55 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1195 ms with status 200
+2026-04-17 02:20:16 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:20:17 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 1754 ms with status 200
+2026-04-17 02:20:27 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:20:28 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 1141 ms with status 200
+2026-04-17 02:20:47 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:20:47 [http-nio-8080-exec-6] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.service.CategoryService - Category Already Exists With Name: Artificial Intelligence
+2026-04-17 02:20:47 [http-nio-8080-exec-6] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/categories/add-category: Category already exists
+2026-04-17 02:20:47 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Completed in 323 ms with status 400
+2026-04-17 02:21:02 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:21:03 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Completed in 1602 ms with status 200
+2026-04-17 02:21:21 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:21:22 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 550 ms with status 200
+2026-04-17 02:21:40 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/categories/get-category-by-id/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:21:41 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/categories/get-category-by-id/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 748 ms with status 200
+2026-04-17 02:22:02 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:22:02 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 368 ms with status 200
+2026-04-17 02:22:26 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:22:27 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb
+2026-04-17 02:22:28 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1160 ms with status 200
+2026-04-17 02:22:39 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:22:39 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 416 ms with status 200
+2026-04-17 02:22:56 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-user-by-id/878e10fd-e69a-4359-92dc-5459f52712b2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:22:57 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | GET /api/users/get-user-by-id/878e10fd-e69a-4359-92dc-5459f52712b2] c.e.e.filter.RequestLoggingFilter - Completed in 367 ms with status 200
+2026-04-17 02:23:19 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:23:19 [http-nio-8080-exec-5] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.e.GlobalExceptionHandler - CRITICAL: Unhandled exception at /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-17 02:23:19 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 90 ms with status 500
+2026-04-17 02:23:25 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:23:25 [http-nio-8080-exec-7] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.e.GlobalExceptionHandler - CRITICAL: Unhandled exception at /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:63)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-04-17 02:23:25 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 14 ms with status 500
+2026-04-17 02:23:35 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:23:36 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 707 ms with status 200
+2026-04-17 02:23:46 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:23:47 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 703 ms with status 200
+2026-04-17 02:24:32 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:24:32 [http-nio-8080-exec-2] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.e.e.GlobalExceptionHandler - Validation failed at /api/users/add-admin: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.example.eventsphere.dto.UserDTO> com.example.eventsphere.controller.UserController.addAdmin(com.example.eventsphere.dto.NewUserDTO): [Field error in object 'newUserDTO' on field 'phoneNo': rejected value [03214547451123]; codes [Size.newUserDTO.phoneNo,Size.phoneNo,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [newUserDTO.phoneNo,phoneNo]; arguments []; default message [phoneNo],13,0]; default message [Phone Number should be less than 13]] 
+2026-04-17 02:24:33 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Completed in 264 ms with status 400
+2026-04-17 02:24:42 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:24:47 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.eventsphere.service.UserService - New Admin added successfully: admin.shakir
+2026-04-17 02:24:47 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.arsam | User ID: bb069a90-3757-4b9a-80e4-7c94b98da5fb | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Completed in 5032 ms with status 200
+2026-04-17 02:25:04 [http-nio-8080-exec-4] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-17 02:25:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:25:12 [http-nio-8080-exec-5] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/admin/login: Invalid credentials
+2026-04-17 02:25:12 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 555 ms with status 400
+2026-04-17 02:25:20 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:25:21 [http-nio-8080-exec-7] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/admin/login: Account is inactive or suspended.
+2026-04-17 02:25:21 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 473 ms with status 400
+2026-04-17 02:27:38 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:27:39 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.shakir
+2026-04-17 02:27:39 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 484 ms with status 200
+2026-04-17 02:27:56 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:27:56 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 550 ms with status 200
+2026-04-17 02:28:40 [http-nio-8080-exec-2] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Invalid JWT signature/format intercepted
+2026-04-17 02:28:49 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:28:49 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Completed in 713 ms with status 200
+2026-04-17 02:31:17 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 02:31:18 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 02:31:19 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 02:31:19 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 02:31:20 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 02:31:56 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 02:31:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 6784 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 02:31:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 477 ms. Found 4 JPA repository interfaces.
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 02:32:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+2026-04-17 02:32:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 02:32:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 02:32:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 02:32:05 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 02:32:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 02:32:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8848 ms
+2026-04-17 02:32:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 02:32:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 02:32:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 02:32:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 02:32:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 02:32:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@141dfcf9
+2026-04-17 02:32:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 02:32:11 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 02:32:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 02:32:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:32:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 02:32:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:32:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 02:32:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 02:32:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 02:32:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 02:32:30 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 02:32:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 02:32:31 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 02:32:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 02:32:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 02:32:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 41.073 seconds (process running for 43.308)
+2026-04-17 02:32:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 02:33:16 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 02:33:16 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 02:33:16 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-04-17 02:33:16 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:33:17 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.321
+2026-04-17 02:33:17 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 1113 ms with status 200
+2026-04-17 02:33:33 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:33:34 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 899 ms with status 200
+2026-04-17 02:34:04 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/878e10fd-e69a-4359-92dc-5459f52712b2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:34:05 [http-nio-8080-exec-4] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/878e10fd-e69a-4359-92dc-5459f52712b2] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/users/update-user-status/878e10fd-e69a-4359-92dc-5459f52712b2: Cannot Change the status of Current User
+2026-04-17 02:34:05 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/878e10fd-e69a-4359-92dc-5459f52712b2] c.e.e.filter.RequestLoggingFilter - Completed in 407 ms with status 400
+2026-04-17 02:34:33 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:34:34 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Completed in 994 ms with status 200
+2026-04-17 02:34:56 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:34:57 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 747 ms with status 200
+2026-04-17 02:35:04 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:35:05 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | PATCH /api/users/update-user-status/bb069a90-3757-4b9a-80e4-7c94b98da5fb] c.e.e.filter.RequestLoggingFilter - Completed in 839 ms with status 200
+2026-04-17 02:36:01 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 02:36:04 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 3260 ms with status 200
+2026-04-17 02:36:29 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 02:36:31 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 02:36:31 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 02:36:31 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 02:36:31 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 20:58:15 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 20:58:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 2228 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 20:58:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 20:58:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 20:58:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 628 ms. Found 4 JPA repository interfaces.
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 20:58:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 20:58:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8062 ms
+2026-04-17 20:58:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 20:58:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 20:58:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 20:58:25 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 20:58:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 20:58:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4182a651
+2026-04-17 20:58:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 20:58:32 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 20:58:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 20:58:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 20:58:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 20:58:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 20:58:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 20:58:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 20:58:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 20:58:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 20:58:59 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 20:58:59 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 20:59:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 20:59:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 20:59:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 50.589 seconds (process running for 54.194)
+2026-04-17 20:59:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 21:01:40 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 21:01:41 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 21:01:41 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 21:01:42 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 21:01:42 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-17 21:04:15 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-17 21:04:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 29292 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-17 21:04:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 21:04:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 21:04:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 998 ms. Found 4 JPA repository interfaces.
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-17 21:04:24 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 0 Redis repository interfaces.
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-17 21:04:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13894 ms
+2026-04-17 21:04:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-17 21:04:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-17 21:04:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-17 21:04:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-17 21:04:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-17 21:04:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@60bc308b
+2026-04-17 21:04:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-17 21:04:38 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-17 21:04:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 21:04:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 21:04:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 21:04:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 21:04:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-17 21:04:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 21:04:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 21:04:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 21:04:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-17 21:04:58 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-17 21:05:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-17 21:05:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 21:05:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 48.194 seconds (process running for 50.408)
+2026-04-17 21:05:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-17 21:05:10 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 21:05:10 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-17 21:05:10 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-17 21:05:10 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 264 ms with status 200
+2026-04-17 21:05:11 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 31 ms with status 200
+2026-04-17 21:05:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 37 ms with status 200
+2026-04-17 21:05:11 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 109 ms with status 200
+2026-04-17 21:05:11 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:11 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 165 ms with status 200
+2026-04-17 21:05:11 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 467 ms with status 200
+2026-04-17 21:05:12 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:12 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:12 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 11 ms with status 200
+2026-04-17 21:05:12 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 182 ms with status 200
+2026-04-17 21:05:12 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:14 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2324 ms
+2026-04-17 21:05:14 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 2538 ms with status 200
+2026-04-17 21:05:36 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:05:37 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.321
+2026-04-17 21:05:37 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 836 ms with status 200
+2026-04-17 21:06:32 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:06:32 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.321
+2026-04-17 21:06:32 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 312 ms with status 200
+2026-04-17 21:07:02 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:07:05 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 2427 ms with status 200
+2026-04-17 21:08:50 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:08:50 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 4 ms with status 403
+2026-04-17 21:12:43 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 17 ms with status 200
+2026-04-17 21:12:43 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 9 ms with status 200
+2026-04-17 21:12:43 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 21 ms with status 200
+2026-04-17 21:12:43 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:43 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 18 ms with status 200
+2026-04-17 21:12:43 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 24 ms with status 200
+2026-04-17 21:12:43 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 175 ms with status 200
+2026-04-17 21:12:44 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:44 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 14 ms with status 200
+2026-04-17 21:12:44 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:44 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 14 ms with status 200
+2026-04-17 21:12:44 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:44 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 27 ms with status 200
+2026-04-17 21:12:44 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:12:44 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 14 ms with status 200
+2026-04-17 21:13:04 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:13:04 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.321
+2026-04-17 21:13:04 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 492 ms with status 200
+2026-04-17 21:13:28 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-17 21:13:29 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: admin.321 | User ID: 878e10fd-e69a-4359-92dc-5459f52712b2 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 312 ms with status 200
+2026-04-17 21:13:40 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 21:13:41 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-17 21:13:41 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 21:13:41 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-17 21:13:41 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

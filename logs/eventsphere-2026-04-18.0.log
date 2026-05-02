@@ -1,0 +1,997 @@
+2026-04-18 18:30:49 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-18 18:30:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 2532 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-18 18:30:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 18:30:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 18:30:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 539 ms. Found 4 JPA repository interfaces.
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:30:57 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-18 18:31:00 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 10271 ms
+2026-04-18 18:31:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 18:31:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-18 18:31:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-18 18:31:01 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 18:31:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 18:31:13 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08001
+2026-04-18 18:31:13 [main] ERROR [IP:  | User Name:  | User ID:  |  ] o.h.e.jdbc.spi.SqlExceptionHelper - The connection attempt failed.
+2026-04-18 18:31:13 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:334)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.spatial.contributor.ContributorResolver.resolveSpatialtypeContributorImplementor(ContributorResolver.java:52)
+	at org.hibernate.spatial.contributor.SpatialTypeContributor.contribute(SpatialTypeContributor.java:18)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.applyTypes(MetadataBuilderImpl.java:295)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1092)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.applyTypeContributors(EntityManagerFactoryBuilderImpl.java:1414)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.applyMetamodelBuilderSettings(EntityManagerFactoryBuilderImpl.java:1395)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:281)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:199)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:54)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:388)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:364)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4452)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1201)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1191)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:747)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:783)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1201)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1191)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:81)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:747)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:201)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:410)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:868)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:436)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:622)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.eventsphere.EventsphereApplication.main(EventsphereApplication.java:25)
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	... 128 common frames omitted
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:551)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:261)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:122)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	... 142 common frames omitted
+2026-04-18 18:31:13 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-18 18:31:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 12.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18 18:31:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:31:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 18:31:14 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:31:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:31:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 18:31:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 18:31:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-18 18:31:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-18 18:31:30 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-18 18:31:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-18 18:31:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-18 18:31:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 45.634 seconds (process running for 48.174)
+2026-04-18 18:31:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 18:31:44 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 08001
+2026-04-18 18:31:44 [main] ERROR [IP:  | User Name:  | User ID:  |  ] o.h.e.jdbc.spi.SqlExceptionHelper - The connection attempt failed.
+2026-04-18 18:31:44 [main] ERROR [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Admin seeding failed: 
+org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [The connection attempt failed.] [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:278)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:256)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy144.existsByUsername(Unknown Source)
+	at com.example.eventsphere.config.AdminConfig.lambda$initDatabase$0(AdminConfig.java:45)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:788)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:796)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:772)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:772)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.example.eventsphere.EventsphereApplication.main(EventsphereApplication.java:25)
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection [The connection attempt failed.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:129)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:156)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.connection(StatementPreparerImpl.java:56)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$4.doPrepare(StatementPreparerImpl.java:151)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:180)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:153)
+	at org.hibernate.sql.exec.internal.StandardStatementCreator.createStatement(StandardStatementCreator.java:49)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:236)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:172)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:74)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:355)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:149)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:439)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:359)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:364)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+	at org.hibernate.query.Query.getResultList(Query.java:120)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:419)
+	at jdk.proxy2/jdk.proxy2.$Proxy173.getResultList(Unknown Source)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$ExistsExecution.doExecute(JpaQueryExecution.java:336)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:95)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:160)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:148)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 26 common frames omitted
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:370)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:207)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:46)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:126)
+	... 67 common frames omitted
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:551)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:261)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:122)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	... 81 common frames omitted
+2026-04-18 18:35:18 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-18 18:35:20 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-18 18:35:20 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 18:35:28 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-18 18:35:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 4960 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-18 18:35:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 18:35:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 18:35:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 495 ms. Found 4 JPA repository interfaces.
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 18:35:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 0 Redis repository interfaces.
+2026-04-18 18:35:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-18 18:35:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-18 18:35:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-18 18:35:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-18 18:35:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-18 18:35:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6706 ms
+2026-04-18 18:35:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 18:35:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-18 18:35:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-18 18:35:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 18:35:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 18:35:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2de7c84a
+2026-04-18 18:35:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-18 18:35:41 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-18 18:35:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18 18:35:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:35:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 18:35:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:35:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 18:35:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 18:35:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 18:35:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-18 18:35:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-18 18:35:53 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-18 18:35:54 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-18 18:35:54 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-18 18:35:54 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 27.475 seconds (process running for 29.002)
+2026-04-18 18:35:55 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-18 18:36:23 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-18 18:36:23 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-18 18:36:23 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2026-04-18 18:36:25 [http-nio-8080-exec-2] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-18 18:36:35 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:36 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 18:36:36 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 854 ms with status 200
+2026-04-18 18:36:38 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:38 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:38 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:39 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 522 ms with status 200
+2026-04-18 18:36:39 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:40 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 395 ms with status 200
+2026-04-18 18:36:41 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2241 ms with status 200
+2026-04-18 18:36:41 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 2941 ms with status 200
+2026-04-18 18:36:41 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:41 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:36:42 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 207 ms with status 200
+2026-04-18 18:36:43 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1620 ms with status 200
+2026-04-18 18:37:50 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:37:50 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 413 ms with status 200
+2026-04-18 18:37:51 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:37:51 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 395 ms with status 200
+2026-04-18 18:38:01 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:01 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:02 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 660 ms with status 200
+2026-04-18 18:38:03 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1474 ms with status 200
+2026-04-18 18:38:04 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:04 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:04 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 654 ms with status 200
+2026-04-18 18:38:05 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1710 ms with status 200
+2026-04-18 18:38:10 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:11 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 475 ms with status 200
+2026-04-18 18:38:11 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:11 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 413 ms with status 200
+2026-04-18 18:38:14 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:15 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Completed in 1236 ms with status 200
+2026-04-18 18:38:20 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:21 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Completed in 1119 ms with status 200
+2026-04-18 18:38:24 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:25 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/d59fdeaf-5cd6-4fb6-8f08-f64915a0e776] c.e.e.filter.RequestLoggingFilter - Completed in 1018 ms with status 200
+2026-04-18 18:38:38 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:39 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 750 ms with status 200
+2026-04-18 18:38:40 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:40 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 553 ms with status 200
+2026-04-18 18:38:51 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:52 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Completed in 1078 ms with status 200
+2026-04-18 18:38:54 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:38:55 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Completed in 1171 ms with status 200
+2026-04-18 18:39:00 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:01 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Completed in 515 ms with status 200
+2026-04-18 18:39:15 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:16 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 837 ms with status 200
+2026-04-18 18:39:17 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:17 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 457 ms with status 200
+2026-04-18 18:39:24 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:25 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Completed in 347 ms with status 200
+2026-04-18 18:39:40 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:41 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 1440 ms with status 200
+2026-04-18 18:39:42 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:42 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 399 ms with status 200
+2026-04-18 18:39:49 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:51 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 1269 ms with status 200
+2026-04-18 18:39:53 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:39:54 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/categories/update-category/25d927c6-ef8d-4a9b-8961-5183c88e02e5] c.e.e.filter.RequestLoggingFilter - Completed in 1135 ms with status 200
+2026-04-18 18:40:00 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 378 ms with status 200
+2026-04-18 18:40:00 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 409 ms with status 200
+2026-04-18 18:40:01 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:01 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:01 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 440 ms with status 200
+2026-04-18 18:40:01 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 428 ms with status 200
+2026-04-18 18:40:05 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:06 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 778 ms with status 200
+2026-04-18 18:40:06 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:07 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 522 ms with status 200
+2026-04-18 18:40:08 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:08 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 480 ms with status 200
+2026-04-18 18:40:09 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:10 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 421 ms with status 200
+2026-04-18 18:40:34 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:40 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 18:40:40 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 5437 ms with status 200
+2026-04-18 18:40:42 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:42 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 694 ms with status 200
+2026-04-18 18:40:43 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:44 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 503 ms with status 200
+2026-04-18 18:40:45 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:45 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 379 ms with status 200
+2026-04-18 18:40:46 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:46 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 381 ms with status 200
+2026-04-18 18:40:47 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:47 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 616 ms with status 200
+2026-04-18 18:40:48 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:49 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 775 ms with status 200
+2026-04-18 18:40:55 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:57 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 18:40:57 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1816 ms with status 200
+2026-04-18 18:40:59 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:40:59 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 537 ms with status 200
+2026-04-18 18:41:00 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:01 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 537 ms with status 200
+2026-04-18 18:41:01 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:01 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 428 ms with status 200
+2026-04-18 18:41:02 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:03 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 488 ms with status 200
+2026-04-18 18:41:03 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:04 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 450 ms with status 200
+2026-04-18 18:41:04 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:05 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 516 ms with status 200
+2026-04-18 18:41:31 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:31 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 4210ms
+2026-04-18 18:41:31 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 18:41:31 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 31 ms with status 200
+2026-04-18 18:41:46 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:47 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 18:41:47 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 790 ms with status 200
+2026-04-18 18:41:49 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:49 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:49 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:49 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 441 ms with status 200
+2026-04-18 18:41:50 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 947 ms with status 200
+2026-04-18 18:41:50 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:51 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 425 ms with status 200
+2026-04-18 18:41:53 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:54 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1034 ms with status 200
+2026-04-18 18:41:54 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 5272 ms with status 200
+2026-04-18 18:41:56 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:41:59 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 3022 ms with status 200
+2026-04-18 18:44:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 143010ms
+2026-04-18 18:44:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 18:44:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 0 ms with status 200
+2026-04-18 18:44:34 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:35 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 18:44:35 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 916 ms with status 200
+2026-04-18 18:44:38 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:38 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:38 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:38 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 270 ms with status 200
+2026-04-18 18:44:38 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 600 ms with status 200
+2026-04-18 18:44:39 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:39 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 193 ms with status 200
+2026-04-18 18:44:40 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:40 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2835 ms with status 200
+2026-04-18 18:44:41 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 962 ms with status 200
+2026-04-18 18:44:41 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:49 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 7762 ms with status 200
+2026-04-18 18:44:59 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:44:59 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 393 ms with status 200
+2026-04-18 18:45:00 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:00 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:00 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 635 ms with status 200
+2026-04-18 18:45:01 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:01 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:01 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 254 ms with status 200
+2026-04-18 18:45:02 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 426 ms with status 200
+2026-04-18 18:45:03 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2200 ms with status 200
+2026-04-18 18:45:03 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:05 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1653 ms with status 200
+2026-04-18 18:45:08 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:08 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:08 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:08 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 175 ms with status 200
+2026-04-18 18:45:08 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 401 ms with status 200
+2026-04-18 18:45:08 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:08 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 207 ms with status 200
+2026-04-18 18:45:08 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:09 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 381 ms with status 200
+2026-04-18 18:45:09 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1525 ms with status 200
+2026-04-18 18:45:10 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:11 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1616 ms with status 200
+2026-04-18 18:45:13 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:14 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 507 ms with status 200
+2026-04-18 18:45:14 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:15 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 507 ms with status 200
+2026-04-18 18:45:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:45:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 254832ms
+2026-04-18 18:45:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 18:45:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 0 ms with status 200
+2026-04-18 18:45:59 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 18:46:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 828 ms with status 200
+2026-04-18 18:46:03 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:03 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:03 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:03 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 205 ms with status 200
+2026-04-18 18:46:03 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 599 ms with status 200
+2026-04-18 18:46:04 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:04 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:04 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 221 ms with status 200
+2026-04-18 18:46:04 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 460 ms with status 200
+2026-04-18 18:46:05 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1934 ms with status 200
+2026-04-18 18:46:06 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:07 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1962 ms with status 200
+2026-04-18 18:46:39 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:39 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 487 ms with status 200
+2026-04-18 18:46:40 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:46:40 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 410 ms with status 200
+2026-04-18 18:47:00 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:47:01 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 999 ms with status 200
+2026-04-18 18:47:16 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:47:16 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 475 ms with status 200
+2026-04-18 18:47:17 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:47:17 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 429 ms with status 200
+2026-04-18 18:48:18 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:48:18 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 425 ms with status 200
+2026-04-18 18:48:19 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:48:20 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 788 ms with status 200
+2026-04-18 18:48:40 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:48:40 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Completed in 234 ms with status 200
+2026-04-18 18:48:45 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:48:45 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 394 ms with status 200
+2026-04-18 18:48:45 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:48:46 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 395 ms with status 200
+2026-04-18 18:49:04 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-category-by-id/83f08dd2-8db6-4398-b54a-4778d6a4bb65] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:04 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-category-by-id/83f08dd2-8db6-4398-b54a-4778d6a4bb65] c.e.e.filter.RequestLoggingFilter - Completed in 394 ms with status 200
+2026-04-18 18:49:14 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:15 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 853 ms with status 200
+2026-04-18 18:49:16 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:17 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 503 ms with status 200
+2026-04-18 18:49:17 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:18 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 725 ms with status 200
+2026-04-18 18:49:19 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 900 ms with status 200
+2026-04-18 18:49:26 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 18:49:26 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 93253ms
+2026-04-18 18:49:26 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 18:49:26 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 16 ms with status 200
+2026-04-18 18:57:43 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-18 18:57:44 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-18 18:57:44 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 18:57:44 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-18 18:57:44 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-18 19:36:02 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-18 19:36:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 8652 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-18 19:36:02 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 385 ms. Found 4 JPA repository interfaces.
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:36:06 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-18 19:36:09 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7007 ms
+2026-04-18 19:36:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 19:36:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-18 19:36:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-18 19:36:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 19:36:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 19:36:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46de118b
+2026-04-18 19:36:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-18 19:36:17 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-18 19:36:18 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18 19:36:18 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:36:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 19:36:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:36:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:36:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 19:36:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 19:36:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-18 19:36:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-18 19:36:31 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-18 19:36:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-18 19:36:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-18 19:36:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 33.041 seconds (process running for 35.459)
+2026-04-18 19:36:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-18 19:36:35 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-18 19:36:35 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-18 19:36:35 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-04-18 19:36:35 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:36 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 19:36:36 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 838 ms with status 200
+2026-04-18 19:36:41 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:41 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:41 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:41 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 578 ms with status 200
+2026-04-18 19:36:42 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:42 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 360 ms with status 200
+2026-04-18 19:36:43 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1584 ms with status 200
+2026-04-18 19:36:43 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:43 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 2117 ms with status 200
+2026-04-18 19:36:44 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:44 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 156 ms with status 200
+2026-04-18 19:36:44 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1402 ms with status 200
+2026-04-18 19:36:49 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:36:49 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 286590ms
+2026-04-18 19:36:49 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 19:36:49 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 53 ms with status 200
+2026-04-18 19:45:00 [HikariPool-1:housekeeper] WARN  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@46de118b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-04-18 19:45:02 [HikariPool-1:housekeeper] WARN  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2d1b6737 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-04-18 19:45:57 [HikariPool-1:housekeeper] WARN  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@d2e534d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-04-18 19:50:02 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-18 19:50:03 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-18 19:50:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 19:50:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-18 19:50:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-18 19:50:12 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-18 19:50:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 19620 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-04-18 19:50:13 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 19:50:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 19:50:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 480 ms. Found 4 JPA repository interfaces.
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WorkspaceRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-04-18 19:50:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-18 19:50:19 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6611 ms
+2026-04-18 19:50:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 19:50:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-04-18 19:50:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-04-18 19:50:20 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 19:50:21 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 19:50:28 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2cc34cd5
+2026-04-18 19:50:28 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-18 19:50:28 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-18 19:50:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18 19:50:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:50:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 19:50:29 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:50:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-04-18 19:50:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 19:50:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 19:50:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-18 19:50:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-04-18 19:50:40 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-04-18 19:50:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-18 19:50:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-18 19:50:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 30.398 seconds (process running for 31.99)
+2026-04-18 19:50:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-04-18 19:51:45 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-18 19:51:45 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-18 19:51:45 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-04-18 19:51:46 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:46 [http-nio-8080-exec-2] WARN  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2cc34cd5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-04-18 19:51:46 [http-nio-8080-exec-2] WARN  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@af0f49d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-04-18 19:51:48 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 19:51:48 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 2877 ms with status 200
+2026-04-18 19:51:52 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:52 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:52 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:53 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 500 ms with status 200
+2026-04-18 19:51:54 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:54 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1964 ms with status 200
+2026-04-18 19:51:54 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 374 ms with status 200
+2026-04-18 19:51:55 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:55 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 2625 ms with status 200
+2026-04-18 19:51:55 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:51:55 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 172 ms with status 200
+2026-04-18 19:51:56 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1484 ms with status 200
+2026-04-18 19:52:38 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:39 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 409 ms with status 200
+2026-04-18 19:52:39 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:40 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 414 ms with status 200
+2026-04-18 19:52:41 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:41 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:42 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 774 ms with status 200
+2026-04-18 19:52:43 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:43 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1575 ms with status 200
+2026-04-18 19:52:43 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 207 ms with status 200
+2026-04-18 19:52:44 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:45 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1543 ms with status 200
+2026-04-18 19:52:53 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:53 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 378 ms with status 200
+2026-04-18 19:52:54 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:52:54 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-all-workspaces] c.e.e.filter.RequestLoggingFilter - Completed in 393 ms with status 200
+2026-04-18 19:53:09 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:10 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 1119 ms with status 200
+2026-04-18 19:53:16 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:17 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/workspace/get-workspace-by-id/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 824 ms with status 200
+2026-04-18 19:53:23 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:24 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/workspace/update-workspace-status/5b54bbfb-dae3-46c6-aeb8-a98e330bb66e] c.e.e.filter.RequestLoggingFilter - Completed in 1022 ms with status 200
+2026-04-18 19:53:35 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:35 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 393 ms with status 200
+2026-04-18 19:53:36 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:36 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 430 ms with status 200
+2026-04-18 19:53:50 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:53:50 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/0282070f-0b60-4967-88be-f74fbb38e95c] c.e.e.filter.RequestLoggingFilter - Completed in 569 ms with status 200
+2026-04-18 19:55:02 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:55:03 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/users/add-admin] c.e.eventsphere.service.UserService - New Admin added successfully: ali_imran
+2026-04-18 19:55:03 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/users/add-admin] c.e.e.filter.RequestLoggingFilter - Completed in 1046 ms with status 200
+2026-04-18 19:55:05 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:55:05 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 415 ms with status 200
+2026-04-18 19:55:29 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:55:30 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Completed in 1290 ms with status 200
+2026-04-18 19:55:41 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:55:42 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-user-by-id/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Completed in 637 ms with status 200
+2026-04-18 19:55:52 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:55:52 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 55360ms
+2026-04-18 19:55:52 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 19:55:52 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 31 ms with status 200
+2026-04-18 19:56:04 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:56:04 [http-nio-8080-exec-10] WARN  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/admin/login: Account is inactive or suspended.
+2026-04-18 19:56:04 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 521 ms with status 400
+2026-04-18 19:56:55 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:56:55 [http-nio-8080-exec-2] WARN  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/admin/login: Account is inactive or suspended.
+2026-04-18 19:56:55 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 493 ms with status 400
+2026-04-18 19:57:16 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:16 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 19:57:16 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 521 ms with status 200
+2026-04-18 19:57:18 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:18 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:18 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:18 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 206 ms with status 200
+2026-04-18 19:57:18 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 410 ms with status 200
+2026-04-18 19:57:19 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:19 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:19 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 219 ms with status 200
+2026-04-18 19:57:20 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 413 ms with status 200
+2026-04-18 19:57:20 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1610 ms with status 200
+2026-04-18 19:57:20 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:21 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:22 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1594 ms with status 200
+2026-04-18 19:57:22 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 490 ms with status 200
+2026-04-18 19:57:22 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 584 ms with status 200
+2026-04-18 19:57:28 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:29 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-user-status/fd10c835-a12c-4218-afdc-a6f3774bb075] c.e.e.filter.RequestLoggingFilter - Completed in 1063 ms with status 200
+2026-04-18 19:57:34 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:34 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 281623ms
+2026-04-18 19:57:34 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 19:57:34 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 0 ms with status 200
+2026-04-18 19:57:41 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:42 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.shakir
+2026-04-18 19:57:42 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 568 ms with status 200
+2026-04-18 19:57:44 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:44 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:44 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:45 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 856 ms with status 200
+2026-04-18 19:57:45 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 381 ms with status 200
+2026-04-18 19:57:45 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:45 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:45 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 187 ms with status 200
+2026-04-18 19:57:46 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 631 ms with status 200
+2026-04-18 19:57:46 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1769 ms with status 200
+2026-04-18 19:57:47 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 19:57:49 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2669 ms with status 200
+2026-04-18 20:01:32 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:01:33 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 762 ms with status 200
+2026-04-18 20:01:33 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:01:34 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/users/get-all-users] c.e.e.filter.RequestLoggingFilter - Completed in 719 ms with status 200
+2026-04-18 20:01:42 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:01:43 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 865 ms with status 200
+2026-04-18 20:01:43 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:01:44 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 440 ms with status 200
+2026-04-18 20:02:30 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:02:31 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.shakir | User ID: fd10c835-a12c-4218-afdc-a6f3774bb075 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Completed in 332 ms with status 200
+2026-04-18 20:03:23 [http-nio-8080-exec-3] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-18 20:03:31 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:32 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 20:03:32 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 599 ms with status 200
+2026-04-18 20:03:34 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:34 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:34 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:34 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 212 ms with status 200
+2026-04-18 20:03:34 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 407 ms with status 200
+2026-04-18 20:03:34 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:34 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:34 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 176 ms with status 200
+2026-04-18 20:03:35 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 384 ms with status 200
+2026-04-18 20:03:35 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1530 ms with status 200
+2026-04-18 20:03:35 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:37 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1565 ms with status 200
+2026-04-18 20:03:38 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:39 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 493 ms with status 200
+2026-04-18 20:03:40 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:40 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events] c.e.e.filter.RequestLoggingFilter - Completed in 806 ms with status 200
+2026-04-18 20:03:44 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:03:44 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-event-by-id/230ffc38-358e-4d33-aab7-b87c70fce8f2] c.e.e.filter.RequestLoggingFilter - Completed in 347 ms with status 200
+2026-04-18 20:04:59 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:05:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 409 ms with status 200
+2026-04-18 20:05:01 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:05:01 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 410 ms with status 200
+2026-04-18 20:05:37 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:05:37 [http-nio-8080-exec-8] WARN  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.service.CategoryService - Category Already Exists With Name: Idea Generation
+2026-04-18 20:05:37 [http-nio-8080-exec-8] WARN  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/categories/add-category: Category already exists
+2026-04-18 20:05:37 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Completed in 203 ms with status 400
+2026-04-18 20:05:49 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:05:49 [http-nio-8080-exec-9] WARN  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/categories/add-category: Could not commit JPA transaction
+2026-04-18 20:05:49 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Completed in 203 ms with status 400
+2026-04-18 20:05:58 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:00 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/categories/add-category] c.e.e.filter.RequestLoggingFilter - Completed in 1657 ms with status 200
+2026-04-18 20:06:00 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:01 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/categories/get-all-categories] c.e.e.filter.RequestLoggingFilter - Completed in 394 ms with status 200
+2026-04-18 20:06:08 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:08 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 362 ms with status 200
+2026-04-18 20:06:09 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:09 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 353 ms with status 200
+2026-04-18 20:06:09 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:10 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 381 ms with status 200
+2026-04-18 20:06:10 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:10 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 362 ms with status 200
+2026-04-18 20:06:29 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:30 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 20:06:30 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1394 ms with status 200
+2026-04-18 20:06:33 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:33 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 829 ms with status 200
+2026-04-18 20:06:34 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:35 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 393 ms with status 200
+2026-04-18 20:06:36 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:36 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 362 ms with status 200
+2026-04-18 20:06:37 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:38 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1363 ms with status 200
+2026-04-18 20:06:39 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:39 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 375 ms with status 200
+2026-04-18 20:06:39 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:06:40 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 400 ms with status 200
+2026-04-18 20:07:18 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:18 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 20:07:18 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 784 ms with status 200
+2026-04-18 20:07:20 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:20 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 347 ms with status 200
+2026-04-18 20:07:21 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:21 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 362 ms with status 200
+2026-04-18 20:07:22 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:22 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 370 ms with status 200
+2026-04-18 20:07:23 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:23 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 379 ms with status 200
+2026-04-18 20:07:24 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:24 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 397 ms with status 200
+2026-04-18 20:07:25 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:25 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 346 ms with status 200
+2026-04-18 20:07:35 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:37 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 20:07:37 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1533 ms with status 200
+2026-04-18 20:07:38 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:39 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 379 ms with status 200
+2026-04-18 20:07:39 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:40 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 459 ms with status 200
+2026-04-18 20:07:40 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:41 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 396 ms with status 200
+2026-04-18 20:07:42 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:43 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1052 ms with status 200
+2026-04-18 20:07:43 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:44 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 493 ms with status 200
+2026-04-18 20:07:45 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:07:45 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 393 ms with status 200
+2026-04-18 20:08:40 [http-nio-8080-exec-5] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.filter.JwtAuthenticationFilter - Expired JWT token intercepted
+2026-04-18 20:08:48 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:48 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.eventsphere.service.AuthService - Successful login for user: admin.eventsphere
+2026-04-18 20:08:48 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/admin/login] c.e.e.filter.RequestLoggingFilter - Completed in 574 ms with status 200
+2026-04-18 20:08:50 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:50 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:50 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:51 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 288 ms with status 200
+2026-04-18 20:08:51 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 415 ms with status 200
+2026-04-18 20:08:51 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:51 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:51 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 290 ms with status 200
+2026-04-18 20:08:52 [http-nio-8080-exec-10] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 475 ms with status 200
+2026-04-18 20:08:52 [http-nio-8080-exec-3] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2031 ms with status 200
+2026-04-18 20:08:53 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:55 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:56 [http-nio-8080-exec-1] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 521 ms with status 200
+2026-04-18 20:08:56 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2576 ms with status 200
+2026-04-18 20:08:57 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:57 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 479 ms with status 200
+2026-04-18 20:08:58 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:08:58 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 457 ms with status 200
+2026-04-18 20:08:59 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:00 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 512 ms with status 200
+2026-04-18 20:09:07 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:11 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.eventsphere.service.UserService - Successfully updated profile for user ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0
+2026-04-18 20:09:11 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | PATCH /api/users/update-profile] c.e.e.filter.RequestLoggingFilter - Completed in 4238 ms with status 200
+2026-04-18 20:09:13 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:13 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 456 ms with status 200
+2026-04-18 20:09:14 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:15 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 900 ms with status 200
+2026-04-18 20:09:16 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:16 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 383 ms with status 200
+2026-04-18 20:09:17 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:18 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 473 ms with status 200
+2026-04-18 20:09:19 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:20 [http-nio-8080-exec-2] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1040 ms with status 200
+2026-04-18 20:09:21 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:23 [http-nio-8080-exec-8] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/users/get-profile] c.e.e.filter.RequestLoggingFilter - Completed in 1223 ms with status 200
+2026-04-18 20:09:31 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:31 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:31 [http-nio-8080-exec-6] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 207 ms with status 200
+2026-04-18 20:09:32 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:32 [http-nio-8080-exec-4] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/event/get-all-events-location-map] c.e.e.filter.RequestLoggingFilter - Completed in 236 ms with status 200
+2026-04-18 20:09:34 [http-nio-8080-exec-5] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 2886 ms with status 200
+2026-04-18 20:09:34 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:09:36 [http-nio-8080-exec-9] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | GET /api/admin/dashboard/total-count] c.e.e.filter.RequestLoggingFilter - Completed in 1778 ms with status 200
+2026-04-18 20:10:25 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-04-18 20:10:25 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.security.TokenBlackList - Token added to Redis blacklist. Expiring in 202854ms
+2026-04-18 20:10:25 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.eventsphere.service.AuthService - User successfully logged out and token blacklisted.
+2026-04-18 20:10:25 [http-nio-8080-exec-7] INFO  [IP: 192.168.50.142 | User Name: admin.eventsphere | User ID: 0c29692a-334a-43d1-96e4-a1d64dd42dd0 | POST /api/auth/logout] c.e.e.filter.RequestLoggingFilter - Completed in 16 ms with status 200
+2026-04-18 20:10:51 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-18 20:10:52 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-18 20:10:52 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 20:10:52 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-18 20:10:53 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
