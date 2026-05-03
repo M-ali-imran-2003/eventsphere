@@ -39,6 +39,25 @@ public class EmailService {
         }
     }
 
+    public void sendPasswordResetEmail(String toEmail, String otp) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(toEmail);
+            message.setFrom(mailUsername);
+            message.setSubject("EventSphere - Password Reset Request");
+            message.setText("We received a request to reset your password.\n\n" +
+                    "Your 6-digit password reset code is: " + otp + "\n\n" +
+                    "This code will expire in 10 minutes. If you did not request this, please ignore this email.");
+
+            javaMailSender.send(message);
+            log.info("Password reset OTP email successfully sent to {}", toEmail);
+
+        } catch (Exception e) {
+            log.error("Failed to send Password Reset email to {}", toEmail, e);
+            throw new RuntimeException("Could not send verification email. Please try again later.");
+        }
+    }
+
     public void sendEmail(String to, String subject, String body) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();

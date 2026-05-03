@@ -83,4 +83,35 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/forgot-password/initiate")
+    public ResponseEntity<String> initiateForgotPassword(@Valid @RequestBody ForgotPasswordInitiateRequest request) {
+        authService.initiateForgotPassword(request);
+        return ResponseEntity.ok("OTP has been sent");
+    }
+
+    @PostMapping("/forgot-password/verify")
+    public ResponseEntity<String> verifyForgotPasswordOtp(@Valid @RequestBody ForgotPasswordVerifyRequest request) {
+        // Returns the temporary token needed for the final step
+        String resetToken = authService.verifyForgotPasswordOtp(request);
+        return ResponseEntity.ok(resetToken);
+    }
+
+    @PostMapping("/forgot-password/reset")
+    public ResponseEntity<Map<String, String>> resetPassword(
+            @Valid @RequestBody ForgotPasswordResetRequest request,
+            @RequestHeader("Authorization") String authHeader) {
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(401).body(Map.of("Error", "Missing or invalid Authorization header."));
+        }
+
+        String token = authHeader.substring(7);
+        authService.resetPassword(request, token);
+
+        return ResponseEntity.ok(Map.of(
+                "Message", "Password has been reset successfully. You can now log in.",
+                "Status", "Success"
+        ));
+    }
+
 }

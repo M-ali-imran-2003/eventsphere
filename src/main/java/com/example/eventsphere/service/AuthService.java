@@ -1,9 +1,6 @@
 package com.example.eventsphere.service;
 
-import com.example.eventsphere.dto.CompleteProfileRequest;
-import com.example.eventsphere.dto.LoginResponse;
-import com.example.eventsphere.dto.SignupRequest;
-import com.example.eventsphere.dto.VerifyOtpRequest;
+import com.example.eventsphere.dto.*;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
@@ -199,6 +196,65 @@ public class AuthService {
         String accessToken = jwtUtil.generateToken(savedUser.getId(), savedUser.getRole().name());
 
         return new LoginResponse(accessToken, savedUser.getRole().name());
+    }
+
+    public void initiateForgotPassword(ForgotPasswordInitiateRequest request) {
+        // Find the user. If they don't exist, we throw a generic error to prevent email enumeration.
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("Email not found."));
+
+        if (!user.getStatus().equals(UserStatus.ACTIVE)) {
+            throw new RuntimeException("Account is inactive or suspended.");
+        }
+
+        // Generate OTP via your OtpService and send via your EmailService
+        String otp = otpService.generateAndSaveOtp(user.getEmail());
+        emailService.sendPasswordResetEmail(user.getEmail(), otp);
+        log.info("Forgot password initiated for email: {}", user.getEmail());
+    }
+
+    // STEP 2: VERIFY OTP AND ISSUE TEMPORARY TOKEN
+    public String verifyForgotPasswordOtp(ForgotPasswordVerifyRequest request) {
+        boolean isValid = otpService.verifyOtp(request.getEmail(), request.getOtp());
+        if (!isValid) {
+            throw new RuntimeException("Invalid or expired OTP.");
+        }
+
+        // Reuse your Registration Token logic! It's a perfect 15-minute temporary token.
+        log.info("OTP verified for forgot password: {}", request.getEmail());
+        return jwtUtil.generateRegistrationToken(request.getEmail());
+    }
+
+    // STEP 3: RESET THE PASSWORD
+    public void resetPassword(ForgotPasswordResetRequest request, String resetToken) {
+
+        // ADD THIS NEW CHECK
+        if (!request.getNewPassword().equals(request.getConfirmPassword())) {
+            throw new RuntimeException("Passwords do not match.");
+        }
+
+        String email;
+        try {
+            // Validate and extract using your existing logic
+            jwtUtil.validateToken(resetToken);
+            email = jwtUtil.extractEmail(resetToken);
+        } catch (ExpiredJwtException ex) {
+            throw new RuntimeException("Reset token expired. Please request a new OTP.");
+        } catch (Exception ex) {
+            throw new RuntimeException("Invalid security token. Please restart the reset process.");
+        }
+
+        // Find the user and update the password
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found."));
+
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        user.setModifiedAt(LocalDateTime.now());
+        user.setModifiedBy(user.getId());
+
+        userRepository.save(user);
+
+        log.info("Password successfully reset for user: {}", email);
     }
 
 
