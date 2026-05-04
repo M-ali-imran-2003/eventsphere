@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.TimeZone;
 
@@ -19,6 +20,7 @@ import java.util.TimeZone;
 )
 @SpringBootApplication
 @EnableAutoConfiguration
+@EnableScheduling // Add this to turn on the background worker
 public class EventsphereApplication {
 
 	public static void main(String[] args) {

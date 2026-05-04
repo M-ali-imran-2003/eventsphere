@@ -20,14 +20,12 @@ import java.util.UUID;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
-    private final SecurityUtil securityUtil;
     private final GenericMapper mapper;
 
     @Autowired
-    CategoryService(CategoryRepository categoryRepository, SecurityUtil securityUtil, GenericMapper mapper) {
+    CategoryService(CategoryRepository categoryRepository, GenericMapper mapper) {
 
         this.categoryRepository = categoryRepository;
-        this.securityUtil = securityUtil;
         this.mapper = mapper;
     }
 
@@ -45,9 +43,9 @@ public class CategoryService {
                 .trim()
                 .replaceAll("\\s+", "-"));
         category.setCreatedAt(LocalDateTime.now());
-        category.setCreatedBy(securityUtil.getCurrentUser().getId());
+        category.setCreatedBy(SecurityUtil.getCurrentUser().getId());
         category.setModifiedAt(LocalDateTime.now());
-        category.setModifiedBy(securityUtil.getCurrentUser().getId());
+        category.setModifiedBy(SecurityUtil.getCurrentUser().getId());
 
         categoryRepository.save(category);
     }
@@ -76,7 +74,7 @@ public class CategoryService {
         }
 
         category.setModifiedAt(LocalDateTime.now());
-        category.setModifiedBy(securityUtil.getCurrentUser().getId());
+        category.setModifiedBy(SecurityUtil.getCurrentUser().getId());
 
         categoryRepository.save(category);
     }

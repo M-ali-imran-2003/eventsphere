@@ -1,6 +1,7 @@
 package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.*;
+import com.example.eventsphere.entity.Token;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -33,19 +35,21 @@ public class AuthService {
     private final TokenBlackList tokenBlackList;
     private final OtpService otpService;
     private final EmailService emailService;
+    private final TokenService tokenService;
     private final GenericMapper mapper;
 
 
     @Autowired
     public AuthService(UserRepository userRepository,
                        JwtUtil jwtUtil,
-                       PasswordEncoder passwordEncoder, TokenBlackList tokenBlackList, OtpService otpService, EmailService emailService, GenericMapper mapper) {
+                       PasswordEncoder passwordEncoder, TokenBlackList tokenBlackList, OtpService otpService, EmailService emailService, TokenService tokenService, GenericMapper mapper) {
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;
         this.passwordEncoder = passwordEncoder;
         this.tokenBlackList = tokenBlackList;
         this.otpService = otpService;
         this.emailService = emailService;
+        this.tokenService = tokenService;
         this.mapper = mapper;
     }
 
@@ -82,10 +86,13 @@ public class AuthService {
             throw new RuntimeException("Account is inactive or suspended.");
         }
 
-        String token = jwtUtil.generateToken(user.getId(), user.getRole().name());
+        String accessToken = jwtUtil.generateToken(user.getId(), user.getRole().name(),user.getUsername());
+        String refreshToken = tokenService.createRefreshToken(user);
+
         log.info("Successful login for user: {}", user.getUsername());
         return new LoginResponse(
-                token,
+                accessToken,
+                refreshToken,
                 user.getRole().name()
         );
     }
@@ -94,8 +101,14 @@ public class AuthService {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String jwt = authHeader.substring(7);
+            // 1. Blacklist the short-lived JWT
             tokenBlackList.add(jwt);
-            log.info("User successfully logged out and token blacklisted.");
+
+            // 2. Extract the User ID and kill their Refresh Token in the database
+            String userId = jwtUtil.extractUserId(jwt);
+            tokenService.revokeAllUserTokens(UUID.fromString(userId));
+
+            log.info("User successfully logged out and all tokens revoked.");
             return;
         }
         throw new RuntimeException("No valid token provided for logout."); // Triggers Global Handler!
@@ -125,7 +138,11 @@ public class AuthService {
     }
 
     // ACT 3: Complete Profile
-    public LoginResponse completeSignup(CompleteProfileRequest request, String registrationToken) {
+    public void completeSignup(CompleteProfileRequest request, String registrationToken) {
+
+        if(tokenBlackList.isBlacklisted(registrationToken)){
+            throw new RuntimeException("Token is invalidated");
+        }
 
         String email;
         try {
@@ -193,9 +210,7 @@ public class AuthService {
         log.info("New user successfully registered: {}", savedUser.getEmail());
 
         // 4. Generate the final Access Token so they are immediately logged in
-        String accessToken = jwtUtil.generateToken(savedUser.getId(), savedUser.getRole().name());
-
-        return new LoginResponse(accessToken, savedUser.getRole().name());
+        tokenBlackList.add(registrationToken);
     }
 
     public void initiateForgotPassword(ForgotPasswordInitiateRequest request) {
@@ -228,6 +243,10 @@ public class AuthService {
     // STEP 3: RESET THE PASSWORD
     public void resetPassword(ForgotPasswordResetRequest request, String resetToken) {
 
+        if(tokenBlackList.isBlacklisted(resetToken)){
+            throw new RuntimeException("Token is invalidated");
+        }
+
         // ADD THIS NEW CHECK
         if (!request.getNewPassword().equals(request.getConfirmPassword())) {
             throw new RuntimeException("Passwords do not match.");
@@ -253,8 +272,26 @@ public class AuthService {
         user.setModifiedBy(user.getId());
 
         userRepository.save(user);
-
+        tokenBlackList.add(resetToken);
         log.info("Password successfully reset for user: {}", email);
+    }
+
+    public LoginResponse refreshToken(RefreshTokenRequest request) {
+        // 1. Validate the raw token against the database hash
+        Token validToken = tokenService.verifyRefreshToken(request.getRefreshToken());
+
+        // 2. Find the user
+        User user = userRepository.findById(validToken.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // 3. Generate a brand new Access Token
+        String newAccessToken = jwtUtil.generateToken(user.getId(), user.getRole().name(), user.getUsername());
+
+        // 4. Token Rotation (Highly Secure): Issue a new Refresh Token and invalidate the old one
+        String newRefreshToken = tokenService.createRefreshToken(user);
+
+        log.info("Successfully refreshed tokens for user: {}", user.getUsername());
+        return new LoginResponse(newAccessToken, newRefreshToken, user.getRole().name());
     }
 
 

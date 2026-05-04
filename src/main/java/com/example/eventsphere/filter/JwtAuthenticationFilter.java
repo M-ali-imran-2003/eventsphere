@@ -1,6 +1,7 @@
 package com.example.eventsphere.filter;
 
 import com.example.eventsphere.entity.User;
+import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.service.CustomUserDetailsService;
 import com.example.eventsphere.utils.JwtUtil;
 import com.example.eventsphere.security.TokenBlackList;
@@ -51,15 +52,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 if (tokenBlacklist.isBlacklisted(jwt)) {
                     log.warn("Attempted access with REVOKED/BLACKLISTED token");
                     sendErrorResponse(response, HttpServletResponse.SC_UNAUTHORIZED, "Token is invalidated. Please log in again.");
-                    return; // Fast, clean, and perfectly accurate.
+                    return;
                 }
+
+                // 2. Validate Token and Extract Claims
                 jwtUtil.validateToken(jwt);
 
-                // 3. Set Authentication
                 String id = jwtUtil.extractUserId(jwt);
-                User userDetails = userDetailsService.loadUserById(UUID.fromString(id));
+                UserRole role = UserRole.valueOf(jwtUtil.extractRole(jwt));
+                String username = jwtUtil.extractUsername(jwt);
+
+                // 3. Build the "Lightweight" User (NO DATABASE CALL!)
+                User lightweightUser = new User();
+                lightweightUser.setId(UUID.fromString(id));
+                lightweightUser.setRole(role);
+                lightweightUser.setUsername(username);
+
+                // 4. Set Authentication
                 UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                        new UsernamePasswordAuthenticationToken(lightweightUser, null, lightweightUser.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }

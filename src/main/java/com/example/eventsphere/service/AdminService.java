@@ -21,17 +21,15 @@ public class AdminService {
 
     private final GenericMapper mapper;
     private final PasswordEncoder passwordEncoder;
-    private final SecurityUtil securityUtil;
 
     @Autowired
-    public AdminService(UserRepository userRepository, EventRepository eventRepository, WorkspaceRepository workspaceRepository, CategoryRepository categoryRepository, GenericMapper mapper, SecurityUtil securityUtil, PasswordEncoder passwordEncoder){
+    public AdminService(UserRepository userRepository, EventRepository eventRepository, WorkspaceRepository workspaceRepository, CategoryRepository categoryRepository, GenericMapper mapper, PasswordEncoder passwordEncoder){
         this.eventRepository = eventRepository;
         this.workspaceRepository = workspaceRepository;
         this.categoryRepository = categoryRepository;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.mapper = mapper;
-        this.securityUtil = securityUtil;
     }
 
     public DashboardStatsDTO getGlobalStats() {

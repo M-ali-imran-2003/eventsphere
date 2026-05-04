@@ -26,16 +26,14 @@ public class UserService {
  private final UserRepository userRepository;
  private final PasswordEncoder passwordEncoder;
  private final GenericMapper mapper;
- private final SecurityUtil securityUtil;
 
  private final FileService fileService;
 
  @Autowired
- public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, GenericMapper mapper, SecurityUtil securityUtil, FileService fileService){
+ public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, GenericMapper mapper, FileService fileService){
   this.userRepository = userRepository;
      this.passwordEncoder = passwordEncoder;
      this.mapper = mapper;
-     this.securityUtil = securityUtil;
      this.fileService = fileService;
  }
 
@@ -58,14 +56,14 @@ public class UserService {
  {
    User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
    if (userDTO.getStatus() != null && !userDTO.getStatus().name().isBlank()) {
-    if (!userDTO.getStatus().equals(UserStatus.ACTIVE) && id.equals(securityUtil.getCurrentUser().getId()))
+    if (!userDTO.getStatus().equals(UserStatus.ACTIVE) && id.equals(SecurityUtil.getCurrentUser().getId()))
     {
      throw new RuntimeException("Cannot Change the status of Current User");
     }
     user.setStatus(userDTO.getStatus());
    }
 
-   user.setModifiedBy(securityUtil.getCurrentUser().getId());
+   user.setModifiedBy(SecurityUtil.getCurrentUser().getId());
    user.setModifiedAt(LocalDateTime.now());
    userRepository.save(user);
  }
@@ -86,9 +84,9 @@ public class UserService {
   // 5. Set Status (Assuming your Admin should be active immediately)
   user.setStatus(UserStatus.ACTIVE);
   user.setCreatedAt(LocalDateTime.now());
-  user.setCreatedBy(securityUtil.getCurrentUser().getId());
+  user.setCreatedBy(SecurityUtil.getCurrentUser().getId());
   user.setModifiedAt(LocalDateTime.now());
-  user.setModifiedBy(securityUtil.getCurrentUser().getId());
+  user.setModifiedBy(SecurityUtil.getCurrentUser().getId());
 
   // 6. Handle the profile pic if provided
   if (userDTO.getProfilePic() != null && !userDTO.getProfilePic().isEmpty()) {

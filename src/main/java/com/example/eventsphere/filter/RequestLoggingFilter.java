@@ -22,13 +22,6 @@ import java.io.IOException;
 @Component
 public class RequestLoggingFilter extends OncePerRequestFilter {
 
-    private final SecurityUtil securityUtil;
-
-    // Inject the utility
-    public RequestLoggingFilter(SecurityUtil securityUtil) {
-        this.securityUtil = securityUtil;
-    }
-
     @Override
     protected void doFilterInternal(@NotNull HttpServletRequest request,@NotNull HttpServletResponse response, @NotNull FilterChain filterChain)
             throws ServletException, IOException {
@@ -45,7 +38,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
             String uri = request.getRequestURI();
 
             // 2. Extract User (if authenticated by the time this runs, or do it in the JWT Filter)
-            User currentUser = securityUtil.getCurrentUser();
+            User currentUser = SecurityUtil.getCurrentUser();
             String userIdToLog = (currentUser != null) ? currentUser.getId().toString() : "anonymous_id";
             String usernameToLog = (currentUser != null) ? currentUser.getUsername() : "anonymous_user";
 

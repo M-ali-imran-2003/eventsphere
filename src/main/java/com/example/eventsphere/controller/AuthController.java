@@ -66,7 +66,7 @@ public class AuthController {
      * Postman route: POST http://localhost:8080/api/auth/signup/complete
      */
     @PostMapping("/signup/complete")
-    public ResponseEntity<LoginResponse> completeSignup(
+    public ResponseEntity<String> completeSignup(
             @Valid @RequestBody CompleteProfileRequest request,
             @RequestHeader("Authorization") String authHeader) {
 
@@ -79,8 +79,8 @@ public class AuthController {
         String token = authHeader.substring(7);
 
         // 3. Complete the signup and get the final login response
-        LoginResponse response = authService.completeSignup(request, token);
-        return ResponseEntity.ok(response);
+        authService.completeSignup(request, token);
+        return ResponseEntity.ok("Signup completed Successfully");
     }
 
     @PostMapping("/forgot-password/initiate")
@@ -112,6 +112,11 @@ public class AuthController {
                 "Message", "Password has been reset successfully. You can now log in.",
                 "Status", "Success"
         ));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<LoginResponse> refreshTokens(@Valid @RequestBody RefreshTokenRequest request) {
+        return ResponseEntity.ok(authService.refreshToken(request));
     }
 
 }

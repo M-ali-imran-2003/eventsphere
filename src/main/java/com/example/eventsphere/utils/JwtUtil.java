@@ -34,17 +34,36 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String extractUsername(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
-    public String extractEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
-
     public void validateToken(String token) {
         extractAllClaims(token);
     }
 
+    public String extractUserId(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    // For Registration/Reset Tokens, the subject is the Email.
+    public String extractEmail(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    // 2. The Custom Claim Extractors
+    // Because we packed "username" and "role" separately, we fetch them by name!
+    public String extractUsername(String token) {
+        final Claims claims = extractAllClaims(token);
+        return claims.get("username", String.class);
+    }
+
+    public String extractRole(String token) {
+        final Claims claims = extractAllClaims(token);
+        return claims.get("role", String.class);
+    }
+
+    private Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
+    // Keep your existing base methods private for security
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -65,14 +84,11 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractUserId(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
-
-    public String generateToken(UUID id, String role) {
+    public String generateToken(UUID id, String role, String username) {
         return Jwts.builder()
                 .setSubject(id.toString())
                 .claim("role", role)
+                .claim("username", username) // NEW: Pack the username into the token!
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + shortExpiry))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
@@ -87,10 +103,6 @@ public class JwtUtil {
                 .setExpiration(new Date(System.currentTimeMillis() + regExpiry))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
-    }
-
-    private Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
     }
 
     public long getRemainingTimeInMilliseconds(String token) {

@@ -76,7 +76,7 @@ class AuthControllerTest {
         request.setUsername("ali_imran");
         request.setPassword("securePass123");
 
-        LoginResponse mockResponse = new LoginResponse("mock-jwt-token", "ATTENDEE");
+        LoginResponse mockResponse = new LoginResponse("mock-jwt-token", "12312","ATTENDEE");
 
         when(authService.loginUser("ali_imran", "securePass123")).thenReturn(mockResponse);
 
