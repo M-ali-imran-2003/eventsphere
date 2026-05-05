@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.mock.web.MockMultipartFile;
@@ -68,32 +69,30 @@ class UserServiceTest {
         NewUserDTO newAdminDTO = new NewUserDTO();
         newAdminDTO.setUsername("admin123");
         newAdminDTO.setPassword("rawPassword");
-        // Create a fake image file!
         MockMultipartFile fakeImage = new MockMultipartFile("profilePic", "test.jpg", "image/jpeg", "image data".getBytes());
         newAdminDTO.setProfilePic(fakeImage);
 
         User mappedUser = new User();
 
-        // 1. Mock the conflict check (return empty list = no conflicts)
         when(userRepository.findConflicts(any(), any(), any(), any(), any())).thenReturn(Collections.emptyList());
-        // 2. Mock Mapper
         when(mapper.map(any(NewUserDTO.class), eq(User.class))).thenReturn(mappedUser);
-        // 3. Mock Password Encoder
         when(passwordEncoder.encode("rawPassword")).thenReturn("hashedPassword");
-        // 4. Mock Security Util
-        when(securityUtil.getCurrentUser()).thenReturn(mockAdmin);
-        // 5. Mock File Upload
         when(fileService.saveFile(any(), any())).thenReturn("https://s3.aws.com/test.jpg");
 
-        // WHEN
-        userService.addAdmin(newAdminDTO);
+        // NEW WAY: Static Mocking Block
+        try (MockedStatic<SecurityUtil> mockedSecurity = mockStatic(SecurityUtil.class)) {
+            mockedSecurity.when(SecurityUtil::getCurrentUser).thenReturn(mockAdmin);
 
-        // THEN
-        assertEquals("hashedPassword", mappedUser.getPassword());
-        assertEquals(UserRole.ADMIN, mappedUser.getRole());
-        assertEquals(UserStatus.ACTIVE, mappedUser.getStatus());
-        assertEquals("https://s3.aws.com/test.jpg", mappedUser.getProfilePic());
-        verify(userRepository, times(1)).save(mappedUser);
+            // WHEN
+            userService.addAdmin(newAdminDTO);
+
+            // THEN
+            assertEquals("hashedPassword", mappedUser.getPassword());
+            assertEquals(UserRole.ADMIN, mappedUser.getRole());
+            assertEquals(UserStatus.ACTIVE, mappedUser.getStatus());
+            assertEquals("https://s3.aws.com/test.jpg", mappedUser.getProfilePic());
+            verify(userRepository, times(1)).save(mappedUser);
+        }
     }
 
     // ==========================================
@@ -109,12 +108,16 @@ class UserServiceTest {
         statusDTO.setStatus(UserStatus.INACTIVE);
 
         when(userRepository.findById(adminId)).thenReturn(Optional.of(adminUser));
-        when(securityUtil.getCurrentUser()).thenReturn(mockAdmin);
 
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            userService.updateUserStatus(statusDTO, adminId);
-        });
+        // NEW WAY: Static Mocking Block
+        try (MockedStatic<SecurityUtil> mockedSecurity = mockStatic(SecurityUtil.class)) {
+            mockedSecurity.when(SecurityUtil::getCurrentUser).thenReturn(mockAdmin);
 
-        assertEquals("Cannot Change the status of Current User", exception.getMessage());
+            RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+                userService.updateUserStatus(statusDTO, adminId);
+            });
+
+            assertEquals("Cannot Change the status of Current User", exception.getMessage());
+        }
     }
 }

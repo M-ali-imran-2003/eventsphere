@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import static org.mockito.Mockito.mockStatic;
+import org.mockito.MockedStatic;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -50,12 +52,15 @@ class CategoryServiceTest {
         String newCategoryName = "Tech Conference";
 
         when(categoryRepository.existsByName(newCategoryName)).thenReturn(false);
-        when(securityUtil.getCurrentUser()).thenReturn(mockAdmin);
 
-        categoryService.addCategory(newCategoryName);
+        // NEW WAY: Static Mocking Block
+        try (MockedStatic<SecurityUtil> mockedSecurity = mockStatic(SecurityUtil.class)) {
+            mockedSecurity.when(SecurityUtil::getCurrentUser).thenReturn(mockAdmin);
 
-        // Verify the repository actually tried to save the object
-        verify(categoryRepository, times(1)).save(any(Category.class));
+            categoryService.addCategory(newCategoryName);
+
+            verify(categoryRepository, times(1)).save(any(Category.class));
+        }
     }
 
     @Test
@@ -87,12 +92,16 @@ class CategoryServiceTest {
 
         when(categoryRepository.findById(id)).thenReturn(Optional.of(existingCategory));
         when(categoryRepository.findCategoryConflicts(updateDTO.getName(), id)).thenReturn(Collections.emptyList());
-        when(securityUtil.getCurrentUser()).thenReturn(mockAdmin);
 
-        categoryService.updateCategory(id, updateDTO);
+        // NEW WAY: Static Mocking Block
+        try (MockedStatic<SecurityUtil> mockedSecurity = mockStatic(SecurityUtil.class)) {
+            mockedSecurity.when(SecurityUtil::getCurrentUser).thenReturn(mockAdmin);
 
-        verify(categoryRepository, times(1)).save(existingCategory);
-        assertEquals("New Name", existingCategory.getName());
+            categoryService.updateCategory(id, updateDTO);
+
+            verify(categoryRepository, times(1)).save(existingCategory);
+            assertEquals("New Name", existingCategory.getName());
+        }
     }
 
     // ==========================================

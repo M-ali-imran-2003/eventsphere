@@ -84,7 +84,8 @@ class AuthControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").value("mock-jwt-token"))
+                .andExpect(jsonPath("$.accessToken").value("mock-jwt-token"))
+                .andExpect(jsonPath("$.refreshToken").value("12312"))
                 .andExpect(jsonPath("$.role").value("ATTENDEE"));
     }
 
