@@ -189,25 +189,26 @@ public class OrganizationService {
         }
 
         if (request.getImage() != null && !request.getImage().isEmpty()) {
-            // 1. Keep track of the old file path
             String oldFilePath = org.getImageUrl();
-
-            String imageUrl = null;
             try {
-                imageUrl = fileService.saveFile(request.getImage(), FileType.IMAGE);
+                // 1. Upload the new file
+                String newImageUrl = fileService.saveFile(request.getImage(), FileType.IMAGE);
+
+                // 2. Only update the database IF the upload succeeds
+                org.setImageUrl(newImageUrl);
+
+                // 3. Only delete the old file IF the new upload succeeds
+                if (oldFilePath != null && !oldFilePath.isBlank()) {
+                    try {
+                        fileService.deleteFile(oldFilePath);
+                    } catch (Exception e) {
+                        log.error("Could not delete old pic for {}. File path: {}", org.getName(), oldFilePath, e);
+                    }
+                }
             } catch (IOException e) {
                 log.error("Failed to save organization picture", e);
+                throw new RuntimeException("Failed to upload the new image. Please try again.");
             }
-            if (oldFilePath != null && !oldFilePath.isBlank()) {
-                try {
-                    fileService.deleteFile(oldFilePath);
-                } catch (Exception e) {
-                    // Log the error but don't stop the update.
-                    // Better to have a "ghost" file on disk than a crashed profile update.
-                    log.error("Could not delete old pic for {}. File path: {}", org.getName(), oldFilePath, e);
-                }
-            }
-            org.setImageUrl(imageUrl);
         }
         org.setModifiedBy(currentUser.getId());
         org.setModifiedAt(LocalDateTime.now());
