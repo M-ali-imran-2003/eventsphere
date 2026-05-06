@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class DashboardStatsDTO {
     private long totalUsers;
-    private long totalWorkspaces;
+    private long totalOrganization;
     private long totalEvents;
     private long totalCategories;
 

@@ -14,7 +14,7 @@ import java.util.UUID;
 public class EventDTO {
 
     private UUID id;
-    private String workspaceName; // Fixed from UUID to String
+    private String organizationName; // Fixed from UUID to String
     private String categoryName;  // Fixed from UUID to String
     private String title;
     private String address;
@@ -32,14 +32,14 @@ public class EventDTO {
     private UUID modifiedBy;
 
     // Custom JPQL Constructor
-    public EventDTO(UUID id, String workspaceName, String categoryName, String title,
+    public EventDTO(UUID id, String organizationName, String categoryName, String title,
                     String address, String city, String state, String country,
                     Point location, // Accept the raw JTS Point from the query
                     LocalDateTime startDateTime, LocalDateTime endDateTime, AppStatus status,
                     LocalDateTime createdAt, UUID createdBy, LocalDateTime modifiedAt, UUID modifiedBy) {
 
         this.id = id;
-        this.workspaceName = workspaceName;
+        this.organizationName = organizationName;
         this.categoryName = categoryName;
         this.title = title;
         this.address = address;

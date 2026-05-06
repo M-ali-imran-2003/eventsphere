@@ -13,18 +13,18 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "workspace")
+@Table(name = "organization")
 @Data
-public class Workspace {
+public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "workspace_id")
+    @Column(name = "organization_id")
     private UUID id;
 
     @NotBlank(message = "Name is required")
     @Size(min=5,max = 50, message = "Name must be in 5-50 characters")
-    @Column(name = "workspace_name")
+    @Column(name = "organization_name")
     private String name;
 
     @NotBlank(message = "Email is required")
@@ -34,7 +34,7 @@ public class Workspace {
     private String email;
 
     @Column(name = "image_url")
-    private String image_url;
+    private String imageUrl;
 
     @Column(name = "pending_balance",precision = 10, scale = 2)
     private BigDecimal pendingBalance;

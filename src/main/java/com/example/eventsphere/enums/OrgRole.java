@@ -8,14 +8,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Getter
-public enum UserRole {
-    ADMIN("Admin"),
-    ORGANIZER("Organizer"),
-    ATTENDEE("Attendee");
+public enum OrgRole {
+
+    OWNER("Owner"),
+    TEAM_MEMBER("Team Member");
 
     private final String label;
 
-    UserRole(String label) { this.label = label; }
+    OrgRole(String label) { this.label = label; }
 
     // Helper to get everything the UI needs for a dropdown
     public static List<Map<String, String>> getDropdownValues() {

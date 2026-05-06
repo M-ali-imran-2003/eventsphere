@@ -26,8 +26,8 @@ public class Event {
     @Column(name = "event_id")
     private UUID id;
 
-    @Column(name = "workspace_id")
-    private UUID workspaceId;
+    @Column(name = "organization_id")
+    private UUID organizationId;
 
     @Column(name = "category_id")
     private UUID categoryId;

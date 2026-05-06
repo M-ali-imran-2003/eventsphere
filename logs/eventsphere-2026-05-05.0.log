@@ -1,0 +1,369 @@
+2026-05-05 15:57:32 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 15:57:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Starting AuthControllerTest using Java 17.0.14 with PID 11084 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 15:57:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 15:57:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 15:57:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 15:57:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 16 ms
+2026-05-05 15:57:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Started AuthControllerTest in 10.019 seconds (process running for 15.143)
+2026-05-05 15:57:41 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/login: Invalid Credentials
+2026-05-05 15:59:23 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 15:59:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Starting AuthControllerTest using Java 17.0.14 with PID 11536 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 15:59:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 15:59:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 15:59:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 15:59:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-05-05 15:59:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Started AuthControllerTest in 9.411 seconds (process running for 13.073)
+2026-05-05 15:59:32 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/login: Invalid Credentials
+2026-05-05 16:00:41 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 16:00:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Starting AuthControllerTest using Java 17.0.14 with PID 3596 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:00:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:00:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:00:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:00:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 15 ms
+2026-05-05 16:00:47 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Started AuthControllerTest in 7.96 seconds (process running for 11.482)
+2026-05-05 16:00:48 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/login: Invalid Credentials
+2026-05-05 16:01:03 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 16:01:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - Starting CategoryControllerTest using Java 17.0.14 with PID 2220 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:01:03 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:01:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:01:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:01:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-05-05 16:01:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - Started CategoryControllerTest in 8.746 seconds (process running for 12.267)
+2026-05-05 16:01:26 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 16:01:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - Starting EventControllerTest using Java 17.0.14 with PID 12108 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:01:26 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:01:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:01:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:01:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 15 ms
+2026-05-05 16:01:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - Started EventControllerTest in 8.535 seconds (process running for 12.411)
+2026-05-05 16:01:34 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/event/get-event-by-id/668a9076-3fec-4ee5-b52d-0a69d2046418: Event Not Found With ID: 668a9076-3fec-4ee5-b52d-0a69d2046418
+2026-05-05 16:01:48 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 16:01:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - Starting UserControllerTest using Java 17.0.14 with PID 14536 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:01:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:01:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:01:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:01:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 16 ms
+2026-05-05 16:01:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - Started UserControllerTest in 8.698 seconds (process running for 13.231)
+2026-05-05 16:10:30 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-05 16:10:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Starting AuthControllerTest using Java 17.0.14 with PID 11404 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:10:31 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:10:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:10:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:10:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-05-05 16:10:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.AuthControllerTest - Started AuthControllerTest in 8.043 seconds (process running for 10.988)
+2026-05-05 16:10:38 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/auth/login: Invalid Credentials
+2026-05-05 16:10:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.eventsphere.controller.CategoryControllerTest]: CategoryControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-05 16:10:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.eventsphere.EventsphereApplication for test class com.example.eventsphere.controller.CategoryControllerTest
+2026-05-05 16:10:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - Starting CategoryControllerTest using Java 17.0.14 with PID 11404 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:10:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 15 ms
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.c.CategoryControllerTest - Started CategoryControllerTest in 1.36 seconds (process running for 14.041)
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.eventsphere.controller.EventControllerTest]: EventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.eventsphere.EventsphereApplication for test class com.example.eventsphere.controller.EventControllerTest
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - Starting EventControllerTest using Java 17.0.14 with PID 11404 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:10:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:10:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:10:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:10:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-05-05 16:10:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.EventControllerTest - Started EventControllerTest in 0.97 seconds (process running for 15.43)
+2026-05-05 16:10:41 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/event/get-event-by-id/7d3d1917-8980-4c99-9372-5f4af55d4707: Event Not Found With ID: 7d3d1917-8980-4c99-9372-5f4af55d4707
+2026-05-05 16:10:41 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.eventsphere.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.eventsphere.EventsphereApplication for test class com.example.eventsphere.controller.UserControllerTest
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - Starting UserControllerTest using Java 17.0.14 with PID 11404 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-05-05 16:10:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.controller.UserControllerTest - Started UserControllerTest in 0.876 seconds (process running for 16.633)
+2026-05-05 16:10:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.eventsphere.EventsphereApplicationTests]: EventsphereApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-05 16:10:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.eventsphere.EventsphereApplication for test class com.example.eventsphere.EventsphereApplicationTests
+2026-05-05 16:10:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplicationTests - Starting EventsphereApplicationTests using Java 17.0.14 with PID 11404 (started by AMU in D:\SpringBoot\eventsphere)
+2026-05-05 16:10:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 16:10:44 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.w.c.s.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.eventsphere.EventsphereApplication]: Error processing condition on org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
+2026-05-05 16:10:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-05 16:10:44 [main] ERROR [IP:  | User Name:  | User ID:  |  ] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.eventsphere.EventsphereApplication]: Error processing condition on org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:792)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:151)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:590)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:151)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithoutCancellationToken(LauncherAdapter.java:60)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:52)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617)
+	... 103 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'MAIL_HOST' in value "${MAIL_HOST}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:298)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:131)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveNestedPlaceholders(AbstractPropertyResolver.java:284)
+	at org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.getProperty(ConfigurationPropertySourcesPropertyResolver.java:81)
+	at org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.getProperty(ConfigurationPropertySourcesPropertyResolver.java:62)
+	at org.springframework.core.env.AbstractEnvironment.getProperty(AbstractEnvironment.java:555)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition$Spec.collectProperties(OnPropertyCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition.determineOutcome(OnPropertyCondition.java:102)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition.getMatchOutcome(OnPropertyCondition.java:60)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.getConditionOutcome(AbstractNestedCondition.java:195)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.<init>(AbstractNestedCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.lambda$getMatchOutcomes$0(AbstractNestedCondition.java:169)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.springframework.util.MultiValueMapAdapter.forEach(MultiValueMapAdapter.java:179)
+	at java.base/java.util.Collections$UnmodifiableMap.forEach(Collections.java:1553)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.getMatchOutcomes(AbstractNestedCondition.java:169)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberMatchOutcomes.<init>(AbstractNestedCondition.java:78)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition.getMatchOutcome(AbstractNestedCondition.java:63)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 106 common frames omitted
+2026-05-05 16:10:44 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.example.eventsphere.EventsphereApplicationTests@28d74041]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@13ac1657 testClass = com.example.eventsphere.EventsphereApplicationTests, locations = [], classes = [com.example.eventsphere.EventsphereApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@15713d56, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@600b90df, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4a76c90, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@512baff6, org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@1800a575, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@1b955cac, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@5ed1d468], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithoutCancellationToken(LauncherAdapter.java:60)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:52)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.eventsphere.EventsphereApplication]: Error processing condition on org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:627)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:850)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:847)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:817)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:792)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:610)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:151)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:590)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:151)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	... 80 common frames omitted
+Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:60)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:99)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:247)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:617)
+	... 103 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'MAIL_HOST' in value "${MAIL_HOST}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:298)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:131)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveNestedPlaceholders(AbstractPropertyResolver.java:284)
+	at org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.getProperty(ConfigurationPropertySourcesPropertyResolver.java:81)
+	at org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver.getProperty(ConfigurationPropertySourcesPropertyResolver.java:62)
+	at org.springframework.core.env.AbstractEnvironment.getProperty(AbstractEnvironment.java:555)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition$Spec.collectProperties(OnPropertyCondition.java:160)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition.determineOutcome(OnPropertyCondition.java:102)
+	at org.springframework.boot.autoconfigure.condition.OnPropertyCondition.getMatchOutcome(OnPropertyCondition.java:60)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.getConditionOutcome(AbstractNestedCondition.java:195)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberOutcomes.<init>(AbstractNestedCondition.java:189)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.lambda$getMatchOutcomes$0(AbstractNestedCondition.java:169)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.springframework.util.MultiValueMapAdapter.forEach(MultiValueMapAdapter.java:179)
+	at java.base/java.util.Collections$UnmodifiableMap.forEach(Collections.java:1553)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberConditions.getMatchOutcomes(AbstractNestedCondition.java:169)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition$MemberMatchOutcomes.<init>(AbstractNestedCondition.java:78)
+	at org.springframework.boot.autoconfigure.condition.AbstractNestedCondition.getMatchOutcome(AbstractNestedCondition.java:63)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 106 common frames omitted
+2026-05-05 16:10:46 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.service.AuthService - Failed login attempt: Admin tried to login via standard user portal. Identifier: admin_hacker
+2026-05-05 16:10:46 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.service.AuthService - Signup initiated for email: newuser@eventsphere.com
+2026-05-05 16:10:46 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.service.AuthService - SECURITY ALERT: User hacker@eventsphere.com attempted to register as an ADMIN!
+2026-05-05 16:10:47 [main] WARN  [IP:  | User Name:  | User ID:  |  ] c.e.e.service.CategoryService - Category Already Exists With Name: Tech Conference
+2026-05-05 16:10:48 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.service.UserService - New Admin added successfully: null

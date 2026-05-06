@@ -5,8 +5,7 @@ import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.CategoryRepository;
 import com.example.eventsphere.repository.EventRepository;
 import com.example.eventsphere.repository.UserRepository;
-import com.example.eventsphere.repository.WorkspaceRepository;
-import com.example.eventsphere.utils.SecurityUtil;
+import com.example.eventsphere.repository.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,16 +15,16 @@ public class AdminService {
 
     private final UserRepository userRepository;
     private final EventRepository eventRepository;
-    private final WorkspaceRepository workspaceRepository;
+    private final OrganizationRepository organizationRepository;
     private final CategoryRepository categoryRepository;
 
     private final GenericMapper mapper;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AdminService(UserRepository userRepository, EventRepository eventRepository, WorkspaceRepository workspaceRepository, CategoryRepository categoryRepository, GenericMapper mapper, PasswordEncoder passwordEncoder){
+    public AdminService(UserRepository userRepository, EventRepository eventRepository, OrganizationRepository organizationRepository, CategoryRepository categoryRepository, GenericMapper mapper, PasswordEncoder passwordEncoder){
         this.eventRepository = eventRepository;
-        this.workspaceRepository = workspaceRepository;
+        this.organizationRepository = organizationRepository;
         this.categoryRepository = categoryRepository;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
@@ -35,11 +34,11 @@ public class AdminService {
     public DashboardStatsDTO getGlobalStats() {
         // The .count() method is automatically provided by JpaRepository
         long users = userRepository.count();
-        long workspaces = workspaceRepository.count();
+        long organizations = organizationRepository.count();
         long events = eventRepository.count();
         long categories = categoryRepository.count();
 
-        return new DashboardStatsDTO(users, workspaces, events,categories);
+        return new DashboardStatsDTO(users, organizations, events,categories);
     }
 
 //    @Transactional

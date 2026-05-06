@@ -16,7 +16,7 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
     @Query("""
         SELECT new com.example.eventsphere.dto.EventDTO(
             e.id, 
-            w.name, 
+            o.name, 
             c.name, 
             e.title, 
             e.address, 
@@ -33,7 +33,7 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
             e.modifiedBy
         )
         FROM Event e
-        JOIN Workspace w ON e.workspaceId = w.id
+        JOIN Organization o ON e.organizationId = o.id
         JOIN Category c ON e.categoryId = c.id
         WHERE e.id = :eventId
         """)
@@ -43,12 +43,12 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
     SELECT new com.example.eventsphere.dto.EventMapMarkerDTO(
         e.id, 
         e.title, 
-        w.name, 
+        o.name, 
         e.location, 
         e.status
     )
     FROM Event e
-    JOIN Workspace w ON e.workspaceId = w.id
+    JOIN Organization o ON e.organizationId = o.id
     WHERE e.location IS NOT NULL
     """)
     List<EventMapMarkerDTO> findAllEventLocationsForMap();

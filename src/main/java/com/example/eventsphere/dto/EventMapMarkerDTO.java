@@ -14,16 +14,16 @@ public class EventMapMarkerDTO {
 
     private UUID id;
     private String title;          // For the hover tooltip
-    private String workspaceName;  // To show who is hosting it on hover
+    private String organizationName;  // To show who is hosting it on hover
     private Double lat;
     private Double lon;
     private AppStatus status;      // To color the pin
 
     // Custom Constructor for JPQL
-    public EventMapMarkerDTO(UUID id, String title, String workspaceName, Point location, AppStatus status) {
+    public EventMapMarkerDTO(UUID id, String title, String organizationName, Point location, AppStatus status) {
         this.id = id;
         this.title = title;
-        this.workspaceName = workspaceName;
+        this.organizationName = organizationName;
         this.lat = LocationUtil.getLat(location);
         this.lon = LocationUtil.getLon(location);
         this.status = status;
