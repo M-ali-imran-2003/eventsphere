@@ -41,4 +41,18 @@ public class Category {
 
     @Column(name = "modified_by")
     private UUID modifiedBy;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.modifiedAt = LocalDateTime.now();
+        if (this.Status == null) {
+            this.Status = AppStatus.ACTIVE;
+        }
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modifiedAt = LocalDateTime.now();
+    }
 }

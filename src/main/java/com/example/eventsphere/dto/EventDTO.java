@@ -1,6 +1,7 @@
 package com.example.eventsphere.dto;
 
 import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.enums.EventStatus;
 import com.example.eventsphere.utils.LocationUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class EventDTO {
     private Double lon;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
-    private AppStatus status;
+    private EventStatus status;
     private LocalDateTime createdAt;
     private UUID createdBy;
     private LocalDateTime modifiedAt;
@@ -35,7 +36,7 @@ public class EventDTO {
     public EventDTO(UUID id, String organizationName, String categoryName, String title,
                     String address, String city, String state, String country,
                     Point location, // Accept the raw JTS Point from the query
-                    LocalDateTime startDateTime, LocalDateTime endDateTime, AppStatus status,
+                    LocalDateTime startDateTime, LocalDateTime endDateTime, EventStatus status,
                     LocalDateTime createdAt, UUID createdBy, LocalDateTime modifiedAt, UUID modifiedBy) {
 
         this.id = id;

@@ -2,6 +2,7 @@ package com.example.eventsphere.entity;
 
 
 import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.enums.EventStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,6 +14,7 @@ import org.locationtech.jts.geom.Point;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -35,7 +37,7 @@ public class Event {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "venue_name")
@@ -44,7 +46,7 @@ public class Event {
     @Column(name = "image_url")
     private String image_url;
 
-    @Column(name = "formatted_address")
+    @Column(name = "formatted_address",columnDefinition = "TEXT")
     private String address;
 
     @Column(name = "city")
@@ -67,17 +69,18 @@ public class Event {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private AppStatus status;
+    private EventStatus status;
 
     @Column(name = "layout_type")
     private String layoutType;
 
-    @Column(name = "search_tags", columnDefinition = "text[]")
-    private String[] tags;
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    @Column(name = "search_tags")
+    private List<String> tags;
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb",name = "type_specific_data")
-    private Map<String, Object> typeSpecificData;
+    private String typeSpecificData;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -90,4 +93,15 @@ public class Event {
 
     @Column(name = "modified_by")
     private UUID modifiedBy;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.modifiedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modifiedAt = LocalDateTime.now();
+    }
 }

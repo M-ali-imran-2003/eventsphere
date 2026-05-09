@@ -1,16 +1,17 @@
 package com.example.eventsphere.controller;
 
+import com.example.eventsphere.dto.CreateEventRequest;
 import com.example.eventsphere.dto.EventDTO;
 import com.example.eventsphere.dto.EventListDTO;
 import com.example.eventsphere.dto.EventMapMarkerDTO;
+import com.example.eventsphere.entity.Event;
 import com.example.eventsphere.service.EventService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -45,5 +46,15 @@ public class EventController {
     public ResponseEntity<List<EventMapMarkerDTO>> getAllEventsLocationMap() {
         List<EventMapMarkerDTO> events = eventService.getAllEventsLocation(); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok(events);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/create-draft/{organizationId}")
+    public ResponseEntity<Event> createDraftEvent(
+            @PathVariable UUID organizationId,
+            @Valid @RequestBody CreateEventRequest request) {
+
+        Event draftEvent = eventService.createDraftEvent(organizationId, request);
+        return ResponseEntity.ok(draftEvent);
     }
 }

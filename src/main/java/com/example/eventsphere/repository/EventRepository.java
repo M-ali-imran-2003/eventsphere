@@ -52,4 +52,6 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
     WHERE e.location IS NOT NULL
     """)
     List<EventMapMarkerDTO> findAllEventLocationsForMap();
+
+    boolean existsByTitleAndOrganizationId(String title, UUID organizationId);
 }

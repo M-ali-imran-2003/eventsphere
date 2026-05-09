@@ -1,6 +1,7 @@
 package com.example.eventsphere.dto;
 
 import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.enums.EventStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,6 @@ public class EventListDTO {
 
     private LocalDateTime endDateTime;
 
-    private AppStatus Status;
+    private EventStatus Status;
 
 }
