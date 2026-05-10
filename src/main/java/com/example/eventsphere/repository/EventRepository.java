@@ -28,13 +28,43 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
             e.endDateTime, 
             e.status, 
             e.createdAt, 
-            e.createdBy, 
+            uc.username, 
             e.modifiedAt, 
-            e.modifiedBy
+            um.username
         )
         FROM Event e
         JOIN Organization o ON e.organizationId = o.id
         JOIN Category c ON e.categoryId = c.id
+        LEFT JOIN User uc ON e.createdBy = uc.id
+        LEFT JOIN User um ON e.modifiedBy = um.id
+        WHERE e.organizationId = :organizationId
+        """)
+    List<EventDTO> findCurrentOrganizationEvents(@Param("organizationId") UUID organizationId);
+
+    @Query("""
+        SELECT new com.example.eventsphere.dto.EventDTO(
+            e.id, 
+            o.name, 
+            c.name, 
+            e.title, 
+            e.address, 
+            e.city, 
+            e.state, 
+            e.country, 
+            e.location, 
+            e.startDateTime, 
+            e.endDateTime, 
+            e.status, 
+            e.createdAt, 
+            uc.username, 
+            e.modifiedAt, 
+            um.username
+        )
+        FROM Event e
+        JOIN Organization o ON e.organizationId = o.id
+        JOIN Category c ON e.categoryId = c.id
+        LEFT JOIN User uc ON e.createdBy = uc.id
+        LEFT JOIN User um ON e.modifiedBy = um.id
         WHERE e.id = :eventId
         """)
     Optional<EventDTO> findAdminEventDetailsById(@Param("eventId") UUID eventId);

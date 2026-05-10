@@ -25,10 +25,17 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/get-all-categories")
     public ResponseEntity<List<CategoryDTO>> getAllCategories() {
         List<CategoryDTO> categories = categoryService.getAllCategories(); // If not found, throws RuntimeException -> GlobalHandler
+        return ResponseEntity.ok(categories);
+    }
+
+    @PreAuthorize("hasAnyRole('ADMIN','ORGANIZER')")
+    @GetMapping("/get-active-categories")
+    public ResponseEntity<List<CategoryDTO>> getActiveCategories() {
+        List<CategoryDTO> categories = categoryService.getActiveCategories(); // If not found, throws RuntimeException -> GlobalHandler
         return ResponseEntity.ok(categories);
     }
 

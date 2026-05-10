@@ -84,6 +84,11 @@ public class CategoryService {
         return mapper.mapList(categoryRepository.findAll(), CategoryDTO.class);
     }
 
+    public List<CategoryDTO> getActiveCategories() {
+
+        return mapper.mapList(categoryRepository.findByStatus(AppStatus.ACTIVE), CategoryDTO.class);
+    }
+
     public Category findCategory(UUID id) {
 
         return categoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Category Not Found"));

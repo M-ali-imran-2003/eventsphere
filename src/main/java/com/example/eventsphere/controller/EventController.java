@@ -1,14 +1,12 @@
 package com.example.eventsphere.controller;
 
-import com.example.eventsphere.dto.CreateEventRequest;
-import com.example.eventsphere.dto.EventDTO;
-import com.example.eventsphere.dto.EventListDTO;
-import com.example.eventsphere.dto.EventMapMarkerDTO;
+import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.Event;
 import com.example.eventsphere.service.EventService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +54,33 @@ public class EventController {
 
         Event draftEvent = eventService.createDraftEvent(organizationId, request);
         return ResponseEntity.ok(draftEvent);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PatchMapping(value = "edit-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Event> updateEventDetails(
+            @PathVariable UUID eventId,
+            @ModelAttribute UpdateEventRequest request) {
+
+        Event updatedEvent = eventService.updateEventDetails(eventId, request);
+        return ResponseEntity.ok(updatedEvent);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-org-events/{organizationId}")
+    public ResponseEntity<List<EventDTO>> getEvents(
+            @PathVariable UUID organizationId) {
+
+        List<EventDTO> events = eventService.getCurrentOrganizationEvents(organizationId);
+        return ResponseEntity.ok(events);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-org-event-by-id/{eventId}")
+    public ResponseEntity<Event> getOrgEventById(
+            @PathVariable UUID eventId) {
+
+        Event event = eventService.findEvent(eventId);
+        return ResponseEntity.ok(event);
     }
 }

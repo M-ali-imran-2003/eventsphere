@@ -25,7 +25,7 @@ public class Category {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private AppStatus Status;
+    private AppStatus status;
 
     @Column(name = "code")
     private String code;
@@ -46,8 +46,8 @@ public class Category {
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
         this.modifiedAt = LocalDateTime.now();
-        if (this.Status == null) {
-            this.Status = AppStatus.ACTIVE;
+        if (this.status == null) {
+            this.status = AppStatus.ACTIVE;
         }
     }
 

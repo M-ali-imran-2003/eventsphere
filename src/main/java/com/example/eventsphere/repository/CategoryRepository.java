@@ -2,6 +2,7 @@ package com.example.eventsphere.repository;
 
 import com.example.eventsphere.entity.Category;
 import com.example.eventsphere.entity.User;
+import com.example.eventsphere.enums.AppStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,8 @@ import java.util.UUID;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, UUID> {
     Optional<Category> findByCode(String code);
+    List<Category> findByStatus(AppStatus status);
+
 
     boolean existsByName(String name);
 
