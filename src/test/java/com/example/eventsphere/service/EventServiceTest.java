@@ -51,21 +51,21 @@ class EventServiceTest {
         // GIVEN
         UUID eventId = UUID.randomUUID();
         EventDTO mockEvent = new EventDTO();
-        when(eventRepository.findAdminEventDetailsById(eventId)).thenReturn(Optional.of(mockEvent));
+        when(eventRepository.findEventDetailsById(eventId)).thenReturn(Optional.of(mockEvent));
 
         // WHEN
         EventDTO result = eventService.getEventByIdForAdmin(eventId);
 
         // THEN
         assertNotNull(result);
-        verify(eventRepository, times(1)).findAdminEventDetailsById(eventId);
+        verify(eventRepository, times(1)).findEventDetailsById(eventId);
     }
 
     @Test
     void getEventByIdForAdmin_ShouldThrowException_WhenIdDoesNotExist() {
         // GIVEN
         UUID eventId = UUID.randomUUID();
-        when(eventRepository.findAdminEventDetailsById(eventId)).thenReturn(Optional.empty());
+        when(eventRepository.findEventDetailsById(eventId)).thenReturn(Optional.empty());
 
         // WHEN & THEN
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {

@@ -18,15 +18,20 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
             e.id, 
             o.name, 
             c.name, 
-            e.title, 
+            e.title,
             e.address, 
+            e.venue,
+            e.imageUrl, 
             e.city, 
             e.state, 
             e.country, 
             e.location, 
             e.startDateTime, 
             e.endDateTime, 
-            e.status, 
+            e.status,
+            e.layoutType, 
+            e.tags, 
+            e.typeSpecificData, 
             e.createdAt, 
             uc.username, 
             e.modifiedAt, 
@@ -46,15 +51,20 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
             e.id, 
             o.name, 
             c.name, 
-            e.title, 
+            e.title,
             e.address, 
+            e.venue,
+            e.imageUrl, 
             e.city, 
             e.state, 
             e.country, 
             e.location, 
             e.startDateTime, 
             e.endDateTime, 
-            e.status, 
+            e.status,
+            e.layoutType, 
+            e.tags, 
+            e.typeSpecificData, 
             e.createdAt, 
             uc.username, 
             e.modifiedAt, 
@@ -67,7 +77,7 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
         LEFT JOIN User um ON e.modifiedBy = um.id
         WHERE e.id = :eventId
         """)
-    Optional<EventDTO> findAdminEventDetailsById(@Param("eventId") UUID eventId);
+    Optional<EventDTO> findEventDetailsById(@Param("eventId") UUID eventId);
 
     @Query("""
     SELECT new com.example.eventsphere.dto.EventMapMarkerDTO(

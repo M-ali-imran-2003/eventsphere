@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -52,7 +53,7 @@ public class EventService {
 
     public EventDTO getEventByIdForAdmin(UUID id){
 
-        return eventRepository.findAdminEventDetailsById(id).orElseThrow(()-> new RuntimeException("Event Not Found With ID: "+ id));
+        return eventRepository.findEventDetailsById(id).orElseThrow(()-> new RuntimeException("Event Not Found With ID: "+ id));
 
     }
 
@@ -62,7 +63,7 @@ public class EventService {
 
     }
 
-    public Event findEvent(UUID eventId){
+    public EventDTO findEvent(UUID eventId){
         User currentUser = SecurityUtil.getCurrentUser();
         if (currentUser == null) {
             throw new RuntimeException("Unauthorized. Please log in.");
@@ -80,7 +81,8 @@ public class EventService {
         OrganizationMember member = organizationMemberRepository.findByOrganizationIdAndUserId(event.getOrganizationId(), currentUser.getId())
                 .orElseThrow(() -> new RuntimeException("You do not have access to this organization."));
 
-        return event;
+
+        return eventRepository.findEventDetailsById(eventId).orElseThrow(() -> new RuntimeException("Event not found"));
 
     }
 
@@ -163,7 +165,7 @@ public class EventService {
     }
 
     @Transactional
-    public Event updateEventDetails(UUID eventId, UpdateEventRequest request) {
+    public void updateEventDetails(UUID eventId, UpdateEventRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
         if (currentUser == null) {
             throw new RuntimeException("Unauthorized. Please log in.");
@@ -246,7 +248,9 @@ public class EventService {
             }
         }
 
+        eventRepository.save(event);
         log.info("Event '{}' updated successfully by User ID: {}", event.getTitle(), currentUser.getId());
-        return eventRepository.save(event);
+
+
     }
 }

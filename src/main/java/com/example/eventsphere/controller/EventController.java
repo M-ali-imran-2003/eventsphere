@@ -57,13 +57,13 @@ public class EventController {
     }
 
     @PreAuthorize("hasRole('ORGANIZER')")
-    @PatchMapping(value = "edit-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Event> updateEventDetails(
+    @PatchMapping(value = "update-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> updateEventDetails(
             @PathVariable UUID eventId,
             @ModelAttribute UpdateEventRequest request) {
 
-        Event updatedEvent = eventService.updateEventDetails(eventId, request);
-        return ResponseEntity.ok(updatedEvent);
+        eventService.updateEventDetails(eventId, request);
+        return ResponseEntity.ok("Event Updated Successfully");
     }
 
     @PreAuthorize("hasRole('ORGANIZER')")
@@ -77,10 +77,10 @@ public class EventController {
 
     @PreAuthorize("hasRole('ORGANIZER')")
     @GetMapping("/get-org-event-by-id/{eventId}")
-    public ResponseEntity<Event> getOrgEventById(
+    public ResponseEntity<EventDTO> getOrgEventById(
             @PathVariable UUID eventId) {
 
-        Event event = eventService.findEvent(eventId);
+        EventDTO event = eventService.findEvent(eventId);
         return ResponseEntity.ok(event);
     }
 }
