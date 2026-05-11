@@ -216,16 +216,16 @@ public class EventService {
         }
 
         // 4. Update Text & Metadata Fields
-        if (request.getDescription() != null) event.setDescription(request.getDescription());
+        if (request.getDescription() != null && !request.getDescription().isBlank()) event.setDescription(request.getDescription());
         if(request.getLat() != null && request.getLon() != null) event.setLocation(LocationUtil.createPoint(request.getLat(),request.getLon()));
-        if (request.getVenue() != null) event.setVenue(request.getVenue());
-        if (request.getAddress() != null) event.setAddress(request.getAddress());
-        if (request.getCity() != null) event.setCity(request.getCity());
-        if (request.getState() != null) event.setState(request.getState());
-        if (request.getCountry() != null) event.setCountry(request.getCountry());
-        if (request.getLayoutType() != null) event.setLayoutType(request.getLayoutType());
-        if (request.getTags() != null) event.setTags(request.getTags());
-        if (request.getTypeSpecificData() != null) event.setTypeSpecificData(request.getTypeSpecificData());
+        if (request.getVenue() != null && !request.getVenue().isBlank()) event.setVenue(request.getVenue());
+        if (request.getAddress() != null && !request.getAddress().isBlank()) event.setAddress(request.getAddress());
+        if (request.getCity() != null&& !request.getCity().isBlank()) event.setCity(request.getCity());
+        if (request.getState() != null&& !request.getState().isBlank()) event.setState(request.getState());
+        if (request.getCountry() != null&& !request.getCountry().isBlank()) event.setCountry(request.getCountry());
+        if (request.getLayoutType() != null&& !request.getLayoutType().isBlank()) event.setLayoutType(request.getLayoutType());
+        if (request.getTags() != null&& !request.getTags().isEmpty()) event.setTags(request.getTags());
+        if (request.getTypeSpecificData() != null && !request.getTypeSpecificData().isBlank()) event.setTypeSpecificData(request.getTypeSpecificData());
 
         // 5. Handle the Image Upload with Ghost-File Cleanup
         if (request.getImage() != null && !request.getImage().isEmpty()) {
