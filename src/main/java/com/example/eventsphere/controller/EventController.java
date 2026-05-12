@@ -2,6 +2,8 @@ package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.Event;
+import com.example.eventsphere.entity.SubEvent;
+import com.example.eventsphere.entity.TicketTier;
 import com.example.eventsphere.service.EventService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -60,7 +62,7 @@ public class EventController {
     @PatchMapping(value = "update-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> updateEventDetails(
             @PathVariable UUID eventId,
-            @ModelAttribute UpdateEventRequest request) {
+            @Valid @ModelAttribute UpdateEventRequest request) {
 
         eventService.updateEventDetails(eventId, request);
         return ResponseEntity.ok("Event Updated Successfully");
@@ -82,5 +84,27 @@ public class EventController {
 
         EventDTO event = eventService.findEvent(eventId);
         return ResponseEntity.ok(event);
+    }
+
+    @PostMapping("/add-ticket/{eventId}")
+    public ResponseEntity<TicketTier> addTicketTier(
+            @PathVariable UUID eventId,
+            @Valid @RequestBody CreateTicketTierRequest request) {
+
+        TicketTier newTier = eventService.addTicketTier(eventId, request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newTier);
+    }
+
+    /**
+     * POST /api/events/{eventId}/agenda
+     * Adds a new sub-event (e.g., "Keynote Speech") to the event's schedule.
+     */
+    @PostMapping(value = "/add-sub-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<SubEvent> addSubEvent(
+            @PathVariable UUID eventId,
+            @Valid @ModelAttribute CreateSubEventRequest request) {
+
+        SubEvent newSubEvent = eventService.addSubEvent(eventId, request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newSubEvent);
     }
 }

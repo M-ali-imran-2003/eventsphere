@@ -2,19 +2,13 @@ package com.example.eventsphere.service;
 
 
 import com.example.eventsphere.dto.*;
-import com.example.eventsphere.entity.Event;
-import com.example.eventsphere.entity.Organization;
-import com.example.eventsphere.entity.OrganizationMember;
-import com.example.eventsphere.entity.User;
+import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.EventStatus;
 import com.example.eventsphere.enums.FileType;
 import com.example.eventsphere.enums.OrgRole;
 import com.example.eventsphere.mapper.GenericMapper;
-import com.example.eventsphere.repository.CategoryRepository;
-import com.example.eventsphere.repository.EventRepository;
-import com.example.eventsphere.repository.OrganizationMemberRepository;
-import com.example.eventsphere.repository.OrganizationRepository;
+import com.example.eventsphere.repository.*;
 import com.example.eventsphere.utils.LocationUtil;
 import com.example.eventsphere.utils.SecurityUtil;
 import jakarta.transaction.Transactional;
@@ -36,15 +30,19 @@ public class EventService {
     private final OrganizationRepository organizationRepository;
     private final FileService fileService;
     private final CategoryRepository categoryRepository;
+    private final TicketTierRepository ticketTierRepository;
+    private final SubEventRepository subEventRepository;
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository) {
+    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, TicketTierRepository ticketTierRepository, SubEventRepository subEventRepository) {
         this.eventRepository = eventRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
         this.organizationRepository = organizationRepository;
         this.fileService = fileService;
         this.categoryRepository = categoryRepository;
+        this.ticketTierRepository = ticketTierRepository;
+        this.subEventRepository = subEventRepository;
     }
 
     public List<EventListDTO> getAllEventsForAdmin(){
@@ -252,5 +250,98 @@ public class EventService {
         log.info("Event '{}' updated successfully by User ID: {}", event.getTitle(), currentUser.getId());
 
 
+    }
+
+    @Transactional
+    public TicketTier addTicketTier(UUID eventId, CreateTicketTierRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+        // 1. Fetch Event & Verify Ownership
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        OrganizationMember member = organizationMemberRepository
+                .findByOrganizationIdAndUserId(event.getOrganizationId(), currentUser.getId())
+                .orElseThrow(() -> new RuntimeException("Access denied."));
+
+        if (member.getRole() != OrgRole.OWNER) {
+            throw new RuntimeException("Only Organization Owners can manage ticketing.");
+        }
+
+        // 2. Business Validation: No duplicate tier names
+        if (ticketTierRepository.existsByEventIdAndTierNameIgnoreCase(eventId, request.getTierName())) {
+            throw new RuntimeException("A ticket tier with this name already exists for this event.");
+        }
+
+        // 3. Create and Save
+        TicketTier tier = new TicketTier();
+        tier.setEventId(eventId);
+        tier.setTierName(request.getTierName());
+        tier.setPrice(request.getPrice());
+        tier.setTotalCapacity(request.getTotalCapacity());
+        tier.setCreatedBy(currentUser.getId());
+        tier.setModifiedBy(currentUser.getId());
+
+
+        log.info("Ticket Tier '{}' added to Event {} by User {}", tier.getTierName(), eventId, currentUser.getId());
+        return ticketTierRepository.save(tier);
+    }
+
+    @Transactional
+    public SubEvent addSubEvent(UUID eventId, CreateSubEventRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+        // 1. Fetch Event & Verify Ownership
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        OrganizationMember member = organizationMemberRepository
+                .findByOrganizationIdAndUserId(event.getOrganizationId(), currentUser.getId())
+                .orElseThrow(() -> new RuntimeException("Access denied."));
+
+        if (member.getRole() != OrgRole.OWNER) {
+            throw new RuntimeException("Only Organization Owners can manage the agenda.");
+        }
+
+        // 2. Validate Time Logic
+        if (request.getEndTime().isBefore(request.getStartTime())) {
+            throw new RuntimeException("Sub-event end time cannot be before the start time.");
+        }
+
+        // Optional: Ensure sub-event dates fall within the main event dates
+        if (request.getStartTime().isBefore(event.getStartDateTime()) ||
+                request.getEndTime().isAfter(event.getEndDateTime())) {
+            throw new RuntimeException("Sub-event times must fall within the main event's duration.");
+        }
+
+        // 3. Create the SubEvent
+        SubEvent subEvent = new SubEvent();
+        subEvent.setEventId(eventId);
+        subEvent.setTitle(request.getTitle());
+        subEvent.setDescription(request.getDescription());
+        subEvent.setStartTime(request.getStartTime());
+        subEvent.setEndTime(request.getEndTime());
+        subEvent.setRoomOrLocation(request.getRoomOrLocation());
+        subEvent.setCapacityLimit(request.getCapacityLimit());
+        subEvent.setRulesConfig(request.getRulesConfig());
+        subEvent.setCreatedBy(currentUser.getId());
+        subEvent.setModifiedBy(currentUser.getId());
+
+        // 4. Handle Image Upload (Speaker Headshot / Map)
+        if (request.getImage() != null && !request.getImage().isEmpty()) {
+            try {
+                // Adjust FileType enum based on your actual file service implementation
+                String imageUrl = fileService.saveFile(request.getImage(), FileType.IMAGE);
+                subEvent.setImageUrl(imageUrl);
+            } catch (Exception e) {
+                log.error("Failed to save sub-event image", e);
+                throw new RuntimeException("Failed to upload image. Please try again.");
+            }
+        }
+
+        log.info("Sub-event '{}' added to Event {} by User {}", subEvent.getTitle(), eventId, currentUser.getId());
+        return subEventRepository.save(subEvent);
     }
 }
