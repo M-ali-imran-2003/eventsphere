@@ -207,3 +207,357 @@ unnamed portal parameter $11 = ''] [insert into sub_events (capacity_limit,creat
 2026-05-13 03:04:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-13 03:04:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-05-13 03:04:03 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-13 21:18:07 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-13 21:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 22540 (H:\Ali Imran\Softwares Ali Imran\SpringBoot\eventsphere\target\classes started by irkco in H:\Ali Imran\Softwares Ali Imran\SpringBoot\eventsphere)
+2026-05-13 21:18:07 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 271 ms. Found 8 JPA repository interfaces.
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationMemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.SubEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TicketTierRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:18:10 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-13 21:18:11 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4329 ms
+2026-05-13 21:18:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-13 21:18:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-05-13 21:18:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-05-13 21:18:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-13 21:18:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-13 21:18:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45e69324
+2026-05-13 21:18:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-13 21:18:15 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-13 21:18:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-13 21:18:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:18:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-13 21:18:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:18:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:18:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-13 21:18:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 21:18:18 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-13 21:18:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-05-13 21:18:22 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-05-13 21:18:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-05-13 21:18:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-13 21:18:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 16.916 seconds (process running for 18.582)
+2026-05-13 21:18:23 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-05-13 21:18:58 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-13 21:18:58 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-13 21:18:58 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-13 21:18:58 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 53 ms with status 200
+2026-05-13 21:18:58 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 4 ms with status 200
+2026-05-13 21:18:58 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 8 ms with status 200
+2026-05-13 21:18:58 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:58 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 11 ms with status 200
+2026-05-13 21:18:58 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 29 ms with status 200
+2026-05-13 21:18:58 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 42 ms with status 200
+2026-05-13 21:18:59 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:59 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:18:59 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 4 ms with status 200
+2026-05-13 21:18:59 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 66 ms with status 200
+2026-05-13 21:18:59 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:19:00 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1131 ms
+2026-05-13 21:19:00 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 1207 ms with status 200
+2026-05-13 21:19:22 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:19:22 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.TokenService - Secure Refresh Token generated and hashed for user ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491
+2026-05-13 21:19:23 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.AuthService - Successful login for user: ali.imran
+2026-05-13 21:19:23 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Completed in 1160 ms with status 200
+2026-05-13 21:19:36 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:19:37 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Completed in 508 ms with status 200
+2026-05-13 21:19:51 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-org-events/84c8d754-a76d-41ab-b974-cf25e19da1eb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:19:53 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-org-events/84c8d754-a76d-41ab-b974-cf25e19da1eb] c.e.e.filter.RequestLoggingFilter - Completed in 1976 ms with status 200
+2026-05-13 21:20:07 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:20:08 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1230 ms with status 200
+2026-05-13 21:20:38 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:20:38 [http-nio-8080-exec-8] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.e.GlobalExceptionHandler - Validation failed at /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.example.eventsphere.entity.SubEvent> com.example.eventsphere.controller.EventController.addSubEvent(java.util.UUID,com.example.eventsphere.dto.CreateSubEventRequest) with 2 errors: [Field error in object 'createSubEventRequest' on field 'endTime': rejected value [2026-05-15T19:20:14.913Z]; codes [typeMismatch.createSubEventRequest.endTime,typeMismatch.endTime,typeMismatch.java.time.LocalDateTime,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createSubEventRequest.endTime,endTime]; arguments []; default message [endTime]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.time.LocalDateTime' for property 'endTime'; Failed to convert from type [java.lang.String] to type [@jakarta.validation.constraints.NotNull @jakarta.validation.constraints.Future java.time.LocalDateTime] for value [2026-05-15T19:20:14.913Z]]] [Field error in object 'createSubEventRequest' on field 'startTime': rejected value [2026-05-15T16:20:14.913Z]; codes [typeMismatch.createSubEventRequest.startTime,typeMismatch.startTime,typeMismatch.java.time.LocalDateTime,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [createSubEventRequest.startTime,startTime]; arguments []; default message [startTime]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.time.LocalDateTime' for property 'startTime'; Failed to convert from type [java.lang.String] to type [@jakarta.validation.constraints.NotNull @jakarta.validation.constraints.Future java.time.LocalDateTime] for value [2026-05-15T16:20:14.913Z]]] 
+2026-05-13 21:20:38 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 204 ms with status 400
+2026-05-13 21:21:02 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:21:03 [http-nio-8080-exec-7] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.e.GlobalExceptionHandler - Business rule violation at /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8: Sub-event times must fall within the main event's duration.
+2026-05-13 21:21:03 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 753 ms with status 400
+2026-05-13 21:21:45 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:21:46 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.eventsphere.service.EventService - Sub-event 'string' added to Event 41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8 by User 81ca140f-1ec2-4231-b15e-dffd7ec0e491
+2026-05-13 21:21:46 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 22P02
+2026-05-13 21:21:46 [http-nio-8080-exec-9] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: invalid input syntax for type json
+  Detail: The input string ended unexpectedly.
+  Where: JSON data, line 1: 
+unnamed portal parameter $11 = ''
+2026-05-13 21:21:46 [http-nio-8080-exec-9] WARN  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.e.GlobalExceptionHandler - Database constraint violation at /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8: could not execute statement [ERROR: invalid input syntax for type json
+  Detail: The input string ended unexpectedly.
+  Where: JSON data, line 1: 
+unnamed portal parameter $11 = ''] [insert into sub_events (capacity_limit,created_at,created_by,description,end_time,event_id,image_url,modified_at,modified_by,room_or_location,rules_config,start_time,title,sub_event_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into sub_events (capacity_limit,created_at,created_by,description,end_time,event_id,image_url,modified_at,modified_by,room_or_location,rules_config,start_time,title,sub_event_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)]
+2026-05-13 21:21:46 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1098 ms with status 409
+2026-05-13 21:23:50 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:23:50 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.eventsphere.service.EventService - Sub-event 'string' added to Event 41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8 by User 81ca140f-1ec2-4231-b15e-dffd7ec0e491
+2026-05-13 21:23:50 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 895 ms with status 201
+2026-05-13 21:24:05 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:24:06 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.eventsphere.service.EventService - Sub-event 'asdas' added to Event 41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8 by User 81ca140f-1ec2-4231-b15e-dffd7ec0e491
+2026-05-13 21:24:06 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | POST /api/event/add-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 902 ms with status 201
+2026-05-13 21:24:41 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:24:42 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1215 ms with status 200
+2026-05-13 21:24:54 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-sub-event/25eb476b-9808-42e4-a1f1-dc45b59167c6] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:24:54 [http-nio-8080-exec-5] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-sub-event/25eb476b-9808-42e4-a1f1-dc45b59167c6] c.e.e.e.GlobalExceptionHandler - CRITICAL: Unhandled exception at /api/event/delete-sub-event/25eb476b-9808-42e4-a1f1-dc45b59167c6
+org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'eventId' for method parameter type UUID is not present
+	at org.springframework.web.servlet.mvc.method.annotation.PathVariableMethodArgumentResolver.handleMissingValue(PathVariableMethodArgumentResolver.java:101)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:234)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:227)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-05-13 21:24:54 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-sub-event/25eb476b-9808-42e4-a1f1-dc45b59167c6] c.e.e.filter.RequestLoggingFilter - Completed in 11 ms with status 500
+2026-05-13 21:26:22 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-13 21:26:22 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-13 21:26:22 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 21:26:22 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-13 21:26:22 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-13 21:26:28 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-13 21:26:28 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 22876 (H:\Ali Imran\Softwares Ali Imran\SpringBoot\eventsphere\target\classes started by irkco in H:\Ali Imran\Softwares Ali Imran\SpringBoot\eventsphere)
+2026-05-13 21:26:28 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 221 ms. Found 8 JPA repository interfaces.
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationMemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.SubEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TicketTierRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-13 21:26:30 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3223 ms
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-13 21:26:32 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-13 21:26:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1aee6d14
+2026-05-13 21:26:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-13 21:26:35 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-13 21:26:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-13 21:26:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:26:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-13 21:26:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:26:36 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-05-13 21:26:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-13 21:26:37 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 21:26:38 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-13 21:26:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-05-13 21:26:42 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-05-13 21:26:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-05-13 21:26:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-13 21:26:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 14.98 seconds (process running for 15.582)
+2026-05-13 21:26:43 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-13 21:26:43 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-13 21:26:43 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-13 21:26:43 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 90 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-3] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 9 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-3] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 6 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 13 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 36 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 70 ms with status 200
+2026-05-13 21:26:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-05-13 21:26:43 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:43 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 5 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 70 ms with status 200
+2026-05-13 21:26:43 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:26:45 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1241 ms
+2026-05-13 21:26:45 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 1306 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-10] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 3 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-5] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 4 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 4 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 8 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-5] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 8 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 23 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 3 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 6 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-7] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:04 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/favicon-32x32.png] c.e.e.filter.RequestLoggingFilter - Completed in 3 ms with status 200
+2026-05-13 21:27:04 [http-nio-8080-exec-7] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 15 ms with status 200
+2026-05-13 21:27:24 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:25 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.TokenService - Secure Refresh Token generated and hashed for user ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491
+2026-05-13 21:27:25 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.AuthService - Successful login for user: ali.imran
+2026-05-13 21:27:25 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Completed in 1183 ms with status 200
+2026-05-13 21:27:38 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:39 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Completed in 397 ms with status 200
+2026-05-13 21:27:56 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-org-events/84c8d754-a76d-41ab-b974-cf25e19da1eb] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:27:58 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-org-events/84c8d754-a76d-41ab-b974-cf25e19da1eb] c.e.e.filter.RequestLoggingFilter - Completed in 2067 ms with status 200
+2026-05-13 21:28:09 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:28:11 [http-nio-8080-exec-8] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1299 ms with status 200
+2026-05-13 21:28:28 [http-nio-8080-exec-9] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8/26f882ad-8573-4bf9-a164-104a8848a25c] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:28:30 [http-nio-8080-exec-9] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-sub-event/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8/26f882ad-8573-4bf9-a164-104a8848a25c] c.e.e.filter.RequestLoggingFilter - Completed in 1489 ms with status 200
+2026-05-13 21:28:36 [http-nio-8080-exec-7] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:28:37 [http-nio-8080-exec-7] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-sub-events/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1287 ms with status 200
+2026-05-13 21:28:49 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-all-ticket-tiers/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:28:50 [http-nio-8080-exec-10] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-all-ticket-tiers/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1285 ms with status 200
+2026-05-13 21:29:08 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-ticket-tier/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8/46ab6ceb-77a9-435b-a60b-fe4b34c1ecb5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:29:09 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-ticket-tier/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8/46ab6ceb-77a9-435b-a60b-fe4b34c1ecb5] c.e.eventsphere.service.EventService - Ticket Tier 'VIP' deleted successfully.
+2026-05-13 21:29:10 [http-nio-8080-exec-2] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | DELETE /api/event/delete-ticket-tier/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8/46ab6ceb-77a9-435b-a60b-fe4b34c1ecb5] c.e.e.filter.RequestLoggingFilter - Completed in 1581 ms with status 200
+2026-05-13 21:29:15 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-all-ticket-tiers/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-05-13 21:29:16 [http-nio-8080-exec-4] INFO  [IP: 127.0.0.1 | User Name: ali.imran | User ID: 81ca140f-1ec2-4231-b15e-dffd7ec0e491 | GET /api/event/get-all-ticket-tiers/41699587-9f1a-4c51-bf6d-f0ccdaa8b4f8] c.e.e.filter.RequestLoggingFilter - Completed in 1367 ms with status 200
+2026-05-13 21:29:19 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-13 21:29:20 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-13 21:29:20 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-13 21:29:20 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-13 21:29:20 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

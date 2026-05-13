@@ -86,7 +86,8 @@ public class EventController {
         return ResponseEntity.ok(event);
     }
 
-    @PostMapping("/add-ticket/{eventId}")
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/add-ticket-tier/{eventId}")
     public ResponseEntity<TicketTier> addTicketTier(
             @PathVariable UUID eventId,
             @Valid @RequestBody CreateTicketTierRequest request) {
@@ -95,10 +96,35 @@ public class EventController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newTier);
     }
 
-    /**
-     * POST /api/events/{eventId}/agenda
-     * Adds a new sub-event (e.g., "Keynote Speech") to the event's schedule.
-     */
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("get-all-ticket-tiers/{eventId}")
+    public ResponseEntity<List<TicketTier>> getAllTickets(@PathVariable UUID eventId) {
+        return ResponseEntity.ok(eventService.getTicketTiersByEventId(eventId));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/find-ticket-tier-by-id/{ticketId}")
+    public ResponseEntity<TicketTier> getTicketById(@PathVariable UUID ticketId) {
+        return ResponseEntity.ok(eventService.getTicketTierById(ticketId));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PatchMapping("/update-ticket-tier/{eventId}/{ticketId}")
+    public ResponseEntity<TicketTier> updateTicket(
+            @PathVariable UUID eventId,
+            @PathVariable UUID ticketId,
+            @RequestBody UpdateTicketTierRequest request) {
+        return ResponseEntity.ok(eventService.updateTicketTier(eventId, ticketId, request));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @DeleteMapping("/delete-ticket-tier/{eventId}/{ticketId}")
+    public ResponseEntity<String> deleteTicket(@PathVariable UUID eventId, @PathVariable UUID ticketId) {
+        eventService.deleteTicketTier(eventId, ticketId);
+        return ResponseEntity.ok("Deleted ticket successfully");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
     @PostMapping(value = "/add-sub-event/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<SubEvent> addSubEvent(
             @PathVariable UUID eventId,
@@ -106,5 +132,33 @@ public class EventController {
 
         SubEvent newSubEvent = eventService.addSubEvent(eventId, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(newSubEvent);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("get-sub-events/{eventId}")
+    public ResponseEntity<List<SubEvent>> getAllAgendaItems(@PathVariable UUID eventId) {
+        return ResponseEntity.ok(eventService.getSubEventsByEventId(eventId));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-sub-event-by-id/{subEventId}")
+    public ResponseEntity<SubEvent> getAgendaItemById(@PathVariable UUID subEventId) {
+        return ResponseEntity.ok(eventService.getSubEventById(subEventId));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PatchMapping(value = "/update-sub-event/{eventId}/{subEventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<SubEvent> updateAgendaItem(
+            @PathVariable UUID eventId,
+            @PathVariable UUID subEventId,
+            @ModelAttribute UpdateSubEventRequest request) {
+        return ResponseEntity.ok(eventService.updateSubEvent(eventId, subEventId, request));
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @DeleteMapping("/delete-sub-event/{eventId}/{subEventId}")
+    public ResponseEntity<String> deleteAgendaItem(@PathVariable UUID eventId, @PathVariable UUID subEventId) {
+        eventService.deleteSubEvent(eventId, subEventId);
+        return ResponseEntity.ok("Sub Event Deleted");
     }
 }

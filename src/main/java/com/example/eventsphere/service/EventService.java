@@ -30,19 +30,20 @@ public class EventService {
     private final OrganizationRepository organizationRepository;
     private final FileService fileService;
     private final CategoryRepository categoryRepository;
-    private final TicketTierRepository ticketTierRepository;
     private final SubEventRepository subEventRepository;
+    private final TicketTierRepository ticketTierRepository;
+
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, TicketTierRepository ticketTierRepository, SubEventRepository subEventRepository) {
+    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository) {
         this.eventRepository = eventRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
         this.organizationRepository = organizationRepository;
         this.fileService = fileService;
         this.categoryRepository = categoryRepository;
-        this.ticketTierRepository = ticketTierRepository;
         this.subEventRepository = subEventRepository;
+        this.ticketTierRepository = ticketTierRepository;
     }
 
     public List<EventListDTO> getAllEventsForAdmin(){
@@ -288,6 +289,73 @@ public class EventService {
         return ticketTierRepository.save(tier);
     }
 
+    public List<TicketTier> getTicketTiersByEventId(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId,currentUser);
+        return ticketTierRepository.findByEventId(eventId);
+    }
+
+    public TicketTier getTicketTierById(UUID ticketId) {
+
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+       TicketTier ticketTier = ticketTierRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket Tier not found."));
+
+       verifyEventOwnership(ticketTier.getEventId(),currentUser);
+       return ticketTier;
+    }
+
+    @Transactional
+    public TicketTier updateTicketTier(UUID eventId, UUID ticketId, UpdateTicketTierRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+        verifyEventOwnership(eventId, currentUser);
+
+        TicketTier tier = getTicketTierById(ticketId);
+
+        if (request.getTierName() != null && !tier.getTierName().equals(request.getTierName())) {
+            if (ticketTierRepository.existsByEventIdAndTierNameIgnoreCase(eventId, request.getTierName())) {
+                throw new RuntimeException("A ticket tier with this name already exists.");
+            }
+            tier.setTierName(request.getTierName());
+        }
+
+        if (request.getPrice() != null ) tier.setPrice(request.getPrice());
+
+        if (request.getTotalCapacity() != null) {
+            if (request.getTotalCapacity() < tier.getQuantitySold()) {
+                throw new RuntimeException("Cannot lower capacity below the number of tickets already sold.");
+            }
+            tier.setTotalCapacity(request.getTotalCapacity());
+        }
+
+        return ticketTierRepository.save(tier);
+    }
+
+    @Transactional
+    public void deleteTicketTier(UUID eventId, UUID ticketId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+        verifyEventOwnership(eventId, currentUser);
+
+        TicketTier tier = getTicketTierById(ticketId);
+
+        // Crucial Business Logic: Prevent deleting a tier if people paid for it
+        if (tier.getQuantitySold() > 0) {
+            throw new RuntimeException("Cannot delete this ticket tier because tickets have already been sold.");
+        }
+
+        ticketTierRepository.delete(tier);
+        log.info("Ticket Tier '{}' deleted successfully.", tier.getTierName());
+    }
+
+
     @Transactional
     public SubEvent addSubEvent(UUID eventId, CreateSubEventRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
@@ -343,5 +411,113 @@ public class EventService {
 
         log.info("Sub-event '{}' added to Event {} by User {}", subEvent.getTitle(), eventId, currentUser.getId());
         return subEventRepository.save(subEvent);
+    }
+
+    public List<SubEvent> getSubEventsByEventId(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
+        verifyEventOwnership(eventId, currentUser);
+        return subEventRepository.findByEventIdOrderByStartTimeAsc(eventId);
+    }
+
+    public SubEvent getSubEventById(UUID subEventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        SubEvent subEvent = subEventRepository.findById(subEventId)
+                .orElseThrow(() -> new RuntimeException("Sub Event not found."));
+        verifyEventOwnership(subEvent.getEventId(), currentUser);
+
+        return subEvent;
+    }
+
+    @Transactional
+    public SubEvent updateSubEvent(UUID eventId, UUID subEventId, UpdateSubEventRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        verifyEventOwnership(eventId, currentUser);
+
+        SubEvent subEvent = getSubEventById(subEventId);
+
+
+        Event event = eventRepository.findById(subEvent.getEventId()).orElseThrow(() -> new RuntimeException("Event not found."));
+
+        if (request.getStartTime().isBefore(event.getStartDateTime()) ||
+                request.getEndTime().isAfter(event.getEndDateTime())) {
+            throw new RuntimeException("Sub-event times must fall within the main event's duration.");
+        }
+
+        if (request.getTitle() != null && !request.getTitle().isBlank()) subEvent.setTitle(request.getTitle());
+        if (request.getDescription() != null&& !request.getDescription().isBlank())  subEvent.setDescription(request.getDescription());
+        if (request.getStartTime() != null) subEvent.setStartTime(request.getStartTime());
+        if (request.getEndTime() != null) subEvent.setEndTime(request.getEndTime());
+        if (request.getRoomOrLocation() != null&& !request.getRoomOrLocation().isBlank()) subEvent.setRoomOrLocation(request.getRoomOrLocation());
+        if (request.getCapacityLimit() != null) subEvent.setCapacityLimit(request.getCapacityLimit());
+        if (request.getRulesConfig() != null && !request.getRulesConfig().isBlank()) subEvent.setRulesConfig(request.getRulesConfig());
+
+        if (subEvent.getEndTime().isBefore(subEvent.getStartTime())) {
+            throw new RuntimeException("End time cannot be before start time.");
+        }
+
+        // Handle File Update & Cleanup
+        if (request.getImage() != null && !request.getImage().isEmpty()) {
+            String oldFilePath = subEvent.getImageUrl();
+            try {
+                // Adjust FileType based on your enum
+                String newImageUrl = fileService.saveFile(request.getImage(), FileType.IMAGE);
+                subEvent.setImageUrl(newImageUrl);
+
+                if (oldFilePath != null && !oldFilePath.isBlank()) {
+                    try {
+                        fileService.deleteFile(oldFilePath);
+                    } catch (Exception e) {
+                        log.error("Could not delete old sub-event image: {}", oldFilePath);
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Failed to update image.");
+            }
+        }
+
+        return subEventRepository.save(subEvent);
+    }
+
+    @Transactional
+    public void deleteSubEvent(UUID eventId, UUID subEventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        verifyEventOwnership(eventId, currentUser);
+
+        SubEvent subEvent = getSubEventById(subEventId);
+
+        // Delete associated image from storage
+        if (subEvent.getImageUrl() != null && !subEvent.getImageUrl().isBlank()) {
+            try {
+                fileService.deleteFile(subEvent.getImageUrl());
+            } catch (Exception e) {
+                log.error("Failed to delete sub-event image during deletion: {}", subEvent.getImageUrl());
+            }
+        }
+
+        subEventRepository.delete(subEvent);
+    }
+
+    private void verifyEventOwnership(UUID eventId, User user) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        Organization org = organizationRepository.findById(event.getOrganizationId())
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
+
+        if(!org.getStatus().equals(AppStatus.ACTIVE)) {
+            throw new RuntimeException("Organization is not active");
+        }
+
+        OrganizationMember member = organizationMemberRepository
+                .findByOrganizationIdAndUserId(org.getId(), user.getId())
+                .orElseThrow(() -> new RuntimeException("Access denied."));
+
+
+        if (member.getRole() != OrgRole.OWNER) {
+            throw new RuntimeException("Only Organization Owners can manage tickets.");
+        }
     }
 }
