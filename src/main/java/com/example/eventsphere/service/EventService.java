@@ -247,6 +247,8 @@ public class EventService {
             }
         }
 
+        event.setModifiedBy(currentUser.getId());
+
         eventRepository.save(event);
         log.info("Event '{}' updated successfully by User ID: {}", event.getTitle(), currentUser.getId());
 
@@ -333,6 +335,9 @@ public class EventService {
             }
             tier.setTotalCapacity(request.getTotalCapacity());
         }
+
+        tier.setModifiedBy(currentUser.getId());
+
 
         return ticketTierRepository.save(tier);
     }
@@ -434,6 +439,8 @@ public class EventService {
     @Transactional
     public SubEvent updateSubEvent(UUID eventId, UUID subEventId, UpdateSubEventRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+
         verifyEventOwnership(eventId, currentUser);
 
         SubEvent subEvent = getSubEventById(subEventId);
@@ -477,6 +484,8 @@ public class EventService {
                 throw new RuntimeException("Failed to update image.");
             }
         }
+
+        subEvent.setModifiedBy(currentUser.getId());
 
         return subEventRepository.save(subEvent);
     }
