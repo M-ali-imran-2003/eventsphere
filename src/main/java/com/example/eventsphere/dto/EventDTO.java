@@ -22,6 +22,7 @@ public class EventDTO {
     private String organizationName; // Fixed from UUID to String
     private String categoryName;  // Fixed from UUID to String
     private String title;
+    private String description;
     private String venue;
     private String imageUrl;
     private String address;
@@ -42,7 +43,7 @@ public class EventDTO {
     private String modifiedBy;
 
     // Custom JPQL Constructor
-    public EventDTO(UUID id, String organizationName, String categoryName, String title,
+    public EventDTO(UUID id, String organizationName, String categoryName, String title,String description,
                     String address, String venue,String imageUrl,String city, String state, String country,
                     Point location, // Accept the raw JTS Point from the query
                     LocalDateTime startDateTime, LocalDateTime endDateTime, EventStatus status, String layoutType, List<String> tags, String typeSpecificData,
@@ -52,6 +53,7 @@ public class EventDTO {
         this.organizationName = organizationName;
         this.categoryName = categoryName;
         this.title = title;
+        this.description = description;
         this.address = address;
         this.city = city;
         this.state = state;
