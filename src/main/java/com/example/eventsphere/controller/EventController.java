@@ -2,6 +2,7 @@ package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.Event;
+import com.example.eventsphere.entity.LandingPage;
 import com.example.eventsphere.entity.SubEvent;
 import com.example.eventsphere.entity.TicketTier;
 import com.example.eventsphere.service.EventService;
@@ -160,5 +161,25 @@ public class EventController {
     public ResponseEntity<String> deleteAgendaItem(@PathVariable UUID eventId, @PathVariable UUID subEventId) {
         eventService.deleteSubEvent(eventId, subEventId);
         return ResponseEntity.ok("Sub Event Deleted");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-landing-page-settings/{eventId}")
+    public ResponseEntity<LandingPage> getLandingPageSettings(@PathVariable UUID eventId) {
+        return ResponseEntity.ok(eventService.getLandingPageByEventId(eventId));
+    }
+
+    /**
+     * PATCH /api/events/{eventId}/landing-page
+     * Used when the Organizer clicks "Save". Handles both the first creation and partial updates.
+     */
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PatchMapping("/configure-landing-page/{eventId}")
+    public ResponseEntity<LandingPage> configureLandingPageSettings(
+            @PathVariable UUID eventId,
+            @Valid @RequestBody ConfigureLandingPageRequest request) {
+
+        LandingPage savedPage = eventService.configureLandingPage(eventId, request);
+        return ResponseEntity.ok(savedPage);
     }
 }

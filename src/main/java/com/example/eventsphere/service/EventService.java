@@ -3,22 +3,19 @@ package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.*;
-import com.example.eventsphere.enums.AppStatus;
-import com.example.eventsphere.enums.EventStatus;
-import com.example.eventsphere.enums.FileType;
-import com.example.eventsphere.enums.OrgRole;
+import com.example.eventsphere.enums.*;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.*;
 import com.example.eventsphere.utils.LocationUtil;
 import com.example.eventsphere.utils.SecurityUtil;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -32,10 +29,15 @@ public class EventService {
     private final CategoryRepository categoryRepository;
     private final SubEventRepository subEventRepository;
     private final TicketTierRepository ticketTierRepository;
+    private final LandingPageRepository landingPageRepository;
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    // The exact names of Arsam's Next.js components
+    private final List<String> VALID_TEMPLATES = List.of(Arrays.toString(TemplateType.values()));
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository) {
+    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository) {
         this.eventRepository = eventRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
@@ -44,8 +46,49 @@ public class EventService {
         this.categoryRepository = categoryRepository;
         this.subEventRepository = subEventRepository;
         this.ticketTierRepository = ticketTierRepository;
+        this.landingPageRepository = landingPageRepository;
     }
 
+    private void validateThemeConfig(String jsonString) {
+        try {
+            JsonNode rootNode = objectMapper.readTree(jsonString);
+
+            if (!rootNode.has("templateName")) {
+                throw new RuntimeException("Invalid payload: Missing required 'templateName' key.");
+            }
+
+            String requestedTemplate = rootNode.get("templateName").asText();
+            if (!VALID_TEMPLATES.contains(requestedTemplate)) {
+                throw new RuntimeException("Security Error: Invalid template selection.");
+            }
+        } catch (Exception e) {
+            log.error("Failed to parse theme config JSON: {}", jsonString);
+            throw new RuntimeException("Malformed JSON payload or invalid template.");
+        }
+    }
+
+    private void verifyEventOwnership(UUID eventId, User user) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        Organization org = organizationRepository.findById(event.getOrganizationId())
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
+
+        if(!org.getStatus().equals(AppStatus.ACTIVE)) {
+            throw new RuntimeException("Organization is not active");
+        }
+
+        OrganizationMember member = organizationMemberRepository
+                .findByOrganizationIdAndUserId(org.getId(), user.getId())
+                .orElseThrow(() -> new RuntimeException("Access denied."));
+
+
+        if (member.getRole() != OrgRole.OWNER) {
+            throw new RuntimeException("Only Organization Owners can manage.");
+        }
+    }
+
+    //Events
     public List<EventListDTO> getAllEventsForAdmin(){
         return mapper.mapList(eventRepository.findAll(),EventListDTO.class);
     }
@@ -252,9 +295,46 @@ public class EventService {
         eventRepository.save(event);
         log.info("Event '{}' updated successfully by User ID: {}", event.getTitle(), currentUser.getId());
 
-
     }
 
+    @Transactional
+    public Event publishEvent(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        // Verify ownership (Use your existing helper method here)
+        verifyEventOwnership(eventId, currentUser);
+
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        // 1. Check if they have at least one ticket
+        if (ticketTierRepository.findByEventId(eventId).isEmpty()) {
+            throw new RuntimeException("Cannot publish: You must create at least one ticket tier.");
+        }
+
+        // 2. Check if they have built a landing page
+        if (landingPageRepository.findByEventId(eventId).isEmpty()) {
+            throw new RuntimeException("Cannot publish: You must design a landing page first.");
+        }
+
+        event.setStatus(EventStatus.PUBLISHED); // Assuming status is a String or Enum
+        log.info("Event {} is now LIVE.", eventId);
+        return eventRepository.save(event);
+    }
+
+    @Transactional
+    public Event unpublishEvent(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        verifyEventOwnership(eventId, currentUser);
+
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        event.setStatus(EventStatus.DRAFT); // Reverts it to draft mode
+        log.info("Event {} has been unpublished.", eventId);
+        return eventRepository.save(event);
+    }
+
+    //Tickets
     @Transactional
     public TicketTier addTicketTier(UUID eventId, CreateTicketTierRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
@@ -360,7 +440,7 @@ public class EventService {
         log.info("Ticket Tier '{}' deleted successfully.", tier.getTierName());
     }
 
-
+    //SubEvents
     @Transactional
     public SubEvent addSubEvent(UUID eventId, CreateSubEventRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
@@ -509,24 +589,63 @@ public class EventService {
         subEventRepository.delete(subEvent);
     }
 
-    private void verifyEventOwnership(UUID eventId, User user) {
-        Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new RuntimeException("Event not found."));
+    //LandingPage
+    @Transactional
+    public LandingPage configureLandingPage(UUID eventId, ConfigureLandingPageRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        verifyEventOwnership(eventId, currentUser);
 
-        Organization org = organizationRepository.findById(event.getOrganizationId())
-                .orElseThrow(() -> new RuntimeException("Organization not found"));
+        // Fetch the existing page or create a new one
+        LandingPage landingPage = landingPageRepository.findByEventId(eventId)
+                .orElseGet(() -> {
+                    LandingPage newPage = new LandingPage();
+                    newPage.setEventId(eventId);
+                    newPage.setCreatedBy(currentUser.getId());
+                    newPage.setModifiedBy(currentUser.getId());
 
-        if(!org.getStatus().equals(AppStatus.ACTIVE)) {
-            throw new RuntimeException("Organization is not active");
+                    return newPage;
+                });
+        landingPage.setModifiedBy(currentUser.getId());
+
+        // --- 1. Safely Update the Custom Slug ---
+        if (request.getSlug() != null && !request.getSlug().isBlank()) {
+            // Only check the database if they are actually changing it to a NEW slug
+            if (!request.getSlug().equals(landingPage.getSlug())) {
+                Optional<LandingPage> existingSlugOwner = landingPageRepository.findBySlug(request.getSlug());
+                if (existingSlugOwner.isPresent() && !existingSlugOwner.get().getEventId().equals(eventId)) {
+                    throw new RuntimeException("This custom URL is already taken by another event.");
+                }
+            }
+            landingPage.setSlug(request.getSlug());
         }
 
-        OrganizationMember member = organizationMemberRepository
-                .findByOrganizationIdAndUserId(org.getId(), user.getId())
-                .orElseThrow(() -> new RuntimeException("Access denied."));
-
-
-        if (member.getRole() != OrgRole.OWNER) {
-            throw new RuntimeException("Only Organization Owners can manage tickets.");
+        // --- 2. Safely Update the Theme JSON ---
+        if (request.getThemeConfigJson() != null && !request.getThemeConfigJson().isBlank()) {
+            // Only validate the JSON if they actually sent a new JSON payload
+            validateThemeConfig(request.getThemeConfigJson());
+            landingPage.setThemeConfigJson(request.getThemeConfigJson());
         }
+
+        // --- 3. Final Safety Net for Brand New Pages ---
+        if (landingPage.getSlug() == null || landingPage.getThemeConfigJson() == null) {
+            throw new RuntimeException("Cannot create a new landing page without both a URL slug and a theme config.");
+        }
+
+        log.info("Landing Page configured for Event ID: {}", eventId);
+        return landingPageRepository.save(landingPage);
+    }
+
+
+    // Used by the Organizer to see their settings in the dashboard
+    public LandingPage getLandingPageByEventId(UUID eventId) {
+        verifyEventOwnership(eventId, Objects.requireNonNull(SecurityUtil.getCurrentUser()));
+        return landingPageRepository.findByEventId(eventId)
+                .orElseThrow(() -> new RuntimeException("Landing page not configured yet."));
+    }
+
+    // Used by the Public Web (Arsam's frontend) when someone visits the URL
+    public LandingPage getLandingPageBySlug(String customSlug) {
+        return landingPageRepository.findBySlug(customSlug)
+                .orElseThrow(() -> new RuntimeException("Page not found."));
     }
 }
