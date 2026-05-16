@@ -297,6 +297,19 @@ public class EventService {
 
     }
 
+    // Inside LandingPageService.java
+
+    public List<PublicEventCardDTO> getExplorePageEvents() {
+        // 1. Fetch only PUBLISHED events, ordered by upcoming date
+        // 1. Fetch DTOs directly from the database (fully populated including the slug)
+        List<PublicEventCardDTO> publishedEvents = eventRepository.findByStatusOrderByStartDatetimeAsc(EventStatus.PUBLISHED);
+
+        // 2. Filter out items where the slug is null or empty
+        return publishedEvents.stream()
+                .filter(event -> event.getSlug() != null && !event.getSlug().isBlank()) // Use event.getSlug() if DTO is a standard class, not a record
+                .toList();
+    }
+
     @Transactional
     public Event publishEvent(UUID eventId) {
         User currentUser = SecurityUtil.getCurrentUser();
@@ -647,5 +660,69 @@ public class EventService {
     public LandingPage getLandingPageBySlug(String customSlug) {
         return landingPageRepository.findBySlug(customSlug)
                 .orElseThrow(() -> new RuntimeException("Page not found."));
+    }
+
+    public PublicEventResponse getPublicEventDetails(String slug) {
+        // 1. Find the landing page by its slug
+        LandingPage landingPage = landingPageRepository.findBySlug(slug)
+                .orElseThrow(() -> new RuntimeException("The requested event page could not be found."));
+
+        // 2. Fetch the associated event details
+        Event event = eventRepository.findById(landingPage.getEventId())
+                .orElseThrow(() -> new RuntimeException("Associated event data is missing."));
+
+        // 3. THE BOUNCER CHECK: Enforce lifecycle validation
+        if (!EventStatus.PUBLISHED.equals(event.getStatus())) {
+            throw new RuntimeException("This event page is currently a private draft and is not active.");
+        }
+
+        // 4. Gather the related active data items
+        List<TicketTier> ticketTiers = ticketTierRepository.findByEventId(event.getId());
+        List<SubEvent> subEvents = subEventRepository.findByEventIdOrderByStartTimeAsc(event.getId());
+
+        // 5. Map everything into our Master DTO structure
+        PublicEventResponse.EventCoreDetails details = PublicEventResponse.EventCoreDetails.builder()
+                .title(event.getTitle())
+                .description(event.getDescription())
+                .imageUrl(event.getImageUrl())
+                .startDatetime(event.getStartDateTime())
+                .endDatetime(event.getEndDateTime())
+                .venueName(event.getVenue())
+                .formattedAddress(event.getAddress())
+                .searchTags(event.getTags())
+                .build();
+
+        PublicEventResponse.LandingPageDesign design = PublicEventResponse.LandingPageDesign.builder()
+                .customSlug(landingPage.getSlug())
+                .themeConfigJson(landingPage.getThemeConfigJson())
+                .build();
+
+        List<PublicEventResponse.TicketTierDetails> publicTickets = ticketTiers.stream()
+                .map(t -> PublicEventResponse.TicketTierDetails.builder()
+                        .id(t.getId())
+                        .tierName(t.getTierName())
+                        .price(t.getPrice())
+                        .isSoldOut(t.getQuantitySold() >= t.getTotalCapacity()) // Dynamic business calculation
+                        .build())
+                .toList();
+
+        List<PublicEventResponse.SubEventDetails> publicAgenda = subEvents.stream()
+                .map(s -> PublicEventResponse.SubEventDetails.builder()
+                        .id(s.getId())
+                        .title(s.getTitle())
+                        .description(s.getDescription())
+                        .startTime(s.getStartTime())
+                        .endTime(s.getEndTime())
+                        .roomOrLocation(s.getRoomOrLocation())
+                        .imageUrl(s.getImageUrl())
+                        .build())
+                .toList();
+
+        return PublicEventResponse.builder()
+                .eventDetails(details)
+                .landingPageDesign(design)
+                .tickets(publicTickets)
+                .agenda(publicAgenda)
+                .build();
     }
 }

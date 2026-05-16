@@ -2,7 +2,9 @@ package com.example.eventsphere.repository;
 
 import com.example.eventsphere.dto.EventDTO;
 import com.example.eventsphere.dto.EventMapMarkerDTO;
+import com.example.eventsphere.dto.PublicEventCardDTO;
 import com.example.eventsphere.entity.Event;
+import com.example.eventsphere.enums.EventStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -96,4 +98,27 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
     List<EventMapMarkerDTO> findAllEventLocationsForMap();
 
     boolean existsByTitleAndOrganizationId(String title, UUID organizationId);
+
+    @Query("""
+        SELECT new com.example.eventsphere.dto.PublicEventCardDTO(
+            e.title,
+            o.name,
+            c.name,
+            l.slug,
+            e.imageUrl,
+            e.startDateTime,
+            e.venue,
+            e.city,
+            e.state,
+            e.country,
+            e.tags
+        )
+        FROM Event e
+        JOIN Organization o ON e.organizationId = o.id
+        JOIN Category c ON e.categoryId = c.id
+        JOIN LandingPage l ON e.id = l.eventId
+        WHERE e.status = :status
+        ORDER BY e.startDateTime ASC
+        """)
+    List<PublicEventCardDTO> findByStatusOrderByStartDatetimeAsc(EventStatus status);
 }

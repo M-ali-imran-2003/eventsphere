@@ -182,4 +182,22 @@ public class EventController {
         LandingPage savedPage = eventService.configureLandingPage(eventId, request);
         return ResponseEntity.ok(savedPage);
     }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/publish/{eventId}")
+    public ResponseEntity<Event> publishEvent(@PathVariable UUID eventId) {
+        Event publishedEvent = eventService.publishEvent(eventId);
+        return ResponseEntity.ok(publishedEvent);
+    }
+
+    /**
+     * POST /api/events/{eventId}/unpublish
+     * Hides the event from the public and returns it to PENDING (Draft) status.
+     */
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/unpublish/{eventId}")
+    public ResponseEntity<Event> unpublishEvent(@PathVariable UUID eventId) {
+        Event unpublishedEvent = eventService.unpublishEvent(eventId);
+        return ResponseEntity.ok(unpublishedEvent);
+    }
 }

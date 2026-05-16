@@ -17,5 +17,5 @@ public interface LandingPageRepository extends JpaRepository<LandingPage, UUID> 
     Optional<LandingPage> findBySlug(String slug);
 
     // Validation: Check if a URL is already taken before saving
-    boolean existsByCustomSlug(String slug);
+    boolean existsBySlug(String slug);
 }
