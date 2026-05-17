@@ -73,7 +73,9 @@ public class SecurityConfig {
         // Add your production URL here later (e.g., "https://eventsphere.vercel.app")
         configuration.setAllowedOrigins(List.of(
                 "http://localhost:3000",
-                "http://localhost:5173"
+                "http://localhost:5173",
+                "https://web-eventsphere.vercel.app",
+                "https://admin-eventsphere.vercel.app"
         ));
 
         // 2. Explicitly allow standard HTTP methods
