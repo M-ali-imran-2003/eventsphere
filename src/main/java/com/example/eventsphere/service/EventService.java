@@ -8,6 +8,7 @@ import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.*;
 import com.example.eventsphere.utils.LocationUtil;
 import com.example.eventsphere.utils.SecurityUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
@@ -33,9 +34,6 @@ public class EventService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // The exact names of Arsam's Next.js components
-    private final List<String> VALID_TEMPLATES = List.of(Arrays.toString(TemplateType.values()));
-
     @Autowired
     public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository) {
         this.eventRepository = eventRepository;
@@ -58,12 +56,17 @@ public class EventService {
             }
 
             String requestedTemplate = rootNode.get("templateName").asText();
-            if (!VALID_TEMPLATES.contains(requestedTemplate)) {
+
+            // THE FIX: Try to map the string directly to the Enum
+            try {
+                TemplateType.valueOf(requestedTemplate);
+            } catch (IllegalArgumentException e) {
                 throw new RuntimeException("Security Error: Invalid template selection.");
             }
-        } catch (Exception e) {
+
+        } catch (JsonProcessingException e) {
             log.error("Failed to parse theme config JSON: {}", jsonString);
-            throw new RuntimeException("Malformed JSON payload or invalid template.");
+            throw new RuntimeException("Malformed JSON string. Check your quotes and formatting.");
         }
     }
 
@@ -149,7 +152,7 @@ public class EventService {
     }
 
     @Transactional
-    public Event createDraftEvent(UUID organizationId, CreateEventRequest request) {
+    public void createDraftEvent(UUID organizationId, CreateEventRequest request) {
         User currentUser = SecurityUtil.getCurrentUser();
         if (currentUser == null) {
             throw new RuntimeException("Unauthorized. Please log in.");
@@ -203,7 +206,6 @@ public class EventService {
         Event savedEvent = eventRepository.save(newEvent);
         log.info("Draft Event '{}' created successfully by User ID: {}", savedEvent.getTitle(), currentUser.getId());
 
-        return savedEvent;
     }
 
     @Transactional
@@ -311,7 +313,7 @@ public class EventService {
     }
 
     @Transactional
-    public Event publishEvent(UUID eventId) {
+    public void publishEvent(UUID eventId) {
         User currentUser = SecurityUtil.getCurrentUser();
         // Verify ownership (Use your existing helper method here)
         verifyEventOwnership(eventId, currentUser);
@@ -330,12 +332,17 @@ public class EventService {
         }
 
         event.setStatus(EventStatus.PUBLISHED); // Assuming status is a String or Enum
-        log.info("Event {} is now LIVE.", eventId);
-        return eventRepository.save(event);
+
+        try {
+            eventRepository.save(event);
+            log.info("Event {} is now LIVE.", eventId);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Couldn't publish the event"+e);
+        }
     }
 
     @Transactional
-    public Event unpublishEvent(UUID eventId) {
+    public void unpublishEvent(UUID eventId) {
         User currentUser = SecurityUtil.getCurrentUser();
         verifyEventOwnership(eventId, currentUser);
 
@@ -343,8 +350,13 @@ public class EventService {
                 .orElseThrow(() -> new RuntimeException("Event not found."));
 
         event.setStatus(EventStatus.DRAFT); // Reverts it to draft mode
-        log.info("Event {} has been unpublished.", eventId);
-        return eventRepository.save(event);
+
+        try {
+            eventRepository.save(event);
+            log.info("Event {} has been unpublished.", eventId);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Couldn't publish the event"+e);
+        }
     }
 
     //Tickets
@@ -491,7 +503,7 @@ public class EventService {
         subEvent.setEndTime(request.getEndTime());
         subEvent.setRoomOrLocation(request.getRoomOrLocation());
         subEvent.setCapacityLimit(request.getCapacityLimit());
-        subEvent.setRulesConfig(request.getRulesConfig());
+        if (request.getRulesConfig() != null && !request.getRulesConfig().isBlank()) subEvent.setRulesConfig(request.getRulesConfig());
         subEvent.setCreatedBy(currentUser.getId());
         subEvent.setModifiedBy(currentUser.getId());
 
@@ -620,8 +632,13 @@ public class EventService {
                 });
         landingPage.setModifiedBy(currentUser.getId());
 
-        // --- 1. Safely Update the Custom Slug ---
         if (request.getSlug() != null && !request.getSlug().isBlank()) {
+
+            // THE NEW CHECK: Manually enforce the Regex pattern in the Service layer
+            if (!request.getSlug().matches("^[a-z0-9-]+$")) {
+                throw new RuntimeException("Invalid slug format. Use only lowercase letters, numbers, and hyphens (no spaces allowed).");
+            }
+
             // Only check the database if they are actually changing it to a NEW slug
             if (!request.getSlug().equals(landingPage.getSlug())) {
                 Optional<LandingPage> existingSlugOwner = landingPageRepository.findBySlug(request.getSlug());
@@ -652,8 +669,9 @@ public class EventService {
     // Used by the Organizer to see their settings in the dashboard
     public LandingPage getLandingPageByEventId(UUID eventId) {
         verifyEventOwnership(eventId, Objects.requireNonNull(SecurityUtil.getCurrentUser()));
-        return landingPageRepository.findByEventId(eventId)
-                .orElseThrow(() -> new RuntimeException("Landing page not configured yet."));
+
+        // Return the page if it exists, otherwise safely return null
+        return landingPageRepository.findByEventId(eventId).orElse(null);
     }
 
     // Used by the Public Web (Arsam's frontend) when someone visits the URL

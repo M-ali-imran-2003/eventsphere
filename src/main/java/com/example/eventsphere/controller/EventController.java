@@ -51,12 +51,12 @@ public class EventController {
 
     @PreAuthorize("hasRole('ORGANIZER')")
     @PostMapping("/create-draft/{organizationId}")
-    public ResponseEntity<Event> createDraftEvent(
+    public ResponseEntity<String> createDraftEvent(
             @PathVariable UUID organizationId,
             @Valid @RequestBody CreateEventRequest request) {
 
-        Event draftEvent = eventService.createDraftEvent(organizationId, request);
-        return ResponseEntity.ok(draftEvent);
+        eventService.createDraftEvent(organizationId, request);
+        return ResponseEntity.ok("Event Draft Created");
     }
 
     @PreAuthorize("hasRole('ORGANIZER')")
@@ -94,7 +94,7 @@ public class EventController {
             @Valid @RequestBody CreateTicketTierRequest request) {
 
         TicketTier newTier = eventService.addTicketTier(eventId, request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newTier);
+        return ResponseEntity.status(HttpStatus.OK).body(newTier);
     }
 
     @PreAuthorize("hasRole('ORGANIZER')")
@@ -166,7 +166,13 @@ public class EventController {
     @PreAuthorize("hasRole('ORGANIZER')")
     @GetMapping("/get-landing-page-settings/{eventId}")
     public ResponseEntity<LandingPage> getLandingPageSettings(@PathVariable UUID eventId) {
-        return ResponseEntity.ok(eventService.getLandingPageByEventId(eventId));
+        LandingPage landingPage = eventService.getLandingPageByEventId(eventId);
+
+        if (landingPage == null) {
+            // Tells the frontend: "All good, but the user hasn't created a page yet."
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(landingPage);
     }
 
     /**
@@ -185,9 +191,9 @@ public class EventController {
 
     @PreAuthorize("hasRole('ORGANIZER')")
     @PostMapping("/publish/{eventId}")
-    public ResponseEntity<Event> publishEvent(@PathVariable UUID eventId) {
-        Event publishedEvent = eventService.publishEvent(eventId);
-        return ResponseEntity.ok(publishedEvent);
+    public ResponseEntity<String> publishEvent(@PathVariable UUID eventId) {
+        eventService.publishEvent(eventId);
+        return ResponseEntity.ok("Event Published Successfully");
     }
 
     /**
@@ -196,8 +202,8 @@ public class EventController {
      */
     @PreAuthorize("hasRole('ORGANIZER')")
     @PostMapping("/unpublish/{eventId}")
-    public ResponseEntity<Event> unpublishEvent(@PathVariable UUID eventId) {
-        Event unpublishedEvent = eventService.unpublishEvent(eventId);
-        return ResponseEntity.ok(unpublishedEvent);
+    public ResponseEntity<String> unpublishEvent(@PathVariable UUID eventId) {
+        eventService.unpublishEvent(eventId);
+        return ResponseEntity.ok("Event Unpublished Successfully");
     }
 }
