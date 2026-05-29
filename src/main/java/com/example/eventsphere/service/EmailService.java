@@ -1,11 +1,16 @@
 package com.example.eventsphere.service;
 
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import java.io.File;
 
 @Service
 @Slf4j
@@ -60,11 +65,32 @@ public class EmailService {
 
     public void sendEmail(String to, String subject, String body) {
         try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(to);
-            message.setSubject(subject);
-            message.setText(body);
-            // message.setFrom("your.email@gmail.com"); // Optional, usually inferred from properties
+
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, false, "UTF-8");
+
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(body);
+            helper.setFrom(mailUsername); // Optional, usually inferred from properties
+
+            javaMailSender.send(message);
+            log.info("Email successfully sent to {}", to);
+        } catch (Exception e) {
+            log.error("Exception while sending email to {}", to, e);
+        }
+    }
+    public void sendEmailWithAttachment(String to, String subject, String body, String filename, byte[] bytes) {
+        try {
+
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(body);
+            helper.addAttachment(filename,new ByteArrayResource(bytes));
+            helper.setFrom(mailUsername); // Optional, usually inferred from properties
 
             javaMailSender.send(message);
             log.info("Email successfully sent to {}", to);

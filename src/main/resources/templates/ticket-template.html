@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Event Tickets</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .ticket-box { border: 2px dashed #000; padding: 20px; margin-bottom: 20px; width: 400px; page-break-inside: avoid; }
+        .header { background-color: #f4f4f4; padding: 10px; text-align: center; }
+        .qr-code { text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<h2>Order Confirmation</h2>
+<p>Hi <span th:text="${buyer.name}"></span>,</p>
+<p>Here are your tickets for <strong th:text="${event.title}">Event Name</strong>.</p>
+
+<div th:each="ticket : ${tickets}" class="ticket-box">
+    <div class="header">
+        <h3 th:text="${event.title}">Event Name</h3>
+    </div>
+    <p><strong>Attendee:</strong> <span th:text="${ticket.assignedName}">Name</span></p>
+    <p><strong>Ticket ID:</strong> <span th:text="${ticket.id}">UUID</span></p>
+
+    <div class="qr-code">
+        <img th:src="@{'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + ${ticket.qrCodeHash}}" alt="QR Code"/>
+    </div>
+</div>
+
+</body>
+</html>

@@ -213,7 +213,7 @@ public class CheckoutService {
         walletTx.setCreatedAt(LocalDateTime.now());
 
         walletRepository.saveAndFlush(walletTx);
-//        ticketService.generateAndSendTickets(savedOrder, buyer);
+        ticketService.generateAndSendTickets(savedOrder, buyer);
 
         log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 
