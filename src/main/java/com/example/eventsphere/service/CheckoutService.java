@@ -1,68 +1,136 @@
 package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.CheckoutRequest;
-import com.example.eventsphere.entity.TicketTier;
-import com.example.eventsphere.repository.*;
-import com.example.eventsphere.service.PaymentProcessor;
 import com.example.eventsphere.dto.PaymentResult;
-import lombok.RequiredArgsConstructor;
+import com.example.eventsphere.entity.*;
+import com.example.eventsphere.enums.PaymentStatus;
+import com.example.eventsphere.enums.TransactionType;
+import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.Optional;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class CheckoutService {
 
-    // The Mock Gateway we just built
     private final PaymentProcessor paymentProcessor;
 
     // Repositories mapped to your DDL tables
     private final OrderRepository orderRepository;
     private final TicketTierRepository tierRepository;
     private final AttendeeTicketRepository attendeeTicketRepository;
+    private final DiscountCodeRepository discountCodeRepository;
     private final SubEventRegistrationRepository subEventRegRepository;
     private final WalletTransactionRepository walletRepository;
 
-    /**
-     * @Transactional ensures that if any database save fails or throws an error,
-     * the entire process rolls back. No half-saved orders!
-     */
+    // We need these to fetch the Workspace ID and handle Silent Registration
+    private final EventRepository eventRepository;
+    private final UserRepository userRepository;
+
+    public CheckoutService(PaymentProcessor paymentProcessor, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, EventRepository eventRepository, UserRepository userRepository) {
+        this.paymentProcessor = paymentProcessor;
+        this.orderRepository = orderRepository;
+        this.tierRepository = tierRepository;
+        this.attendeeTicketRepository = attendeeTicketRepository;
+        this.discountCodeRepository = discountCodeRepository;
+        this.subEventRegRepository = subEventRegRepository;
+        this.walletRepository = walletRepository;
+        this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
+    }
+    // private final DiscountCodeRepository discountRepository; // Assuming you have this
+
     @Transactional
     public String processCheckout(UUID eventId, CheckoutRequest request) {
         log.info("Starting checkout for user {} on event {}", request.getBuyerEmail(), eventId);
+
+        // Fetch the event to get the workspace_id later for the wallet
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+
+        // ==========================================
+        // PHASE 0: SILENT REGISTRATION
+        // ==========================================
+
+        // Check if user exists. If not, create a placeholder ATTENDEE account
+        User buyer = userRepository.findByEmail(request.getBuyerEmail()).orElseGet(() -> {
+            log.info("New email detected. Creating silent Attendee account.");
+            User newUser = new User();
+            newUser.setEmail(request.getBuyerEmail());
+            newUser.setName(request.getBuyerName());
+            newUser.setRole(UserRole.ATTENDEE); // Or however your roles are defined
+            // A real implementation would generate a random password here
+            return userRepository.save(newUser);
+        });
 
         // ==========================================
         // PHASE 1: PRE-CHECKS & MATH
         // ==========================================
 
-        // 1. Calculate Total Amount & Check Capacity
         BigDecimal totalAmount = BigDecimal.ZERO;
 
         for (CheckoutRequest.TicketSelection selection : request.getTicketSelections()) {
             TicketTier tier = tierRepository.findById(selection.getTierId())
                     .orElseThrow(() -> new RuntimeException("Ticket Tier Not Found"));
 
-            // Check if there are enough tickets available
+            // Check capacity
             int availableTickets = tier.getTotalCapacity() - tier.getQuantitySold();
             if (availableTickets < selection.getQuantity()) {
                 throw new RuntimeException("Not enough tickets available for tier: " + tier.getTierName());
             }
 
-            // BigDecimal immutable addition and multiplication
+            // UPDATE DB: Lock in the quantity so no one else can buy them during this transaction
+            tier.setQuantitySold(tier.getQuantitySold() + selection.getQuantity());
+            tierRepository.save(tier);
+
+            // Calculate cost
             BigDecimal selectionQuantity = BigDecimal.valueOf(selection.getQuantity());
             BigDecimal selectionCost = tier.getPrice().multiply(selectionQuantity);
             totalAmount = totalAmount.add(selectionCost);
         }
 
         // 2. Apply Discount Code (If provided)
-        if(request.getPromoCode() != null && !request.getPromoCode().isBlank()) {
+        if (request.getPromoCode() != null && !request.getPromoCode().isBlank()) {
+            DiscountCode discount = discountCodeRepository.findByCodeAndEventId(request.getPromoCode(), eventId)
+                    .orElseThrow(() -> new RuntimeException("Invalid Promo Code"));
 
-            // TODO: Fetch discount code from DB. Validate it. Subtract from totalAmount.
+            // Check 1: Is it manually deactivated?
+            if (!discount.isActive()) {
+                throw new RuntimeException("This promo code is no longer active.");
+            }
+
+            // Check 2: Has it reached its usage limit?
+            if (discount.getTimesUsed() >= discount.getMaxUses()) {
+                throw new RuntimeException("This promo code has reached its usage limit.");
+            }
+
+            // Check 3: Has it expired? (Assuming you have a valid_until column)
+            LocalDateTime now = LocalDateTime.now();
+            if (discount.getValidUntil() != null && now.isAfter(discount.getValidUntil())) {
+                throw new RuntimeException("This promo code has expired.");
+            }
+
+            log.info("Applying promo code: {}", request.getPromoCode());
+
+            // Calculate the actual discount.
+            // Assuming your table has a 'discount_percentage' column (e.g., 15 for 15% off)
+            BigDecimal percentage = discount.getDiscountValue();
+
+            // Formula: 1 - (percentage / 100). Example: 15% becomes 0.85 multiplier.
+            BigDecimal discountMultiplier = BigDecimal.ONE.subtract(percentage.divide(new BigDecimal("100")));
+            totalAmount = totalAmount.multiply(discountMultiplier);
+
+            // UPDATE DB: Lock in the usage so people can't abuse it!
+            // Because this is inside your @Transactional method, it will safely rollback if the payment fails.
+            discount.setTimesUsed(discount.getTimesUsed() + 1);
+            discountCodeRepository.save(discount);
         }
 
         // ==========================================
@@ -80,33 +148,70 @@ public class CheckoutService {
         // PHASE 3: FULFILLMENT (Database Writes)
         // ==========================================
 
-        // 3. Create the Order
-        // TODO: Insert row into `orders` table (buyerId, totalAmount, "PAID", payment.getTransactionId())
+        // 1. Create the Order
+        Order order = new Order();
+        order.setBuyerId(buyer.getId());
+        order.setEventId(eventId);
+        order.setTotalAmount(totalAmount);
+        order.setPaymentStatus(PaymentStatus.SUCCESS);
+        order.setOrderReference(generateHumanReadableId("ORD"));
+        order.setTransactionReference(payment.getTransactionId());
+        // order.setGatewayId(...); // Set if you track which gateway was used
+        order.setCreatedAt(LocalDateTime.now());
 
-        // 4. Generate the Tickets
+        Order savedOrder = orderRepository.save(order);
+
+        // 2. Generate the Tickets
+        String buyerName = request.getBuyerName();
+
         for (CheckoutRequest.TicketSelection selection : request.getTicketSelections()) {
             for (int i = 0; i < selection.getQuantity(); i++) {
 
-                // TODO: Insert row into `attendee_tickets` table
-                // Generate a random UUID for the QR code hash
-                // Set assigned_name to request.getBuyerFirstName() by default
+                AttendeeTicket ticket = new AttendeeTicket();
+                ticket.setOrderId(savedOrder.getId());
+                ticket.setTierId(selection.getTierId());
+                ticket.setTicketReference(generateHumanReadableId("TKT"));
+                ticket.setAssignedName(buyerName); // Default assignment
+                ticket.setAssignedEmail(buyer.getEmail());
+                ticket.setQrCodeHash(UUID.randomUUID().toString()); // The magic scan code
+                ticket.setCheckedIn(false);
 
-                // 5. Reserve Sub-Events (If any were selected)
-                if (request.getSelectedSubEventIds() != null) {
+                AttendeeTicket savedTicket = attendeeTicketRepository.save(ticket);
+
+                // 3. Reserve Sub-Events (If any)
+                if (request.getSelectedSubEventIds() != null && !request.getSelectedSubEventIds().isEmpty()) {
                     for (UUID subEventId : request.getSelectedSubEventIds()) {
-                        // TODO: Insert row into `ticket_sub_event_registrations`
+                        SubEventRegistration subReg = new SubEventRegistration();
+                        // Assuming your entity uses an embedded ID or just fields
+                        subReg.setTicketId(savedTicket.getId());
+                        subReg.setSubEventId(subEventId);
+                        subEventRegRepository.save(subReg);
                     }
                 }
             }
         }
 
-        // 6. Update Organizer's Wallet
-        // TODO: Insert row into `wallet_transactions` to credit the Organizer's workspace
+        // 4. Update Organizer's Wallet
+        WalletTransactions walletTx = new WalletTransactions();
+        walletTx.setOrganizationId(event.getOrganizationId()); // Assuming Event has workspace_id
+        walletTx.setAmount(totalAmount); // Give the money to the organizer
+        walletTx.setTransactionType(TransactionType.CREDIT);
+        walletTx.setDescription("Revenue from Order: " + savedOrder.getId());
+        walletTx.setReferenceId(savedOrder.getId());
+        walletTx.setStatus(PaymentStatus.SUCCESS);
+        walletTx.setCreatedAt(LocalDateTime.now());
 
-        log.info("Checkout successful! Order ID generated.");
+        walletRepository.save(walletTx);
 
-        // 7. Send the Email! (You can do this asynchronously later)
+        log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 
         return "Checkout complete! Transaction ID: " + payment.getTransactionId();
+    }
+
+    private String generateHumanReadableId(String prefix) {
+        // Generates a string like "ORD-2026-A4F89Z"
+        int year = LocalDateTime.now().getYear();
+        String randomString = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+        return prefix + "-" + year + "-" + randomString;
     }
 }

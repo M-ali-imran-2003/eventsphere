@@ -25,6 +25,9 @@ public class AttendeeTicket {
     @Column(name = "tier_id")
     private UUID tierId;
 
+    @Column(name = "ticket_ref")
+    private String ticketReference;
+
     @Column(name = "assigned_name")
     private String assignedName;
 

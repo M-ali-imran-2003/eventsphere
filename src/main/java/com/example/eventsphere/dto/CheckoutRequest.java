@@ -13,15 +13,19 @@ import java.util.UUID;
 public class CheckoutRequest {
 
     // --- 1. Buyer Information (Silent Registration Data) ---
-    @NotBlank(message = "First name is required")
-    private String buyerFirstName;
-
-    @NotBlank(message = "Last name is required")
-    private String buyerLastName;
+    @NotBlank(message = "Name is required")
+    private String buyerName;
 
     @Email(message = "Must be a valid email address")
     @NotBlank(message = "Email is required")
     private String buyerEmail;
+
+    // NEW: Highly recommended for the Buyer!
+    @NotBlank(message = "Phone number is required")
+    private String buyerPhone;
+
+    @NotBlank(message = "CNIC is required")
+    private String buyerCnic;
 
     // --- 2. Ticket Selections ---
     @NotEmpty(message = "You must select at least one ticket")

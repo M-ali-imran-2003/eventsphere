@@ -30,6 +30,9 @@ public class Order {
     @Column(name = "event_id")
     private UUID eventId;
 
+    @Column(name = "order_ref")
+    private String orderReference;
+
     @Column(name = "total_amount")
     private BigDecimal totalAmount;
 
