@@ -37,7 +37,7 @@ public class PublicEventCardDTO {
      List<String> tags) {
         this.title = title;
                 this.organization = organization;
-                this.category = slug;
+                this.category = category;
                 this.slug = slug; // CRITICAL: So the frontend knows where to link!// CRITICAL: So the frontend knows where to link!
                 this.image = image;
                 this.start = start;

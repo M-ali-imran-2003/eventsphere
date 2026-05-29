@@ -6,6 +6,7 @@ import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.PaymentStatus;
 import com.example.eventsphere.enums.TransactionType;
 import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -64,7 +65,12 @@ public class CheckoutService {
             log.info("New email detected. Creating silent Attendee account.");
             User newUser = new User();
             newUser.setEmail(request.getBuyerEmail());
+            newUser.setCnic(request.getBuyerCnic());
+            newUser.setPhoneNo(request.getBuyerPhone());
             newUser.setName(request.getBuyerName());
+            newUser.setStatus(UserStatus.ACTIVE);
+            newUser.setCreatedAt(LocalDateTime.now());
+            newUser.setModifiedAt(LocalDateTime.now());
             newUser.setRole(UserRole.ATTENDEE); // Or however your roles are defined
             // A real implementation would generate a random password here
             return userRepository.save(newUser);

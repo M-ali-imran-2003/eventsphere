@@ -5,6 +5,7 @@ import com.example.eventsphere.entity.Event;
 import com.example.eventsphere.entity.LandingPage;
 import com.example.eventsphere.entity.SubEvent;
 import com.example.eventsphere.entity.TicketTier;
+import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
