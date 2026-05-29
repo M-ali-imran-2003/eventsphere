@@ -182,7 +182,9 @@ public class CheckoutService {
                 ticket.setOrderId(savedOrder.getId());
                 ticket.setTierId(selection.getTierId());
                 ticket.setTicketReference(generateHumanReadableId("TKT"));
-                ticket.setAssignedName(buyerName); // Default assignment
+                ticket.setAssignedName(buyerName);
+                ticket.setAssignedCnic(request.getBuyerCnic()); // Default assignment
+                ticket.setAssignedPhone(request.getBuyerPhone()); // Default assignment
                 ticket.setAssignedEmail(buyer.getEmail());
                 ticket.setQrCodeHash(UUID.randomUUID().toString()); // The magic scan code
                 ticket.setCheckedIn(false);
@@ -223,7 +225,10 @@ public class CheckoutService {
     private String generateHumanReadableId(String prefix) {
         // Generates a string like "ORD-2026-A4F89Z"
         int year = LocalDateTime.now().getYear();
+        int month = LocalDateTime.now().getMonthValue();
+        int day = LocalDateTime.now().getDayOfMonth();
+
         String randomString = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
-        return prefix + "-" + year + "-" + randomString;
+        return prefix + "-" + year+month+day + "-" + randomString;
     }
 }

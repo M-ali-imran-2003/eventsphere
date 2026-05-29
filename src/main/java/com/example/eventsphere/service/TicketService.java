@@ -6,10 +6,15 @@ import com.example.eventsphere.entity.Order;
 import com.example.eventsphere.entity.User;
 import com.example.eventsphere.repository.AttendeeTicketRepository;
 import com.example.eventsphere.repository.EventRepository;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -20,6 +25,7 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.Base64;
 import java.util.List;
 
 @Slf4j
@@ -49,10 +55,34 @@ public class TicketService {
             List<AttendeeTicket> tickets = ticketRepository.findByOrderId(order.getId())
                     .orElseThrow(() -> new RuntimeException("Tickets not found"));
 
+            for (AttendeeTicket ticket : tickets) {
+                try {
+                    // ENCODE ONLY THE RAW UUID HASH STRING
+                    String qrData = ticket.getQrCodeHash();
+
+                    BitMatrix bitMatrix = new MultiFormatWriter().encode(qrData, BarcodeFormat.QR_CODE, 200, 200);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
+
+                    String base64Qr = "data:image/png;base64," + Base64.getEncoder().encodeToString(baos.toByteArray());
+
+                    // Temporarily change the hash string into the Base64 image data for Thymeleaf to print
+                    ticket.setQrCodeHash(base64Qr);
+                } catch (Exception qrEx) {
+                    log.error("Failed to generate QR code image for ticket reference: {}", ticket.getTicketReference(), qrEx);
+                }
+            }
+
             // ========================================================
             // STEP 1: RENDER THE HTML TEMPLATE (Thymeleaf)
             // ========================================================
             Context context = new Context();
+            try {
+                String logoPath = new ClassPathResource("static/images/logo.png").getURI().toString();
+                context.setVariable("logoPath", logoPath); // Pass string starting with file:/...
+            } catch (Exception e) {
+                context.setVariable("logoPath", "");
+            }
             context.setVariable("buyer", buyer);
             context.setVariable("order", order);
             context.setVariable("event", event);
