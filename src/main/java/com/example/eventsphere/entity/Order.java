@@ -22,11 +22,9 @@ public class Order {
     @Column(name = "order_id")
     private UUID id;
 
-    @NotBlank(message = "Buyer is required")
     @Column(name = "buyer_id")
     private UUID buyerId;
 
-    @NotBlank(message = "Event is required")
     @Column(name = "event_id")
     private UUID eventId;
 

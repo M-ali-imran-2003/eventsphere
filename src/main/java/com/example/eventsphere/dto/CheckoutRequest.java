@@ -1,5 +1,6 @@
 package com.example.eventsphere.dto;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -29,6 +30,7 @@ public class CheckoutRequest {
 
     // --- 2. Ticket Selections ---
     @NotEmpty(message = "You must select at least one ticket")
+    @Valid
     private List<TicketSelection> ticketSelections;
 
     // --- 3. Sub-Event RSVPs (Optional) ---

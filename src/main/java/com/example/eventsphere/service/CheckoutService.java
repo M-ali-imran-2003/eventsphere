@@ -30,12 +30,13 @@ public class CheckoutService {
     private final DiscountCodeRepository discountCodeRepository;
     private final SubEventRegistrationRepository subEventRegRepository;
     private final WalletTransactionRepository walletRepository;
+    private final TicketService ticketService;
 
     // We need these to fetch the Workspace ID and handle Silent Registration
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
 
-    public CheckoutService(PaymentProcessor paymentProcessor, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, EventRepository eventRepository, UserRepository userRepository) {
+    public CheckoutService(PaymentProcessor paymentProcessor, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, TicketService ticketService, EventRepository eventRepository, UserRepository userRepository) {
         this.paymentProcessor = paymentProcessor;
         this.orderRepository = orderRepository;
         this.tierRepository = tierRepository;
@@ -43,6 +44,7 @@ public class CheckoutService {
         this.discountCodeRepository = discountCodeRepository;
         this.subEventRegRepository = subEventRegRepository;
         this.walletRepository = walletRepository;
+        this.ticketService = ticketService;
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
     }
@@ -68,12 +70,15 @@ public class CheckoutService {
             newUser.setCnic(request.getBuyerCnic());
             newUser.setPhoneNo(request.getBuyerPhone());
             newUser.setName(request.getBuyerName());
+            String emailPrefix = request.getBuyerEmail().split("@")[0];
+            String uniqueSuffix = UUID.randomUUID().toString().substring(0, 4);
+            newUser.setUsername(emailPrefix + "_" + uniqueSuffix);
             newUser.setStatus(UserStatus.ACTIVE);
             newUser.setCreatedAt(LocalDateTime.now());
             newUser.setModifiedAt(LocalDateTime.now());
             newUser.setRole(UserRole.ATTENDEE); // Or however your roles are defined
             // A real implementation would generate a random password here
-            return userRepository.save(newUser);
+            return userRepository.saveAndFlush(newUser);
         });
 
         // ==========================================
@@ -94,7 +99,7 @@ public class CheckoutService {
 
             // UPDATE DB: Lock in the quantity so no one else can buy them during this transaction
             tier.setQuantitySold(tier.getQuantitySold() + selection.getQuantity());
-            tierRepository.save(tier);
+            tierRepository.saveAndFlush(tier);
 
             // Calculate cost
             BigDecimal selectionQuantity = BigDecimal.valueOf(selection.getQuantity());
@@ -136,7 +141,7 @@ public class CheckoutService {
             // UPDATE DB: Lock in the usage so people can't abuse it!
             // Because this is inside your @Transactional method, it will safely rollback if the payment fails.
             discount.setTimesUsed(discount.getTimesUsed() + 1);
-            discountCodeRepository.save(discount);
+            discountCodeRepository.saveAndFlush(discount);
         }
 
         // ==========================================
@@ -165,7 +170,7 @@ public class CheckoutService {
         // order.setGatewayId(...); // Set if you track which gateway was used
         order.setCreatedAt(LocalDateTime.now());
 
-        Order savedOrder = orderRepository.save(order);
+        Order savedOrder = orderRepository.saveAndFlush(order);
 
         // 2. Generate the Tickets
         String buyerName = request.getBuyerName();
@@ -182,7 +187,7 @@ public class CheckoutService {
                 ticket.setQrCodeHash(UUID.randomUUID().toString()); // The magic scan code
                 ticket.setCheckedIn(false);
 
-                AttendeeTicket savedTicket = attendeeTicketRepository.save(ticket);
+                AttendeeTicket savedTicket = attendeeTicketRepository.saveAndFlush(ticket);
 
                 // 3. Reserve Sub-Events (If any)
                 if (request.getSelectedSubEventIds() != null && !request.getSelectedSubEventIds().isEmpty()) {
@@ -191,7 +196,7 @@ public class CheckoutService {
                         // Assuming your entity uses an embedded ID or just fields
                         subReg.setTicketId(savedTicket.getId());
                         subReg.setSubEventId(subEventId);
-                        subEventRegRepository.save(subReg);
+                        subEventRegRepository.saveAndFlush(subReg);
                     }
                 }
             }
@@ -207,7 +212,8 @@ public class CheckoutService {
         walletTx.setStatus(PaymentStatus.SUCCESS);
         walletTx.setCreatedAt(LocalDateTime.now());
 
-        walletRepository.save(walletTx);
+        walletRepository.saveAndFlush(walletTx);
+//        ticketService.generateAndSendTickets(savedOrder, buyer);
 
         log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 

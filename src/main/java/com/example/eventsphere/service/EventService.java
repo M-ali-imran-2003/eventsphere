@@ -700,6 +700,7 @@ public class EventService {
 
         // 5. Map everything into our Master DTO structure
         PublicEventResponse.EventCoreDetails details = PublicEventResponse.EventCoreDetails.builder()
+                .id(event.getId())
                 .title(event.getTitle())
                 .description(event.getDescription())
                 .imageUrl(event.getImageUrl())

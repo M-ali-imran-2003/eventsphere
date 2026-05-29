@@ -23,6 +23,7 @@ public class PublicEventResponse {
     @Data
     @Builder
     public static class EventCoreDetails {
+        private UUID id;
         private String title;
         private String description;
         private String imageUrl;
