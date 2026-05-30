@@ -68,5 +68,12 @@ public class OrganizationController {
         return ResponseEntity.ok(myOrg);// If not found, return 404
     }
 
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/wallet/{organizationId}")
+    public ResponseEntity<WalletDashboardResponse> getWalletDashboard(@PathVariable UUID organizationId) {
+        WalletDashboardResponse walletData = organizationService.getWalletDashboard(organizationId);
+        return ResponseEntity.ok(walletData);
+    }
+
 
 }

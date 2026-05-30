@@ -4,13 +4,12 @@ import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.Organization;
 import com.example.eventsphere.entity.OrganizationMember;
 import com.example.eventsphere.entity.User;
-import com.example.eventsphere.enums.AppStatus;
-import com.example.eventsphere.enums.FileType;
-import com.example.eventsphere.enums.OrgRole;
-import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.entity.WalletTransactions;
+import com.example.eventsphere.enums.*;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.OrganizationMemberRepository;
 import com.example.eventsphere.repository.OrganizationRepository;
+import com.example.eventsphere.repository.WalletTransactionRepository;
 import com.example.eventsphere.utils.SecurityUtil;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -32,13 +32,15 @@ public class OrganizationService {
     private final OrganizationRepository organizationRepository;
     private final OrganizationMemberRepository organizationMemberRepository;
     private final FileService fileService;
+    private final WalletTransactionRepository walletRepository;
 
     @Autowired
-    public OrganizationService(GenericMapper mapper, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, FileService fileService) {
+    public OrganizationService(GenericMapper mapper, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, FileService fileService, WalletTransactionRepository walletRepository) {
         this.mapper = mapper;
         this.organizationRepository = organizationRepository;
         this.organizationMemberRepository = organizationMemberRepository;
         this.fileService = fileService;
+        this.walletRepository = walletRepository;
     }
 
     public List<OrganizationListDTO> getAllOrganization() {
@@ -213,5 +215,47 @@ public class OrganizationService {
         org.setModifiedBy(currentUser.getId());
         org.setModifiedAt(LocalDateTime.now());
         return organizationRepository.save(org);
+    }
+    // You will need to inject your WalletTransactionRepository at the top:
+    // private final WalletTransactionRepository walletRepository;
+
+    public WalletDashboardResponse getWalletDashboard(UUID organizationId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) {
+            throw new RuntimeException("Unauthorized. Please log in.");
+        }
+        OrganizationMember member = organizationMemberRepository.findByOrganizationIdAndUserId(organizationId, currentUser.getId())
+                .orElseThrow(() -> new RuntimeException("You are not a member of this organization."));
+
+        // Fetch all transactions, newest first
+        List<WalletTransactions> transactions = walletRepository.findByOrganizationIdOrderByCreatedAtDesc(organizationId);
+
+        BigDecimal totalBalance = BigDecimal.ZERO;
+        List<WalletTransactionDto> transactionDtos = new ArrayList<>();
+
+        for (WalletTransactions tx : transactions) {
+
+            // Calculate the rolling balance
+            // Assuming TransactionType is an Enum or String. Adjust to your specific implementation.
+            if (TransactionType.CREDIT.equals(tx.getTransactionType())) {
+                totalBalance = totalBalance.add(tx.getAmount());
+            } else if (TransactionType.DEBIT.equals(tx.getTransactionType())) {
+                totalBalance = totalBalance.subtract(tx.getAmount());
+            }
+
+            // Map to DTO
+            transactionDtos.add(WalletTransactionDto.builder()
+                    .transactionId(tx.getId())
+                    .amount(tx.getAmount())
+                    .transactionType(tx.getTransactionType().name())
+                    .description(tx.getDescription())
+                    .createdAt(tx.getCreatedAt())
+                    .build());
+        }
+
+        return WalletDashboardResponse.builder()
+                .availableBalance(totalBalance)
+                .recentTransactions(transactionDtos)
+                .build();
     }
 }

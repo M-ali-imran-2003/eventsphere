@@ -22,7 +22,6 @@ public class AdminController {
 
         this.userService = userService;
         this.adminService = adminService;
-
         this.categoryService = categoryService;
     }
 

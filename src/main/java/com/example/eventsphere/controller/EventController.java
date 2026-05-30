@@ -7,6 +7,7 @@ import com.example.eventsphere.entity.SubEvent;
 import com.example.eventsphere.entity.TicketTier;
 import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
+import com.example.eventsphere.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,9 +25,11 @@ import java.util.UUID;
 public class EventController {
 
     private final EventService eventService;
+    private final OrderService orderService;
 
-    public EventController(EventService eventService) {
+    public EventController(EventService eventService, OrderService orderService) {
         this.eventService = eventService;
+        this.orderService = orderService;
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -206,5 +209,12 @@ public class EventController {
     public ResponseEntity<String> unpublishEvent(@PathVariable UUID eventId) {
         eventService.unpublishEvent(eventId);
         return ResponseEntity.ok("Event Unpublished Successfully");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/orders/{eventId}")
+    public ResponseEntity<List<OrderSummaryResponse>> getEventOrders(@PathVariable UUID eventId) {
+        List<OrderSummaryResponse> orders = orderService.getEventOrders(eventId);
+        return ResponseEntity.ok(orders);
     }
 }
