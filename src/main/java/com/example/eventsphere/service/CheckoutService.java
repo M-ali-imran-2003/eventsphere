@@ -51,7 +51,6 @@ public class CheckoutService {
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
     }
-    // private final DiscountCodeRepository discountRepository; // Assuming you have this
 
     @Transactional
     public String processCheckout(UUID eventId, CheckoutRequest request) {
