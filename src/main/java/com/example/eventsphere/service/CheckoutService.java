@@ -1,6 +1,7 @@
 package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.CheckoutRequest;
+import com.example.eventsphere.dto.CheckoutResponse;
 import com.example.eventsphere.dto.PaymentResult;
 import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.*;
@@ -50,7 +51,7 @@ public class CheckoutService {
     }
 
     @Transactional
-    public String processCheckout(UUID eventId, CheckoutRequest request) {
+    public CheckoutResponse processCheckout(UUID eventId, CheckoutRequest request) {
         log.info("Starting checkout for user {} on event {}", request.getBuyerEmail(), eventId);
 
         // Fetch the event to get the workspace_id later for the wallet
@@ -139,9 +140,12 @@ public class CheckoutService {
             // Assuming your table has a 'discount_percentage' column (e.g., 15 for 15% off)
             BigDecimal percentage = discount.getDiscountValue();
 
-            // Formula: 1 - (percentage / 100). Example: 15% becomes 0.85 multiplier.
-            BigDecimal discountMultiplier = BigDecimal.ONE.subtract(percentage.divide(new BigDecimal("100")));
-            totalAmount = totalAmount.multiply(discountMultiplier);
+            // Use scale of 2 and RoundingMode to prevent ArithmeticException on weird percentages!
+            BigDecimal discountFraction = percentage.divide(new BigDecimal("100"), 2, java.math.RoundingMode.HALF_UP);
+            BigDecimal discountMultiplier = BigDecimal.ONE.subtract(discountFraction);
+
+            // Also round the final amount to 2 decimal places so the payment gateway doesn't reject it
+            totalAmount = totalAmount.multiply(discountMultiplier).setScale(2, java.math.RoundingMode.HALF_UP);
 
             // UPDATE DB: Lock in the usage so people can't abuse it!
             // Because this is inside your @Transactional method, it will safely rollback if the payment fails.
@@ -220,11 +224,17 @@ public class CheckoutService {
         walletTx.setCreatedAt(LocalDateTime.now());
 
         walletRepository.saveAndFlush(walletTx);
-        ticketService.generateAndSendTickets(savedOrder, buyer, isNewUser, rawTempPassword);
+        //ticketService.generateAndSendTickets(savedOrder, buyer, isNewUser, rawTempPassword);
         log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 
-        return "Checkout complete! Order ID: " + order.getOrderReference() +" \nKindly check your email for Tickets and further details";
+        return CheckoutResponse.builder()
+                .success(true)
+                .message("Payment successful. Kindly check your email for Ticket details.")
+                .orderReference(order.getOrderReference())
+                .totalPaid(totalAmount)
+                .totalTickets(request.getTicketSelections().stream().mapToInt(CheckoutRequest.TicketSelection::getQuantity).sum())
+                .receiptEmail(buyer.getEmail())
+                .build();
     }
-
 
 }

@@ -26,9 +26,6 @@ public class DiscountCode {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "discount_type")
-    private String discountType;
-
     @Column(name = "discount_value")
     private BigDecimal discountValue;
 
@@ -36,7 +33,7 @@ public class DiscountCode {
     private int maxUses;
 
     @Column(name = "times_used")
-    private int timesUsed;
+    private int timesUsed = 0;
 
     @Column(name = "status")
     private AppStatus status;

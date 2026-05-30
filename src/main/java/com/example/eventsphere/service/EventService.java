@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -31,12 +32,13 @@ public class EventService {
     private final CategoryRepository categoryRepository;
     private final SubEventRepository subEventRepository;
     private final TicketTierRepository ticketTierRepository;
+    private final DiscountCodeRepository discountCodeRepository;
     private final LandingPageRepository landingPageRepository;
     private final SponsorRepository sponsorRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository, SponsorRepository sponsorRepository) {
+    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, SponsorRepository sponsorRepository) {
         this.eventRepository = eventRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
@@ -45,6 +47,7 @@ public class EventService {
         this.categoryRepository = categoryRepository;
         this.subEventRepository = subEventRepository;
         this.ticketTierRepository = ticketTierRepository;
+        this.discountCodeRepository = discountCodeRepository;
         this.landingPageRepository = landingPageRepository;
         this.sponsorRepository = sponsorRepository;
     }
@@ -807,5 +810,121 @@ public class EventService {
             throw new RuntimeException("Sponsor not found");
         }
         sponsorRepository.deleteById(sponsorId);
+    }
+
+    public DiscountCode createDiscountCode(UUID eventId, DiscountCodeRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+
+        // Prevent duplicate codes for the same event
+        if (discountCodeRepository.existsByCodeAndEventId(request.getCode().toUpperCase(), eventId)) {
+            throw new RuntimeException("A discount code with this name already exists for this event.");
+        }
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event Not Found"));
+
+        if(request.getValidUntil().isAfter(event.getEndDateTime())) throw new RuntimeException("Discount Validity Cannot be after Event end date");
+
+        DiscountCode discount = new DiscountCode();
+        discount.setEventId(eventId);
+        discount.setCode(request.getCode().toUpperCase()); // Normalize to uppercase
+        discount.setDiscountValue(request.getDiscountValue());
+        discount.setMaxUses(request.getMaxUses());
+        discount.setTimesUsed(0); // Always starts at 0
+        discount.setValidUntil(request.getValidUntil());
+        discount.setStatus(AppStatus.ACTIVE);
+        discount.setCreatedAt(LocalDateTime.now());
+        discount.setCreatedBy(currentUser.getId());
+        discount.setModifiedAt(LocalDateTime.now());
+        discount.setModifiedBy(currentUser.getId());
+
+        return discountCodeRepository.save(discount);
+    }
+
+    // 2. READ
+    public List<DiscountCode> getEventDiscountCodes(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+        return discountCodeRepository.findByEventId(eventId);
+    }
+
+    // 3. UPDATE (Edit all details)
+    public DiscountCode updateDiscountCode(UUID eventId, UUID codeId, DiscountCodeRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+
+        DiscountCode discount = discountCodeRepository.findById(codeId)
+                .orElseThrow(() -> new RuntimeException("Discount Code not found"));
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event Not Found"));
+
+        if(request.getMaxUses() < discount.getTimesUsed()) throw new RuntimeException("Cannot decrease the usage limit below times used");
+        if(request.getValidUntil().isAfter(event.getEndDateTime())) throw new RuntimeException("Discount Validity Cannot be after event end date");
+
+        // Update the fields
+        discount.setCode(request.getCode().toUpperCase());
+        discount.setDiscountValue(request.getDiscountValue());
+        discount.setMaxUses(request.getMaxUses());
+        discount.setValidUntil(request.getValidUntil());
+        discount.setModifiedAt(LocalDateTime.now());
+        discount.setModifiedBy(currentUser.getId());
+
+        return discountCodeRepository.save(discount);
+    }
+
+    // 4. QUICK TOGGLE STATUS (Turn ON/OFF quickly without editing everything)
+    public DiscountCode toggleStatus(UUID eventId, UUID codeId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+
+        // 1. Fetch the discount or throw an error if missing
+        DiscountCode discount = discountCodeRepository.findById(codeId)
+                .orElseThrow(() -> new RuntimeException("Discount Code not found with ID: " + codeId));
+
+        // 2. Safely read current status and toggle it
+        AppStatus currentStatus = discount.getStatus();
+
+        // If it is currently ACTIVE, make it INACTIVE. Otherwise, make it ACTIVE.
+        AppStatus newStatus = AppStatus.ACTIVE.equals(currentStatus) ? AppStatus.INACTIVE : AppStatus.ACTIVE;
+
+        // 3. Save and return
+        discount.setStatus(newStatus);
+        return discountCodeRepository.save(discount);
+    }
+
+    // 5. DELETE
+    public void deleteDiscountCode(UUID eventId, UUID codeId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+
+        if (!discountCodeRepository.existsById(codeId)) {
+            throw new RuntimeException("Discount Code not found");
+        }
+        discountCodeRepository.deleteById(codeId);
+    }
+    public BigDecimal validatePromoCodeForPublic(UUID eventId, String code) {
+        DiscountCode discount = discountCodeRepository.findByCodeAndEventId(code.toUpperCase(), eventId)
+                .orElseThrow(() -> new RuntimeException("Invalid Promo Code."));
+
+        if (!discount.getStatus().equals(AppStatus.ACTIVE)) {
+            throw new RuntimeException("This promo code is no longer active.");
+        }
+
+        if (discount.getTimesUsed() >= discount.getMaxUses()) {
+            throw new RuntimeException("This promo code has reached its usage limit.");
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        if (discount.getValidUntil() != null && now.isAfter(discount.getValidUntil())) {
+            throw new RuntimeException("This promo code has expired.");
+        }
+
+        // If it passes all checks, return the percentage (e.g., 15.0)
+        return discount.getDiscountValue();
     }
 }
