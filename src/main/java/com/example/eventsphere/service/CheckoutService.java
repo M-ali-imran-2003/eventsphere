@@ -8,6 +8,7 @@ import com.example.eventsphere.enums.TransactionType;
 import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.*;
+import com.example.eventsphere.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -84,7 +85,7 @@ public class CheckoutService {
             newUser.setModifiedAt(LocalDateTime.now());
             newUser.setRole(UserRole.ATTENDEE); // Or however your roles are defined
             // A real implementation would generate a random password here
-            rawTempPassword = generateTempPassword();
+            rawTempPassword = SecurityUtil.generateTempPassword();
             newUser.setPassword(passwordEncoder.encode(rawTempPassword));
             buyer = userRepository.saveAndFlush(newUser);
         }
@@ -173,7 +174,7 @@ public class CheckoutService {
         order.setEventId(eventId);
         order.setTotalAmount(totalAmount);
         order.setPaymentStatus(PaymentStatus.SUCCESS);
-        order.setOrderReference(generateHumanReadableId("ORD"));
+        order.setOrderReference(SecurityUtil.generateHumanReadableId("ORD"));
         order.setTransactionReference(payment.getTransactionId());
         // order.setGatewayId(...); // Set if you track which gateway was used
         order.setCreatedAt(LocalDateTime.now());
@@ -189,7 +190,7 @@ public class CheckoutService {
                 AttendeeTicket ticket = new AttendeeTicket();
                 ticket.setOrderId(savedOrder.getId());
                 ticket.setTierId(selection.getTierId());
-                ticket.setTicketReference(generateHumanReadableId("TKT"));
+                ticket.setTicketReference(SecurityUtil.generateHumanReadableId("TKT"));
                 ticket.setAssignedName(buyerName);
                 ticket.setAssignedCnic(request.getBuyerCnic()); // Default assignment
                 ticket.setAssignedPhone(request.getBuyerPhone()); // Default assignment
@@ -229,16 +230,5 @@ public class CheckoutService {
         return "Checkout complete! Order ID: " + order.getOrderReference() +" \nKindly check your email for Tickets and further details";
     }
 
-    private String generateHumanReadableId(String prefix) {
-        // Generates a string like "ORD-2026-A4F89Z"
-        int year = LocalDateTime.now().getYear();
-        int month = LocalDateTime.now().getMonthValue();
-        int day = LocalDateTime.now().getDayOfMonth();
 
-        String randomString = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
-        return prefix + "-" + year+month+day + "-" + randomString;
-    }
-    private String generateTempPassword() {
-        return "Evnt-" + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
-    }
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class SecurityUtil {
     private  SecurityUtil() {}
@@ -36,7 +38,18 @@ public class SecurityUtil {
     public static boolean isAuthenticated() {
         return getCurrentUser() != null;
     }
+    public static String generateHumanReadableId(String prefix) {
+        // Generates a string like "ORD-2026-A4F89Z"
+        int year = LocalDateTime.now().getYear();
+        int month = LocalDateTime.now().getMonthValue();
+        int day = LocalDateTime.now().getDayOfMonth();
 
+        String randomString = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+        return prefix + "-" + year+month+day + "-" + randomString;
+    }
+    public static String generateTempPassword() {
+        return "Evnt-" + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+    }
     public static String hashSHA256(String rawString) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

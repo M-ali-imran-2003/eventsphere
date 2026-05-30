@@ -10,6 +10,8 @@ import java.util.UUID;
 @Builder
 public class MyTicketResponse {
     private UUID ticketId;
+    private String ticketReference;
+    private String orderReference;
     private String eventName;
     private LocalDateTime eventDate;
     private String venue;

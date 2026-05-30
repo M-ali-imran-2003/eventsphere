@@ -11,6 +11,9 @@ import java.util.UUID;
 @Repository
 public interface AttendeeTicketRepository extends JpaRepository<AttendeeTicket, UUID> {
 
+    // Fetches all tickets where this user is the assigned attendee
+    List<AttendeeTicket> findByAssignedEmail(String email);
+
     Optional<List<AttendeeTicket>> findByOrderId(UUID orderId);
 
 }

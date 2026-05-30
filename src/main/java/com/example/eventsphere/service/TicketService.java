@@ -1,16 +1,18 @@
 package com.example.eventsphere.service;
 
-import com.example.eventsphere.entity.AttendeeTicket;
-import com.example.eventsphere.entity.Event;
-import com.example.eventsphere.entity.Order;
-import com.example.eventsphere.entity.User;
-import com.example.eventsphere.repository.AttendeeTicketRepository;
-import com.example.eventsphere.repository.EventRepository;
+import com.example.eventsphere.dto.MyTicketResponse;
+import com.example.eventsphere.dto.TicketTransferRequest;
+import com.example.eventsphere.entity.*;
+import com.example.eventsphere.enums.UserRole;
+import com.example.eventsphere.enums.UserStatus;
+import com.example.eventsphere.repository.*;
+import com.example.eventsphere.utils.SecurityUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
@@ -18,6 +20,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -25,8 +28,8 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.Base64;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -36,12 +39,20 @@ public class TicketService {
     private final SpringTemplateEngine templateEngine;
     private final AttendeeTicketRepository ticketRepository;
     private final EventRepository eventRepository;
+    private final OrderRepository orderRepository;
+    private final TicketTierRepository tierRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public TicketService(EmailService emailService, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository) {
+    public TicketService(EmailService emailService, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, TicketTierRepository tierRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.emailService = emailService;
         this.templateEngine = templateEngine;
         this.ticketRepository = ticketRepository;
         this.eventRepository = eventRepository;
+        this.orderRepository = orderRepository;
+        this.tierRepository = tierRepository;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Async
@@ -142,5 +153,107 @@ public class TicketService {
         } catch (Exception e) {
             log.error("Failed to send welcome email to {}", to, e);
         }
+    }
+
+    public List<MyTicketResponse> getMyTickets() {
+
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
+
+        // 1. Fetch raw tickets assigned to this email
+        List<AttendeeTicket> rawTickets = ticketRepository.findByAssignedEmail(user.getEmail());
+
+        List<MyTicketResponse> responseList = new ArrayList<>();
+
+        // 2. Map them to the frontend DTO
+        for (AttendeeTicket ticket : rawTickets) {
+            // Fetch associated data. (In a highly optimized production app,
+            // you might use a custom @Query with JOINs to do this in one database hit,
+            // but for this phase, direct lookups are perfectly fine and clean).
+            Order order = orderRepository.findById(ticket.getOrderId()).orElse(null);
+            if (order == null) continue;
+
+            Event event = eventRepository.findById(order.getEventId()).orElse(null);
+            TicketTier tier = tierRepository.findById(ticket.getTierId()).orElse(null);
+
+            if (event != null && tier != null) {
+                responseList.add(MyTicketResponse.builder()
+                        .ticketId(ticket.getId())
+                        .ticketReference(ticket.getTicketReference())
+                        .orderReference(order.getOrderReference())
+                        .eventName(event.getTitle())
+                        .eventDate(event.getStartDateTime())
+                        .venue(event.getVenue())
+                        .tierName(tier.getTierName())
+                        .assignedName(ticket.getAssignedName())
+                        .qrCodeHash(ticket.getQrCodeHash())
+                        .isCheckedIn(ticket.isCheckedIn())
+                        .build());
+            }
+        }
+
+        // Sorts the final list so upcoming events appear first
+        return responseList.stream()
+                .sorted((t1, t2) -> t1.getEventDate().compareTo(t2.getEventDate()))
+                .toList();
+    }
+
+    @Transactional
+    public String transferTicket(UUID ticketId, TicketTransferRequest request) {
+
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
+
+        AttendeeTicket ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new RuntimeException("Ticket not found"));
+
+        if (!ticket.getAssignedEmail().equalsIgnoreCase(user.getEmail())) {
+            throw new RuntimeException("You are not authorized to transfer this ticket.");
+        }
+
+        if (ticket.isCheckedIn()) {
+            throw new RuntimeException("This ticket has already been scanned at the gate.");
+        }
+
+        // ==========================================
+        // NEW: SILENT REGISTRATION FOR THE FRIEND
+        // ==========================================
+        boolean isNewUser = false;
+        String rawTempPassword = null;
+
+        User friend = userRepository.findByEmail(request.getNewEmail()).orElse(null);
+
+        if (friend == null) {
+            log.info("Friend email not found. Creating silent Attendee account for transfer.");
+            isNewUser = true;
+            friend = new User();
+
+            friend.setEmail(request.getNewEmail());
+            friend.setCnic(request.getNewCnic());
+            friend.setPhoneNo(request.getNewPhone());
+            friend.setName(request.getNewName());
+            String emailPrefix = request.getNewEmail().split("@")[0];
+            String uniqueSuffix = UUID.randomUUID().toString().substring(0, 4);
+            friend.setUsername(emailPrefix + "_" + uniqueSuffix);
+            friend.setStatus(UserStatus.ACTIVE);
+            friend.setCreatedAt(LocalDateTime.now());
+            friend.setModifiedAt(LocalDateTime.now());
+            friend.setRole(UserRole.ATTENDEE); // Or however your roles are defined
+            // A real implementation would generate a random password here
+            rawTempPassword = SecurityUtil.generateTempPassword();
+            friend.setPassword(passwordEncoder.encode(rawTempPassword));
+            userRepository.save(friend);
+        }
+
+        // Update the ticket
+        ticket.setAssignedName(request.getNewName());
+        ticket.setAssignedEmail(request.getNewEmail());
+        ticketRepository.save(ticket);
+
+        // ==========================================
+        // NEW: TRIGGER BACKGROUND TRANSFER EMAILS
+        // ==========================================
+        // We will call a new method in your TicketFulfillmentService
+        //ticket.processTicketTransferEmails(ticket, user.getEmail(), friend, isNewUser, rawTempPassword);
+
+        return "Ticket successfully transferred to " + request.getNewName();
     }
 }
