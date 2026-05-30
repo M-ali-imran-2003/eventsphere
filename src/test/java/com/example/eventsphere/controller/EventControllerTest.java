@@ -5,6 +5,7 @@ import com.example.eventsphere.dto.EventListDTO;
 import com.example.eventsphere.dto.EventMapMarkerDTO;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.filter.JwtAuthenticationFilter;
+import com.example.eventsphere.service.OrderService;
 import com.example.eventsphere.utils.JwtUtil;
 import com.example.eventsphere.filter.RequestLoggingFilter;
 import com.example.eventsphere.utils.SecurityUtil;
@@ -35,6 +36,9 @@ class EventControllerTest {
 
     @MockitoBean
     private EventService eventService;
+
+    @MockitoBean
+    private OrderService orderService;
 
     // === MOCKS TO PREVENT SECURITY FILTER CRASHES ===
     @MockitoBean private JwtAuthenticationFilter jwtAuthenticationFilter;
