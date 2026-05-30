@@ -218,7 +218,7 @@ public class CheckoutService {
         walletTx.setOrganizationId(event.getOrganizationId()); // Assuming Event has workspace_id
         walletTx.setAmount(totalAmount); // Give the money to the organizer
         walletTx.setTransactionType(TransactionType.CREDIT);
-        walletTx.setDescription("Revenue from Order: " + savedOrder.getId());
+        walletTx.setDescription("Revenue from Order: " + savedOrder.getOrderReference());
         walletTx.setReferenceId(savedOrder.getId());
         walletTx.setStatus(PaymentStatus.SUCCESS);
         walletTx.setCreatedAt(LocalDateTime.now());

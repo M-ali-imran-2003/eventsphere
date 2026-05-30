@@ -78,7 +78,7 @@ public class OrderService {
 
             responseList.add(OrderSummaryResponse.builder()
                     .orderId(order.getId())
-                    .orderReference(order.getTransactionReference()) // Or getOrderReference() if you added it
+                    .orderReference(order.getOrderReference()) // Or getOrderReference() if you added it
                     .buyerName(buyerName)
                     .buyerEmail(buyerEmail)
                     .buyerPhone(buyerPhone)
