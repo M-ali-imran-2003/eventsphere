@@ -3,10 +3,7 @@ package com.example.eventsphere.service;
 import com.example.eventsphere.dto.CheckoutRequest;
 import com.example.eventsphere.dto.PaymentResult;
 import com.example.eventsphere.entity.*;
-import com.example.eventsphere.enums.PaymentStatus;
-import com.example.eventsphere.enums.TransactionType;
-import com.example.eventsphere.enums.UserRole;
-import com.example.eventsphere.enums.UserStatus;
+import com.example.eventsphere.enums.*;
 import com.example.eventsphere.repository.*;
 import com.example.eventsphere.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -121,7 +118,7 @@ public class CheckoutService {
                     .orElseThrow(() -> new RuntimeException("Invalid Promo Code"));
 
             // Check 1: Is it manually deactivated?
-            if (!discount.isActive()) {
+            if (!discount.getStatus().equals(AppStatus.ACTIVE)) {
                 throw new RuntimeException("This promo code is no longer active.");
             }
 

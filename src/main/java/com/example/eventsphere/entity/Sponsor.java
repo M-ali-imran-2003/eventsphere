@@ -1,48 +1,40 @@
 package com.example.eventsphere.entity;
 
 import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.enums.SponsorTier;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.locationtech.jts.geom.Point;
-import org.springframework.cglib.core.Local;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name="discount_codes")
+@Table(name = "sponsors")
 @Data
-public class DiscountCode {
+public class Sponsor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "code_id")
+    @Column(name = "sponsor_id")
     private UUID id;
 
+    // Links this sponsor to a specific event
     @Column(name = "event_id")
     private UUID eventId;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "sponsor_name")
+    private String name;
 
-    @Column(name = "discount_type")
-    private String discountType;
+    // e.g., "PLATINUM", "GOLD", "SILVER", "CO-HOST"
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sponsor_tier")
+    private SponsorTier sponsorTier;
 
-    @Column(name = "discount_value")
-    private BigDecimal discountValue;
+    @Column(name = "logo_url")
+    private String logoUrl;
 
-    @Column(name = "max_uses")
-    private int maxUses;
-
-    @Column(name = "times_used")
-    private int timesUsed;
-
-    @Column(name = "status")
-    private AppStatus status;
-
-    @Column(name = "valid_until")
-    private LocalDateTime validUntil;
+    @Column(name = "website_url")
+    private String websiteUrl;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

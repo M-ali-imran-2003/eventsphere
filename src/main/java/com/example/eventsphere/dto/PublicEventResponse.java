@@ -3,6 +3,7 @@ package com.example.eventsphere.dto;
 import com.example.eventsphere.entity.Event;
 import com.example.eventsphere.entity.TicketTier;
 import com.example.eventsphere.entity.SubEvent;
+import com.example.eventsphere.enums.SponsorTier;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class PublicEventResponse {
     private LandingPageDesign landingPageDesign;
     private List<TicketTierDetails> tickets;
     private List<SubEventDetails> agenda;
+    private List<SponsorDetails> sponsors;
 
     @Data
     @Builder
@@ -60,5 +62,14 @@ public class PublicEventResponse {
         private LocalDateTime endTime;
         private String roomOrLocation;
         private String imageUrl; // Speaker headshot
+    }
+
+    @Data
+    @Builder
+    public static class SponsorDetails {
+        private String name;
+        private SponsorTier sponsorTier;
+        private String logoUrl;
+        private String websiteUrl;
     }
 }

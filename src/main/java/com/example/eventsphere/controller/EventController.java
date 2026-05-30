@@ -1,10 +1,7 @@
 package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.*;
-import com.example.eventsphere.entity.Event;
-import com.example.eventsphere.entity.LandingPage;
-import com.example.eventsphere.entity.SubEvent;
-import com.example.eventsphere.entity.TicketTier;
+import com.example.eventsphere.entity.*;
 import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.service.OrderService;
@@ -216,5 +213,29 @@ public class EventController {
     public ResponseEntity<List<OrderSummaryResponse>> getEventOrders(@PathVariable UUID eventId) {
         List<OrderSummaryResponse> orders = orderService.getEventOrders(eventId);
         return ResponseEntity.ok(orders);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping(value = "add-sponsor/{eventId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Sponsor> addSponsor(
+            @PathVariable UUID eventId,
+            @Valid @ModelAttribute SponsorRequest request) {
+
+        Sponsor createdSponsor = eventService.addSponsor(eventId, request);
+        return ResponseEntity.ok(createdSponsor);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @DeleteMapping("/delete-sponsor/{eventId}/{sponsorId}")
+    public ResponseEntity<String> deleteSponsor(@PathVariable UUID eventId, @PathVariable UUID sponsorId) {
+        eventService.deleteSponsor(eventId,sponsorId);
+        return ResponseEntity.ok("Sponsor deleted successfully");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-all-sponsors/{eventId}")
+    public ResponseEntity<List<Sponsor>> getSponsors(@PathVariable UUID eventId) {
+        List<Sponsor> sponsors = eventService.getEventSponsors(eventId);
+        return ResponseEntity.ok(sponsors);
     }
 }

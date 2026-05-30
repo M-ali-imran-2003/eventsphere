@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Slf4j
@@ -31,11 +32,11 @@ public class EventService {
     private final SubEventRepository subEventRepository;
     private final TicketTierRepository ticketTierRepository;
     private final LandingPageRepository landingPageRepository;
-
+    private final SponsorRepository sponsorRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository) {
+    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository, SponsorRepository sponsorRepository) {
         this.eventRepository = eventRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
@@ -45,6 +46,7 @@ public class EventService {
         this.subEventRepository = subEventRepository;
         this.ticketTierRepository = ticketTierRepository;
         this.landingPageRepository = landingPageRepository;
+        this.sponsorRepository = sponsorRepository;
     }
 
     private void validateThemeConfig(String jsonString) {
@@ -697,6 +699,7 @@ public class EventService {
         // 4. Gather the related active data items
         List<TicketTier> ticketTiers = ticketTierRepository.findByEventId(event.getId());
         List<SubEvent> subEvents = subEventRepository.findByEventIdOrderByStartTimeAsc(event.getId());
+        List<Sponsor> sponsors = sponsorRepository.findByEventId(event.getId());
 
         // 5. Map everything into our Master DTO structure
         PublicEventResponse.EventCoreDetails details = PublicEventResponse.EventCoreDetails.builder()
@@ -737,11 +740,72 @@ public class EventService {
                         .build())
                 .toList();
 
+        List<PublicEventResponse.SponsorDetails> sponsor = sponsors.stream()
+                .map(s -> PublicEventResponse.SponsorDetails.builder()
+                        .name(s.getName())
+                        .sponsorTier(s.getSponsorTier())
+                        .logoUrl(s.getLogoUrl())
+                        .websiteUrl(s.getWebsiteUrl())
+                        .build())
+                .toList();
+
         return PublicEventResponse.builder()
                 .eventDetails(details)
                 .landingPageDesign(design)
                 .tickets(publicTickets)
                 .agenda(publicAgenda)
+                .sponsors(sponsor)
                 .build();
+    }
+
+    public Sponsor addSponsor(UUID eventId, SponsorRequest request) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+
+        Sponsor sponsor = new Sponsor();
+        sponsor.setEventId(eventId);
+        sponsor.setName(request.getName());
+        sponsor.setSponsorTier(request.getSponsorTier());
+        if (request.getLogo() != null && !request.getLogo().isEmpty()) {
+            try {
+                // Adjust FileType enum based on your actual file service implementation
+                String imageUrl = fileService.saveFile(request.getLogo(), FileType.IMAGE);
+                sponsor.setLogoUrl(imageUrl);
+            } catch (Exception e) {
+                log.error("Failed to save sub-event image", e);
+                throw new RuntimeException("Failed to upload image. Please try again.");
+            }
+        }
+        if (request.getWebsiteUrl() != null && !request.getWebsiteUrl().isBlank()) {
+
+            sponsor.setWebsiteUrl(request.getWebsiteUrl());
+        }
+        sponsor.setCreatedAt(LocalDateTime.now());
+        sponsor.setCreatedBy(currentUser.getId());
+        sponsor.setModifiedAt(LocalDateTime.now());
+        sponsor.setModifiedBy(currentUser.getId());
+
+        return sponsorRepository.save(sponsor);
+    }
+
+    // 2. READ (Fetch all for an event)
+    public List<Sponsor> getEventSponsors(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+        // You can use the custom OrderBy method here if you added it to the repo
+        return sponsorRepository.findByEventId(eventId);
+    }
+
+    // 3. DELETE
+    public void deleteSponsor(UUID eventId, UUID sponsorId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        if (currentUser == null) throw new RuntimeException("Unauthorized.");
+        verifyEventOwnership(eventId, currentUser);
+        if (!sponsorRepository.existsById(sponsorId)) {
+            throw new RuntimeException("Sponsor not found");
+        }
+        sponsorRepository.deleteById(sponsorId);
     }
 }
