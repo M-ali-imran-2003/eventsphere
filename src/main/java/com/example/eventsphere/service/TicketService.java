@@ -45,7 +45,7 @@ public class TicketService {
     }
 
     @Async
-    public void generateAndSendTickets(Order order, User buyer) {
+    public void generateAndSendTickets(Order order, User buyer,boolean isNewUser, String tempPassword) {
         log.info("Background Thread started: Generating tickets for Order: {}", order.getId());
 
         try {
@@ -116,11 +116,31 @@ public class TicketService {
 
             emailService.sendEmailWithAttachment(to,subject,body,"EventSphere_Tickets_" + order.getOrderReference() + ".pdf", pdfBytes);
 
+            if (isNewUser && tempPassword != null) {
+                sendWelcomeEmail(buyer.getEmail(), buyer.getName(), tempPassword, buyer.getUsername());
+            }
+
             log.info("Ticket email successfully dispatched to {} with {} tickets attached.",
                     buyer.getEmail(), tickets.size());
 
         } catch (Exception e) {
             log.error("Failed to deliver ticket emails for order {}", order.getId(), e);
+        }
+    }
+    private void sendWelcomeEmail(String to, String name, String tempPassword, String username) {
+        try {
+            String subject = "Welcome to EventSphere - Your Account Details";
+            String body= "Hi " + name + ",\n\n" +
+                    "Thank you for your purchase! An EventSphere account has been automatically created for you so you can manage your tickets.\n\n" +
+                    "Login Username: " + username + "\n" +
+                    "Temporary Password: " + tempPassword + "\n\n" +
+                    "Please log in at your earliest convenience to change your password and view your tickets.\n\n" +
+                    "Best regards,\nThe EventSphere Team";
+
+            emailService.sendEmail(to,subject,body);
+            log.info("Welcome email with temporary credentials sent to {}", to);
+        } catch (Exception e) {
+            log.error("Failed to send welcome email to {}", to, e);
         }
     }
 }

@@ -9,6 +9,7 @@ import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +23,7 @@ import java.util.Optional;
 public class CheckoutService {
 
     private final PaymentProcessor paymentProcessor;
-
+    private final PasswordEncoder passwordEncoder;
     // Repositories mapped to your DDL tables
     private final OrderRepository orderRepository;
     private final TicketTierRepository tierRepository;
@@ -36,8 +37,9 @@ public class CheckoutService {
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
 
-    public CheckoutService(PaymentProcessor paymentProcessor, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, TicketService ticketService, EventRepository eventRepository, UserRepository userRepository) {
+    public CheckoutService(PaymentProcessor paymentProcessor, PasswordEncoder passwordEncoder, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, TicketService ticketService, EventRepository eventRepository, UserRepository userRepository) {
         this.paymentProcessor = paymentProcessor;
+        this.passwordEncoder = passwordEncoder;
         this.orderRepository = orderRepository;
         this.tierRepository = tierRepository;
         this.attendeeTicketRepository = attendeeTicketRepository;
@@ -62,9 +64,13 @@ public class CheckoutService {
         // PHASE 0: SILENT REGISTRATION
         // ==========================================
 
-        // Check if user exists. If not, create a placeholder ATTENDEE account
-        User buyer = userRepository.findByEmail(request.getBuyerEmail()).orElseGet(() -> {
+        boolean isNewUser = false;
+        String rawTempPassword = null;
+
+        User buyer = userRepository.findByEmail(request.getBuyerEmail()).orElse(null);
+        if (buyer == null) {
             log.info("New email detected. Creating silent Attendee account.");
+            isNewUser = true;
             User newUser = new User();
             newUser.setEmail(request.getBuyerEmail());
             newUser.setCnic(request.getBuyerCnic());
@@ -78,8 +84,10 @@ public class CheckoutService {
             newUser.setModifiedAt(LocalDateTime.now());
             newUser.setRole(UserRole.ATTENDEE); // Or however your roles are defined
             // A real implementation would generate a random password here
-            return userRepository.saveAndFlush(newUser);
-        });
+            rawTempPassword = generateTempPassword();
+            newUser.setPassword(passwordEncoder.encode(rawTempPassword));
+            buyer = userRepository.saveAndFlush(newUser);
+        }
 
         // ==========================================
         // PHASE 1: PRE-CHECKS & MATH
@@ -215,11 +223,10 @@ public class CheckoutService {
         walletTx.setCreatedAt(LocalDateTime.now());
 
         walletRepository.saveAndFlush(walletTx);
-        ticketService.generateAndSendTickets(savedOrder, buyer);
-
+        ticketService.generateAndSendTickets(savedOrder, buyer, isNewUser, rawTempPassword);
         log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 
-        return "Checkout complete! Transaction ID: " + payment.getTransactionId();
+        return "Checkout complete! Order ID: " + order.getOrderReference() +" \nKindly check your email for Tickets and further details";
     }
 
     private String generateHumanReadableId(String prefix) {
@@ -230,5 +237,8 @@ public class CheckoutService {
 
         String randomString = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
         return prefix + "-" + year+month+day + "-" + randomString;
+    }
+    private String generateTempPassword() {
+        return "Evnt-" + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
     }
 }
