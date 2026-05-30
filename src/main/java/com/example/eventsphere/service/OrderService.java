@@ -6,6 +6,7 @@ import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.mapper.GenericMapper;
 import com.example.eventsphere.repository.*;
 import com.example.eventsphere.utils.SecurityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class OrderService {
     private final SubEventRepository subEventRepository;
     private final TicketTierRepository ticketTierRepository;
     private final LandingPageRepository landingPageRepository;
+
+    @Autowired
     public OrderService(UserRepository userRepository, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, LandingPageRepository landingPageRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
