@@ -83,10 +83,15 @@ public class EmailService {
     }
     public void sendBccEmail(List<String> bccEmails, String subject, String body) {
         try {
+            if (bccEmails == null || bccEmails.isEmpty()) {
+                log.warn("BCC email list is empty. Skipping send.");
+                throw new RuntimeException("BCC email list is empty. Skipping send.");
+            }
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, false, "UTF-8");
             helper.setSubject(subject);
             helper.setText(body);
+            helper.setTo(mailUsername);
             // We set BCC instead of TO. This is crucial for privacy!
             helper.setBcc(bccEmails.toArray(new String[0]));
             helper.setFrom(mailUsername); // Optional, usually inferred from properties

@@ -1,8 +1,11 @@
 package com.example.eventsphere.service;
 
+import com.example.eventsphere.dto.AllTicketsDTO;
 import com.example.eventsphere.dto.MyTicketResponse;
 import com.example.eventsphere.dto.TicketTransferRequest;
 import com.example.eventsphere.entity.*;
+import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.enums.OrgRole;
 import com.example.eventsphere.enums.UserRole;
 import com.example.eventsphere.enums.UserStatus;
 import com.example.eventsphere.repository.*;
@@ -41,16 +44,21 @@ public class TicketService {
     private final EventRepository eventRepository;
     private final OrderRepository orderRepository;
     private final TicketTierRepository tierRepository;
+    private final OrganizationRepository organizationRepository;
+    private final OrganizationMemberRepository organizationMemberRepository;
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public TicketService(EmailService emailService, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, TicketTierRepository tierRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public TicketService(EmailService emailService, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, TicketTierRepository tierRepository, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.emailService = emailService;
         this.templateEngine = templateEngine;
         this.ticketRepository = ticketRepository;
         this.eventRepository = eventRepository;
         this.orderRepository = orderRepository;
         this.tierRepository = tierRepository;
+        this.organizationRepository = organizationRepository;
+        this.organizationMemberRepository = organizationMemberRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -197,6 +205,55 @@ public class TicketService {
                 .toList();
     }
 
+    public List<AllTicketsDTO> getAllTicketsByEvent(UUID eventId) {
+        User currentUser = SecurityUtil.getCurrentUser();
+
+        // Verify ownership
+        verifyEventOwnership(eventId, currentUser);
+
+        // 1. Fetch all matching tickets in one database call
+        List<AttendeeTicket> tickets = ticketRepository.findAllTicketsByEventId(eventId);
+
+        // Optional check: if empty, stop immediately
+        if (tickets.isEmpty()) {
+            return List.of();
+        }
+
+        // 2. Fetch shared resources once to avoid N+1 lookups
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+
+        // 3. Map and sort cleanly using Java Streams
+        return tickets.stream()
+                .map(ticket -> {
+                    // Fetch context-specific details safely
+                    Order order = orderRepository.findById(ticket.getOrderId()).orElse(null);
+                    TicketTier tier = tierRepository.findById(ticket.getTierId()).orElse(null);
+
+                    if (order == null || tier == null) {
+                        return null; // Skip corrupted or partial records safely
+                    }
+
+                    return AllTicketsDTO.builder()
+                            .ticketId(ticket.getId())
+                            .ticketReference(ticket.getTicketReference())
+                            .orderReference(order.getOrderReference())
+                            .eventName(event.getTitle())
+                            .eventDate(event.getStartDateTime())
+                            .tierName(tier.getTierName())
+                            .assignedPhone(ticket.getAssignedPhone())
+                            .assignedCnic(ticket.getAssignedCnic())
+                            .assignedEmail(ticket.getAssignedEmail())
+                            .assignedName(ticket.getAssignedName())
+                            .isCheckedIn(ticket.isCheckedIn())
+                            .checkedInTime(ticket.getCheckInTime())
+                            .build();
+                })
+                .filter(Objects::nonNull) // Discard any skipped records
+                .sorted(Comparator.comparing(AllTicketsDTO::getEventDate)) // Cleaner sorting syntax
+                .toList();
+    }
+
     @Transactional
     public String transferTicket(UUID ticketId, TicketTransferRequest request) {
 
@@ -255,5 +312,26 @@ public class TicketService {
         //ticket.processTicketTransferEmails(ticket, user.getEmail(), friend, isNewUser, rawTempPassword);
 
         return "Ticket successfully transferred to " + request.getNewName();
+    }
+
+    private void verifyEventOwnership(UUID eventId, User user) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
+
+        Organization org = organizationRepository.findById(event.getOrganizationId())
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
+
+        if(!org.getStatus().equals(AppStatus.ACTIVE)) {
+            throw new RuntimeException("Organization is not active");
+        }
+
+        OrganizationMember member = organizationMemberRepository
+                .findByOrganizationIdAndUserId(org.getId(), user.getId())
+                .orElseThrow(() -> new RuntimeException("Access denied."));
+
+
+        if (member.getRole() != OrgRole.OWNER) {
+            throw new RuntimeException("Only Organization Owners can manage.");
+        }
     }
 }

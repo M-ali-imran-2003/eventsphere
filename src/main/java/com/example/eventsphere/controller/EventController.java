@@ -7,6 +7,7 @@ import com.example.eventsphere.repository.EmailBroadcastHistoryRepository;
 import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.service.OrderService;
+import com.example.eventsphere.service.TicketService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -27,11 +28,13 @@ public class EventController {
 
     private final EventService eventService;
     private final OrderService orderService;
+    private final TicketService ticketService;
     private final EmailBroadcastHistoryRepository emailBroadcastHistoryRepository;
 
-    public EventController(EventService eventService, OrderService orderService, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository) {
+    public EventController(EventService eventService, OrderService orderService, TicketService ticketService, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository) {
         this.eventService = eventService;
         this.orderService = orderService;
+        this.ticketService = ticketService;
         this.emailBroadcastHistoryRepository = emailBroadcastHistoryRepository;
     }
 
@@ -287,6 +290,15 @@ public class EventController {
     public ResponseEntity<String> sendCustomBroadcast(
             @PathVariable UUID eventId,
             @Valid @RequestBody BroadcastEmailRequest request) {
+        int size = eventService.sendCustomBroadcastEmail(eventId,request);
+        return ResponseEntity.ok("Broadcast sent successfully to " + size + " attendees.");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/send-custom-email/{eventId}")
+    public ResponseEntity<String> sendCustomEmail(
+            @PathVariable UUID eventId,
+            @Valid @RequestBody CustomEmailRequest request) {
         int size = eventService.sendCustomEmail(eventId,request);
         return ResponseEntity.ok("Broadcast sent successfully to " + size + " attendees.");
     }
@@ -296,6 +308,13 @@ public class EventController {
     public ResponseEntity<List<EmailBroadcastHistory>> getBroadcastHistory(@PathVariable UUID eventId) {
         List<EmailBroadcastHistory> history = emailBroadcastHistoryRepository.findByEventIdOrderBySentAtDesc(eventId);
         return ResponseEntity.ok(history);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-all-tickets/{eventId}")
+    public ResponseEntity<List<AllTicketsDTO>> getAllTickts(@PathVariable UUID eventId) {
+        List<AllTicketsDTO> tickets = ticketService.getAllTicketsByEvent(eventId);
+        return ResponseEntity.ok(tickets);
     }
 
 }

@@ -937,7 +937,7 @@ public class EventService {
     }
 
     @Transactional
-    public int sendCustomEmail(UUID eventId, BroadcastEmailRequest request){
+    public int sendCustomBroadcastEmail(UUID eventId, BroadcastEmailRequest request){
         verifyEventOwnership(eventId, Objects.requireNonNull(SecurityUtil.getCurrentUser()));
 
         // 1. Fetch all unique emails for this event
@@ -945,6 +945,34 @@ public class EventService {
 
         if (attendeeEmails.isEmpty()) {
             throw new RuntimeException("No attendees found for this event. Email not sent.");
+        }
+
+        // 2. Send the custom email using the BCC helper we built in Step 3
+        try {
+            emailService.sendBccEmail(attendeeEmails, request.getSubject(), request.getMessageBody());
+            EmailBroadcastHistory history = new EmailBroadcastHistory();
+            history.setEventId(eventId);
+            history.setSubject(request.getSubject());
+            history.setMessageBody(request.getMessageBody());
+            history.setRecipientCount(attendeeEmails.size());
+            history.setSentAt(LocalDateTime.now());
+            emailBroadcastHistoryRepository.save(history);
+        }catch (Exception e){
+            log.error("Error Sending email: "+ e.getMessage());
+            throw new RuntimeException("Error Sending email: Email not sent. "+ e.getMessage());
+        }
+        return attendeeEmails.size();
+    }
+
+    @Transactional
+    public int sendCustomEmail(UUID eventId, CustomEmailRequest request){
+        verifyEventOwnership(eventId, Objects.requireNonNull(SecurityUtil.getCurrentUser()));
+
+        // 1. Fetch all unique emails for this event
+        List<String> attendeeEmails = request.getEmail();
+
+        if (attendeeEmails.isEmpty()) {
+            throw new RuntimeException("emails are empty. Email not sent.");
         }
 
         // 2. Send the custom email using the BCC helper we built in Step 3
