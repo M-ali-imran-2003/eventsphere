@@ -3,9 +3,11 @@ package com.example.eventsphere.controller;
 import com.example.eventsphere.dto.EventDTO;
 import com.example.eventsphere.dto.EventListDTO;
 import com.example.eventsphere.dto.EventMapMarkerDTO;
+import com.example.eventsphere.repository.EmailBroadcastHistoryRepository;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.filter.JwtAuthenticationFilter;
 import com.example.eventsphere.service.OrderService;
+import com.example.eventsphere.service.TicketService;
 import com.example.eventsphere.utils.JwtUtil;
 import com.example.eventsphere.filter.RequestLoggingFilter;
 import com.example.eventsphere.utils.SecurityUtil;
@@ -39,6 +41,12 @@ class EventControllerTest {
 
     @MockitoBean
     private OrderService orderService;
+
+    @MockitoBean
+    private TicketService ticketService;
+
+    @MockitoBean
+    private EmailBroadcastHistoryRepository emailBroadcastHistoryRepository;
 
     // === MOCKS TO PREVENT SECURITY FILTER CRASHES ===
     @MockitoBean private JwtAuthenticationFilter jwtAuthenticationFilter;
