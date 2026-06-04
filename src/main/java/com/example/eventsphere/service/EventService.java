@@ -27,6 +27,8 @@ import java.util.*;
 public class EventService {
 
     private final EventRepository eventRepository;
+    private final UserRepository userRepository;
+    private final OrderRepository orderRepository;
     private final EmailBroadcastHistoryRepository emailBroadcastHistoryRepository;
     private final GenericMapper mapper;
     private final OrganizationMemberRepository organizationMemberRepository;
@@ -43,8 +45,10 @@ public class EventService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
-    public EventService(EventRepository eventRepository, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, AttendeeTicketRepository attendeeTicketRepository, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, EmailService emailService, SponsorRepository sponsorRepository) {
+    public EventService(EventRepository eventRepository, UserRepository userRepository, OrderRepository orderRepository, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, AttendeeTicketRepository attendeeTicketRepository, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, EmailService emailService, SponsorRepository sponsorRepository) {
         this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
+        this.orderRepository = orderRepository;
         this.emailBroadcastHistoryRepository = emailBroadcastHistoryRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
@@ -990,6 +994,101 @@ public class EventService {
             throw new RuntimeException("Error Sending email: Email not sent. "+ e.getMessage());
         }
         return attendeeEmails.size();
+    }
+
+    public List<MyEventsResponse> getMyEvents() {
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername())
+                .orElseThrow(() -> new RuntimeException("User Not Found"));
+
+        List<Order> orders = orderRepository.findByBuyerId(user.getId());
+        List<MyEventsResponse> responseList = new ArrayList<>();
+
+        // Tracks slugs we have already added to prevent duplicates
+        Set<String> seenSlugs = new HashSet<>();
+
+        for (Order order : orders) {
+            Event event = eventRepository.findById(order.getEventId()).orElse(null);
+            if (event == null) continue; // Safer than assert in production
+
+            // Fetch the landing page first to check the slug
+            Optional<LandingPage> landingPage = landingPageRepository.findByEventId(event.getId());
+            if (landingPage.isEmpty()) continue;
+
+            String slug = landingPage.get().getSlug();
+
+            // Skip this order if we already processed an event with this slug
+            if (seenSlugs.contains(slug)) {
+                continue;
+            }
+            seenSlugs.add(slug);
+
+            Optional<Organization> organization = organizationRepository.findById(event.getOrganizationId());
+            Optional<Category> category = categoryRepository.findById(event.getCategoryId());
+
+            responseList.add(MyEventsResponse.builder()
+                    .title(event.getTitle())
+                    .organization(organization.isPresent() ? organization.get().getName() : "Unknown")
+                    .category(category.isPresent() ? category.get().getName() : "Unknown")
+                    .image(event.getImageUrl())
+                    .slug(slug)
+                    .start(event.getStartDateTime())
+                    .venue(event.getVenue())
+                    .city(event.getCity())
+                    .state(event.getState())
+                    .address(event.getAddress())
+                    .country(event.getCountry())
+                    .build());
+        }
+
+        return responseList.stream()
+                .sorted(Comparator.comparing(MyEventsResponse::getStart).reversed())
+                .toList();
+    }
+
+
+    @Scheduled(cron = "0 */15 * * * *")
+    @Transactional // Transactional so we can save the boolean updates safely
+    public void processGcrStyleReminders() {
+        log.info("Checking for upcoming event reminders...");
+        LocalDateTime now = LocalDateTime.now();
+
+        // ==========================================
+        // 1. CHECK FOR 24-HOUR REMINDERS
+        // ==========================================
+        LocalDateTime in24Hours = now.plusHours(24);
+        List<Event> events24h = eventRepository.findEventsNeeds24HourReminder(now, in24Hours);
+
+        for (Event event : events24h) {
+            List<String> attendeeEmails = attendeeTicketRepository.findDistinctEmailsByEventId(event.getId());
+            if (!attendeeEmails.isEmpty()) {
+                emailService.sendBccEmail(attendeeEmails,
+                        "EventSphere: " + event.getTitle() + " starts in 24 hours!",
+                        "Hi there,\n\nGet ready! " + event.getTitle() + " is exactly 24 hours away.\nVenue: " + event.getVenue());
+            }
+            // UPDATE DB: Mark as sent so we never spam them again!
+            event.set24HourReminderSent(true);
+            eventRepository.save(event);
+            log.info("Sent 24h reminder for event {}", event.getTitle());
+        }
+
+        // ==========================================
+        // 2. CHECK FOR 2-HOUR REMINDERS
+        // ==========================================
+        LocalDateTime in2Hours = now.plusHours(2);
+        List<Event> events2h = eventRepository.findEventsNeeds2HourReminder(now, in2Hours);
+
+        for (Event event : events2h) {
+            List<String> attendeeEmails = attendeeTicketRepository.findDistinctEmailsByEventId(event.getId());
+            if (!attendeeEmails.isEmpty()) {
+                emailService.sendBccEmail(attendeeEmails,
+                        "URGENT: " + event.getTitle() + " starts in 2 hours!",
+                        "Hi there,\n\nIt's almost time! " + event.getTitle() + " begins in less than 2 hours.\nHave your QR codes ready at the gate!");
+            }
+            // UPDATE DB: Mark as sent!
+            event.set2HourReminderSent(true);
+            eventRepository.save(event);
+            log.info("Sent 2h reminder for event {}", event.getTitle());
+        }
     }
 
     @Scheduled(cron = "0 0 8 * * *")

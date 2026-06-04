@@ -64,6 +64,12 @@ public class Event {
     @Column(name = "start_datetime")
     private LocalDateTime startDateTime;
 
+    @Column(name = "reminder_24_hr")
+    private boolean is24HourReminderSent = false;
+
+    @Column(name = "reminder_2_hr")
+    private boolean is2HourReminderSent = false;
+
     @Column(name = "end_datetime")
     private LocalDateTime endDateTime;
 

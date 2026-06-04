@@ -1,5 +1,7 @@
 package com.example.eventsphere.service;
 
+import com.example.eventsphere.dto.MyOrdersResponse;
+import com.example.eventsphere.dto.MyTicketResponse;
 import com.example.eventsphere.dto.OrderSummaryResponse;
 import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.AppStatus;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -92,6 +95,41 @@ public class OrderService {
         // Sort dynamically: Newest orders at the top of the list
         return responseList.stream()
                 .sorted((o1, o2) -> o2.getCreatedAt().compareTo(o1.getCreatedAt()))
+                .toList();
+    }
+
+    public List<MyOrdersResponse> getMyOrders() {
+
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
+
+        // 1. Fetch raw tickets assigned to this email
+        List<Order> orders = orderRepository.findByBuyerId(user.getId());
+
+        List<MyOrdersResponse> responseList = new ArrayList<>();
+
+        // 2. Map them to the frontend DTO
+        for (Order order : orders) {
+            // Fetch associated data. (In a highly optimized production app,
+            // you might use a custom @Query with JOINs to do this in one database hit,
+            // but for this phase, direct lookups are perfectly fine and clean).
+
+            Event event = eventRepository.findById(order.getEventId()).orElse(null);
+
+            if (event != null) {
+                responseList.add(MyOrdersResponse.builder()
+                        .orderId(order.getId())
+                        .orderReference(order.getOrderReference())
+                        .eventName(event.getTitle())
+                        .totalAmount(order.getTotalAmount())
+                        .paymentStatus(order.getPaymentStatus())
+                        .createdAt(order.getCreatedAt())
+                        .build());
+            }
+        }
+
+        // Sorts the final list so upcoming events appear first
+        return responseList.stream()
+                .sorted((t1, t2) -> t1.getCreatedAt().compareTo(t2.getCreatedAt()))
                 .toList();
     }
 

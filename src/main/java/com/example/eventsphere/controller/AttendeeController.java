@@ -1,6 +1,10 @@
 package com.example.eventsphere.controller;
 
+import com.example.eventsphere.dto.MyEventsResponse;
+import com.example.eventsphere.dto.MyOrdersResponse;
 import com.example.eventsphere.dto.MyTicketResponse;
+import com.example.eventsphere.service.EventService;
+import com.example.eventsphere.service.OrderService;
 import com.example.eventsphere.service.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +22,9 @@ import java.util.List;
 public class AttendeeController {
 
     private final TicketService ticketService;
+    private final OrderService orderService;
+    private final EventService eventService;
+
 
     /**
      * Arsam will hit this endpoint when the dashboard loads.
@@ -30,5 +37,21 @@ public class AttendeeController {
 
         List<MyTicketResponse> tickets = ticketService.getMyTickets();
         return ResponseEntity.ok(tickets);
+    }
+
+    @PreAuthorize("hasRole('ATTENDEE')")
+    @GetMapping("/my-orders")
+    public ResponseEntity<List<MyOrdersResponse>> getMyOrders() {
+
+        List<MyOrdersResponse> orders = orderService.getMyOrders();
+        return ResponseEntity.ok(orders);
+    }
+
+    @PreAuthorize("hasRole('ATTENDEE')")
+    @GetMapping("/my-events")
+    public ResponseEntity<List<MyEventsResponse>> getMyEvents() {
+
+        List<MyEventsResponse> events = eventService.getMyEvents();
+        return ResponseEntity.ok(events);
     }
 }

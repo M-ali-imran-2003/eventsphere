@@ -19,6 +19,21 @@ import java.util.UUID;
 public interface EventRepository extends JpaRepository<Event, UUID> {
     List<Event> findByStartDateTimeBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
 
+    // Add to EventRepository.java
+
+    // Finds events between two times where a specific reminder boolean is FALSE
+    @Query(
+            "SELECT e FROM Event e WHERE e.startDateTime BETWEEN :now AND :targetTime AND e.is24HourReminderSent = false"
+    )
+    List<Event> findEventsNeeds24HourReminder(@Param("now") LocalDateTime now,
+                                              @Param("targetTime") LocalDateTime targetTime);
+
+    @Query(
+            "SELECT e FROM Event e WHERE e.startDateTime BETWEEN :now AND :targetTime AND e.is2HourReminderSent = false"
+    )
+    List<Event> findEventsNeeds2HourReminder(@Param("now") LocalDateTime now,
+                                             @Param("targetTime") LocalDateTime targetTime);
+
     @Query("""
         SELECT new com.example.eventsphere.dto.EventDTO(
             e.id, 
