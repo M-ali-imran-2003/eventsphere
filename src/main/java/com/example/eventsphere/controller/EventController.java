@@ -3,6 +3,7 @@ package com.example.eventsphere.controller;
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.AppStatus;
+import com.example.eventsphere.repository.EmailBroadcastHistoryRepository;
 import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.service.OrderService;
@@ -26,10 +27,12 @@ public class EventController {
 
     private final EventService eventService;
     private final OrderService orderService;
+    private final EmailBroadcastHistoryRepository emailBroadcastHistoryRepository;
 
-    public EventController(EventService eventService, OrderService orderService) {
+    public EventController(EventService eventService, OrderService orderService, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository) {
         this.eventService = eventService;
         this.orderService = orderService;
+        this.emailBroadcastHistoryRepository = emailBroadcastHistoryRepository;
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -277,6 +280,22 @@ public class EventController {
     public ResponseEntity<String> deleteDiscountCode(@PathVariable UUID eventId,@PathVariable UUID codeId) {
         eventService.deleteDiscountCode(eventId,codeId);
         return ResponseEntity.ok("Discount code deleted successfully");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/send-broadcast-email/{eventId}")
+    public ResponseEntity<String> sendCustomBroadcast(
+            @PathVariable UUID eventId,
+            @Valid @RequestBody BroadcastEmailRequest request) {
+        int size = eventService.sendCustomEmail(eventId,request);
+        return ResponseEntity.ok("Broadcast sent successfully to " + size + " attendees.");
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @GetMapping("/get-all-broadcasts/{eventId}")
+    public ResponseEntity<List<EmailBroadcastHistory>> getBroadcastHistory(@PathVariable UUID eventId) {
+        List<EmailBroadcastHistory> history = emailBroadcastHistoryRepository.findByEventIdOrderBySentAtDesc(eventId);
+        return ResponseEntity.ok(history);
     }
 
 }

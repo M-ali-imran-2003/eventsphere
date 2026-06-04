@@ -2170,3 +2170,359 @@ Caused by: org.postgresql.util.PSQLException: ERROR: null value in column "disco
 2026-05-31 03:13:13 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-31 03:13:13 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-05-31 03:13:14 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-04 17:40:21 [background-preinit] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Found jakarta.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+2026-06-04 17:40:21 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+2026-06-04 17:40:22 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-06-04 17:40:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Starting EventsphereApplication using Java 17.0.14 with PID 8516 (D:\SpringBoot\eventsphere\target\classes started by AMU in D:\SpringBoot\eventsphere)
+2026-06-04 17:40:22 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.JPATraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-06-04 17:40:23 [background-preinit] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-06-04 17:40:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-04 17:40:33 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-04 17:40:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 924 ms. Found 16 JPA repository interfaces.
+2026-06-04 17:40:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-04 17:40:34 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.AttendeeTicketRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.DiscountCodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EmailBroadcastHistoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.EventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.LandingPageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationMemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.OrganizationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.SponsorRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.SubEventRegistrationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.SubEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TicketTierRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.eventsphere.repository.WalletTransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-04 17:40:35 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 0 Redis repository interfaces.
+2026-06-04 17:40:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-04 17:40:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-04 17:40:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-04 17:40:39 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.53]
+2026-06-04 17:40:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-04 17:40:40 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 16188 ms
+2026-06-04 17:40:42 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-06-04 17:40:42 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-04 17:40:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.45.Final
+2026-06-04 17:40:43 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.s.integration.SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+2026-06-04 17:40:44 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-04 17:40:45 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-04 17:40:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e998033
+2026-06-04 17:40:49 [main] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-04 17:40:50 [main] WARN  [IP:  | User Name:  | User ID:  |  ] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-04 17:40:50 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-04 17:40:50 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-06-04 17:40:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-04 17:40:51 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Found jakarta.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.JPATraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-06-04 17:40:53 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-06-04 17:40:53 [main] INFO  [IP:  | User Name:  | User ID:  |  ] org.hibernate.spatial - HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-06-04 17:40:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-04 17:40:56 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-04 17:40:58 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-04 17:41:12 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-04 17:41:12 [main] WARN  [IP:  | User Name:  | User ID:  |  ] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.AbstractConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.AbstractConfigurationImpl - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via user class loader
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.x.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Found jakarta.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.r.TraversableResolvers - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.JPATraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-06-04 17:41:13 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-06-04 17:41:15 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-04 17:41:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-04 17:41:16 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.e.EventsphereApplication - Started EventsphereApplication in 58.738 seconds (process running for 63.085)
+2026-06-04 17:41:16 [main] DEBUG [IP:  | User Name:  | User ID:  |  ] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:41:17 [main] INFO  [IP:  | User Name:  | User ID:  |  ] c.e.eventsphere.config.AdminConfig - Default Admin already exists. Skipping seeding.
+2026-06-04 17:42:02 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-04 17:42:02 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-04 17:42:02 [http-nio-8080-exec-1] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-04 17:42:02 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-1] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.html] c.e.e.filter.RequestLoggingFilter - Completed in 189 ms with status 200
+2026-06-04 17:42:02 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-2] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui.css] c.e.e.filter.RequestLoggingFilter - Completed in 38 ms with status 200
+2026-06-04 17:42:02 [http-nio-8080-exec-3] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/index.css] c.e.e.filter.RequestLoggingFilter - Completed in 18 ms with status 200
+2026-06-04 17:42:02 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:02 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-standalone-preset.js] c.e.e.filter.RequestLoggingFilter - Completed in 52 ms with status 200
+2026-06-04 17:42:03 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-ui-bundle.js] c.e.e.filter.RequestLoggingFilter - Completed in 320 ms with status 200
+2026-06-04 17:42:03 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /swagger-ui/swagger-initializer.js] c.e.e.filter.RequestLoggingFilter - Completed in 379 ms with status 200
+2026-06-04 17:42:04 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:04 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs/swagger-config] c.e.e.filter.RequestLoggingFilter - Completed in 187 ms with status 200
+2026-06-04 17:42:04 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:13 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 8907 ms
+2026-06-04 17:42:13 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | GET /v3/api-docs] c.e.e.filter.RequestLoggingFilter - Completed in 9355 ms with status 200
+2026-06-04 17:42:33 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:42:33 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.example.eventsphere.service.TokenService.createRefreshToken]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(254063150<open>)] for JPA transaction
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@64cad641]
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(254063150<open>)] for JPA transaction
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-06-04 17:42:34 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.TokenService - Secure Refresh Token generated and hashed for user ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-06-04 17:42:34 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(254063150<open>)]
+2026-06-04 17:42:35 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] o.s.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(254063150<open>)] after transaction
+2026-06-04 17:42:35 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.eventsphere.service.AuthService - Successful login for user: Arsam004
+2026-06-04 17:42:35 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: anonymous_user | User ID: anonymous_id | POST /api/auth/login] c.e.e.filter.RequestLoggingFilter - Completed in 1615 ms with status 200
+2026-06-04 17:43:05 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:43:06 [http-nio-8080-exec-5] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/organization/my-org] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:43:06 [http-nio-8080-exec-5] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/organization/my-org] c.e.e.filter.RequestLoggingFilter - Completed in 416 ms with status 200
+2026-06-04 17:43:26 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(970041688<open>)] for JPA transaction
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2b81c7e2]
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(970041688<open>)]
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(970041688<open>)] after transaction
+2026-06-04 17:43:26 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:43:27 [http-nio-8080-exec-4] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:43:29 [http-nio-8080-exec-4] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-org-events/1ed6540a-0ebc-4c87-a4aa-c284fa3dc3c8] c.e.e.filter.RequestLoggingFilter - Completed in 3807 ms with status 200
+2026-06-04 17:43:53 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(468976645<open>)] for JPA transaction
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@519bd5a4]
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(468976645<open>)]
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(468976645<open>)] after transaction
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(2141653612<open>)] for JPA transaction
+2026-06-04 17:43:53 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@79ca6668]
+2026-06-04 17:43:54 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-06-04 17:43:54 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(2141653612<open>)]
+2026-06-04 17:43:54 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(2141653612<open>)] after transaction
+2026-06-04 17:43:54 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:43:54 [http-nio-8080-exec-6] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:43:54 [http-nio-8080-exec-6] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-sponsors/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Completed in 1285 ms with status 200
+2026-06-04 17:44:08 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:44:08 [http-nio-8080-exec-7] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:44:08 [http-nio-8080-exec-7] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Completed in 415 ms with status 200
+2026-06-04 17:44:34 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.example.eventsphere.service.EventService.sendCustomEmail]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(1261152706<open>)] for JPA transaction
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@27468f92]
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1261152706<open>)] for JPA transaction
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1261152706<open>)] for JPA transaction
+2026-06-04 17:44:34 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-06-04 17:44:52 [http-nio-8080-exec-8] ERROR [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.eventsphere.service.EmailService - Failed to send broadcast email
+org.springframework.mail.MailSendException: Failed messages: jakarta.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	org.eclipse.angus.mail.smtp.SMTPAddressFailedException: 550 5.4.6 An email sent to this address has been rejected with the reason 'Mailbox does not exist' within the last 30 days. Check for typos in the email, or ensure that this subscriber is not a part of your mailing list. To send an email to this address, contact the support team once you are sure the mailbox has been created
+;
+  nested exception is:
+	org.eclipse.angus.mail.smtp.SMTPAddressFailedException: 550 5.4.6 An email sent to this address has been rejected with the reason 'Mailbox does not exist' within the last 30 days. Check for typos in the email, or ensure that this subscriber is not a part of your mailing list. To send an email to this address, contact the support team once you are sure the mailbox has been created
+; message exceptions (1) are:
+Failed message 1: jakarta.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	org.eclipse.angus.mail.smtp.SMTPAddressFailedException: 550 5.4.6 An email sent to this address has been rejected with the reason 'Mailbox does not exist' within the last 30 days. Check for typos in the email, or ensure that this subscriber is not a part of your mailing list. To send an email to this address, contact the support team once you are sure the mailbox has been created
+;
+  nested exception is:
+	org.eclipse.angus.mail.smtp.SMTPAddressFailedException: 550 5.4.6 An email sent to this address has been rejected with the reason 'Mailbox does not exist' within the last 30 days. Check for typos in the email, or ensure that this subscriber is not a part of your mailing list. To send an email to this address, contact the support team once you are sure the mailbox has been created
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:453)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:350)
+	at org.springframework.mail.javamail.JavaMailSender.send(JavaMailSender.java:101)
+	at com.example.eventsphere.service.EmailService.sendBccEmail(EmailService.java:94)
+	at com.example.eventsphere.service.EventService.sendCustomEmail(EventService.java:952)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.eventsphere.service.EventService$$SpringCGLIB$$0.sendCustomEmail(<generated>)
+	at com.example.eventsphere.controller.EventController.sendCustomBroadcast(EventController.java:290)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196)
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.eventsphere.controller.EventController$$SpringCGLIB$$0.sendCustomBroadcast(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:66)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.RequestLoggingFilter.doFilterInternal(RequestLoggingFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.eventsphere.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-06-04 17:44:52 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1261152706<open>)] for JPA transaction
+2026-06-04 17:44:52 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-06-04 17:44:52 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-06-04 17:44:52 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1261152706<open>)]
+2026-06-04 17:44:53 [http-nio-8080-exec-8] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(1261152706<open>)] after transaction
+2026-06-04 17:44:53 [http-nio-8080-exec-8] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | POST /api/event/send-broadcast-email/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Completed in 19296 ms with status 200
+2026-06-04 17:45:19 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Incoming Request
+2026-06-04 17:45:19 [http-nio-8080-exec-9] DEBUG [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] o.s.o.j.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler - Creating new EntityManager for shared EntityManager invocation
+2026-06-04 17:45:19 [http-nio-8080-exec-9] INFO  [IP: 0:0:0:0:0:0:0:1 | User Name: Arsam004 | User ID: 3ad1145a-2794-4ffa-a855-ab6cbc3f1dcc | GET /api/event/get-all-broadcasts/4fbea20d-9de1-4f71-a7ce-648be398bbb5] c.e.e.filter.RequestLoggingFilter - Completed in 458 ms with status 200
+2026-06-04 17:45:27 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-06-04 17:45:28 [tomcat-shutdown] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-06-04 17:45:28 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-04 17:45:28 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-04 17:45:28 [SpringApplicationShutdownHook] INFO  [IP:  | User Name:  | User ID:  |  ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

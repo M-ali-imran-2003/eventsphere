@@ -11,6 +11,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -78,6 +79,22 @@ public class EmailService {
             log.info("Email successfully sent to {}", to);
         } catch (Exception e) {
             log.error("Exception while sending email to {}", to, e);
+        }
+    }
+    public void sendBccEmail(List<String> bccEmails, String subject, String body) {
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, false, "UTF-8");
+            helper.setSubject(subject);
+            helper.setText(body);
+            // We set BCC instead of TO. This is crucial for privacy!
+            helper.setBcc(bccEmails.toArray(new String[0]));
+            helper.setFrom(mailUsername); // Optional, usually inferred from properties
+
+            javaMailSender.send(message);
+            log.info("Sent broadcast to {} attendees", bccEmails.size());
+        } catch (Exception e) {
+            log.error("Failed to send broadcast email", e);
         }
     }
     public void sendEmailWithAttachment(String to, String subject, String body, String filename, byte[] bytes) {

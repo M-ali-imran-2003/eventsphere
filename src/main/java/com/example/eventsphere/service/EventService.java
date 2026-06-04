@@ -14,10 +14,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 @Slf4j
@@ -25,30 +27,36 @@ import java.util.*;
 public class EventService {
 
     private final EventRepository eventRepository;
+    private final EmailBroadcastHistoryRepository emailBroadcastHistoryRepository;
     private final GenericMapper mapper;
     private final OrganizationMemberRepository organizationMemberRepository;
     private final OrganizationRepository organizationRepository;
     private final FileService fileService;
+    private final AttendeeTicketRepository attendeeTicketRepository;
     private final CategoryRepository categoryRepository;
     private final SubEventRepository subEventRepository;
     private final TicketTierRepository ticketTierRepository;
     private final DiscountCodeRepository discountCodeRepository;
     private final LandingPageRepository landingPageRepository;
+    private final EmailService emailService;
     private final SponsorRepository sponsorRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
-    public EventService(EventRepository eventRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, SponsorRepository sponsorRepository) {
+    public EventService(EventRepository eventRepository, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, AttendeeTicketRepository attendeeTicketRepository, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, EmailService emailService, SponsorRepository sponsorRepository) {
         this.eventRepository = eventRepository;
+        this.emailBroadcastHistoryRepository = emailBroadcastHistoryRepository;
         this.mapper = mapper;
         this.organizationMemberRepository = organizationMemberRepository;
         this.organizationRepository = organizationRepository;
         this.fileService = fileService;
+        this.attendeeTicketRepository = attendeeTicketRepository;
         this.categoryRepository = categoryRepository;
         this.subEventRepository = subEventRepository;
         this.ticketTierRepository = ticketTierRepository;
         this.discountCodeRepository = discountCodeRepository;
         this.landingPageRepository = landingPageRepository;
+        this.emailService = emailService;
         this.sponsorRepository = sponsorRepository;
     }
 
@@ -926,5 +934,65 @@ public class EventService {
 
         // If it passes all checks, return the percentage (e.g., 15.0)
         return discount.getDiscountValue();
+    }
+
+    @Transactional
+    public int sendCustomEmail(UUID eventId, BroadcastEmailRequest request){
+        verifyEventOwnership(eventId, Objects.requireNonNull(SecurityUtil.getCurrentUser()));
+
+        // 1. Fetch all unique emails for this event
+        List<String> attendeeEmails = attendeeTicketRepository.findDistinctEmailsByEventId(eventId);
+
+        if (attendeeEmails.isEmpty()) {
+            throw new RuntimeException("No attendees found for this event. Email not sent.");
+        }
+
+        // 2. Send the custom email using the BCC helper we built in Step 3
+        try {
+            emailService.sendBccEmail(attendeeEmails, request.getSubject(), request.getMessageBody());
+            EmailBroadcastHistory history = new EmailBroadcastHistory();
+            history.setEventId(eventId);
+            history.setSubject(request.getSubject());
+            history.setMessageBody(request.getMessageBody());
+            history.setRecipientCount(attendeeEmails.size());
+            history.setSentAt(LocalDateTime.now());
+            emailBroadcastHistoryRepository.save(history);
+        }catch (Exception e){
+            log.error("Error Sending email: "+ e.getMessage());
+            throw new RuntimeException("Error Sending email: Email not sent. "+ e.getMessage());
+        }
+        return attendeeEmails.size();
+    }
+
+    @Scheduled(cron = "0 0 8 * * *")
+    public void sendUpcomingEventReminders() {
+        log.info("Waking up Auto-Reminder Engine at 8:00 AM...");
+
+        // 1. Find the time window for "Tomorrow"
+        LocalDateTime startOfTomorrow = LocalDateTime.now().plusDays(1).truncatedTo(ChronoUnit.DAYS);
+        LocalDateTime endOfTomorrow = startOfTomorrow.plusDays(1).minusSeconds(1);
+
+        // 2. Find all events happening tomorrow
+        // (You will need to add findByStartTimeBetween in your EventRepository)
+        List<Event> eventsTomorrow = eventRepository.findByStartDateTimeBetween(startOfTomorrow, endOfTomorrow);
+
+        for (Event event : eventsTomorrow) {
+            log.info("Processing reminders for event: {}", event.getTitle());
+
+            // 3. Get all unique attendee emails
+            List<String> attendeeEmails = attendeeTicketRepository.findDistinctEmailsByEventId(event.getId());
+
+            if (attendeeEmails.isEmpty()) continue;
+
+            // 4. Send the BCC Broadcast!
+            emailService.sendBccEmail(
+                    attendeeEmails,
+                    "Reminder: " + event.getTitle() + " is tomorrow!",
+                    "Hi there,\n\nJust a quick reminder that " + event.getTitle() +
+                            " is happening tomorrow!\n\nVenue: " + event.getVenue() +
+                            "\nStart Time: " + event.getStartDateTime() +
+                            "\n\nPlease have your QR code tickets ready on your phone.\n\nSee you there!"
+            );
+        }
     }
 }

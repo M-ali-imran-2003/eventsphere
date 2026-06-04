@@ -10,12 +10,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, UUID> {
+    List<Event> findByStartDateTimeBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
 
     @Query("""
         SELECT new com.example.eventsphere.dto.EventDTO(
