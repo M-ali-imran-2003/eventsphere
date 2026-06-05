@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -1001,34 +1002,57 @@ public class EventService {
                 .orElseThrow(() -> new RuntimeException("User Not Found"));
 
         List<Order> orders = orderRepository.findByBuyerId(user.getId());
-        List<MyEventsResponse> responseList = new ArrayList<>();
+        if (orders.isEmpty()) return List.of();
 
-        // Tracks slugs we have already added to prevent duplicates
+        // 1. Extract unique Event IDs and fetch Events
+        Set<UUID> eventIds = orders.stream().map(Order::getEventId).collect(Collectors.toSet());
+        Map<UUID, Event> eventMap = eventRepository.findAllById(eventIds).stream()
+                .collect(Collectors.toMap(Event::getId, event -> event));
+
+        // 2. Fetch associated Landing Pages in bulk (Safely handling any dirty data)
+        Map<UUID, LandingPage> landingPageMap = landingPageRepository.findByEventIdIn(eventIds).stream()
+                .collect(Collectors.toMap(
+                        LandingPage::getEventId,
+                        lp -> lp,
+                        (existing, replacement) -> existing // If a duplicate exists, keep the first one and ignore the crash
+                ));
+
+        // 3. Extract unique Org IDs and Category IDs from the fetched Events
+        Set<UUID> orgIds = eventMap.values().stream()
+                .map(Event::getOrganizationId).filter(Objects::nonNull).collect(Collectors.toSet());
+        Set<UUID> catIds = eventMap.values().stream()
+                .map(Event::getCategoryId).filter(Objects::nonNull).collect(Collectors.toSet());
+
+        // 4. Bulk fetch Organizations and Categories
+        Map<UUID, Organization> orgMap = organizationRepository.findAllById(orgIds).stream()
+                .collect(Collectors.toMap(Organization::getId, org -> org));
+        Map<UUID, Category> catMap = categoryRepository.findAllById(catIds).stream()
+                .collect(Collectors.toMap(Category::getId, cat -> cat));
+
+        List<MyEventsResponse> responseList = new ArrayList<>();
         Set<String> seenSlugs = new HashSet<>();
 
+        // 5. Map to DTO in memory
         for (Order order : orders) {
-            Event event = eventRepository.findById(order.getEventId()).orElse(null);
-            if (event == null) continue; // Safer than assert in production
+            Event event = eventMap.get(order.getEventId());
+            if (event == null) continue;
 
-            // Fetch the landing page first to check the slug
-            Optional<LandingPage> landingPage = landingPageRepository.findByEventId(event.getId());
-            if (landingPage.isEmpty()) continue;
+            LandingPage landingPage = landingPageMap.get(event.getId());
+            if (landingPage == null) continue;
 
-            String slug = landingPage.get().getSlug();
+            String slug = landingPage.getSlug();
 
-            // Skip this order if we already processed an event with this slug
-            if (seenSlugs.contains(slug)) {
-                continue;
-            }
+            // Deduplication
+            if (seenSlugs.contains(slug)) continue;
             seenSlugs.add(slug);
 
-            Optional<Organization> organization = organizationRepository.findById(event.getOrganizationId());
-            Optional<Category> category = categoryRepository.findById(event.getCategoryId());
+            Organization org = orgMap.get(event.getOrganizationId());
+            Category cat = catMap.get(event.getCategoryId());
 
             responseList.add(MyEventsResponse.builder()
                     .title(event.getTitle())
-                    .organization(organization.isPresent() ? organization.get().getName() : "Unknown")
-                    .category(category.isPresent() ? category.get().getName() : "Unknown")
+                    .organization(org != null ? org.getName() : "Unknown")
+                    .category(cat != null ? cat.getName() : "Unknown")
                     .image(event.getImageUrl())
                     .slug(slug)
                     .start(event.getStartDateTime())

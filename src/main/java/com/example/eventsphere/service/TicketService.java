@@ -33,6 +33,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -164,75 +165,86 @@ public class TicketService {
     }
 
     public List<MyTicketResponse> getMyTickets() {
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername())
+                .orElseThrow(() -> new RuntimeException("User Not Found"));
 
-        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
-
-        // 1. Fetch raw tickets assigned to this email
+        // 1. Fetch raw tickets
         List<AttendeeTicket> rawTickets = ticketRepository.findByAssignedEmail(user.getEmail());
+        if (rawTickets.isEmpty()) return List.of();
 
-        List<MyTicketResponse> responseList = new ArrayList<>();
+        // 2. Extract unique Order and Tier IDs
+        Set<UUID> orderIds = rawTickets.stream().map(AttendeeTicket::getOrderId).collect(Collectors.toSet());
+        Set<UUID> tierIds = rawTickets.stream().map(AttendeeTicket::getTierId).collect(Collectors.toSet());
 
-        // 2. Map them to the frontend DTO
-        for (AttendeeTicket ticket : rawTickets) {
-            // Fetch associated data. (In a highly optimized production app,
-            // you might use a custom @Query with JOINs to do this in one database hit,
-            // but for this phase, direct lookups are perfectly fine and clean).
-            Order order = orderRepository.findById(ticket.getOrderId()).orElse(null);
-            if (order == null) continue;
+        // 3. Bulk fetch Orders and Tiers
+        Map<UUID, Order> orderMap = orderRepository.findAllById(orderIds).stream()
+                .collect(Collectors.toMap(Order::getId, order -> order));
+        Map<UUID, TicketTier> tierMap = tierRepository.findAllById(tierIds).stream()
+                .collect(Collectors.toMap(TicketTier::getId, tier -> tier));
 
-            Event event = eventRepository.findById(order.getEventId()).orElse(null);
-            TicketTier tier = tierRepository.findById(ticket.getTierId()).orElse(null);
+        // 4. Extract Event IDs from the fetched Orders and bulk fetch Events
+        Set<UUID> eventIds = orderMap.values().stream().map(Order::getEventId).collect(Collectors.toSet());
+        Map<UUID, Event> eventMap = eventRepository.findAllById(eventIds).stream()
+                .collect(Collectors.toMap(Event::getId, event -> event));
 
-            if (event != null && tier != null) {
-                responseList.add(MyTicketResponse.builder()
-                        .ticketId(ticket.getId())
-                        .ticketReference(ticket.getTicketReference())
-                        .orderReference(order.getOrderReference())
-                        .eventName(event.getTitle())
-                        .eventDate(event.getStartDateTime())
-                        .venue(event.getVenue())
-                        .tierName(tier.getTierName())
-                        .assignedName(ticket.getAssignedName())
-                        .qrCodeHash(ticket.getQrCodeHash())
-                        .isCheckedIn(ticket.isCheckedIn())
-                        .build());
-            }
-        }
+        // 5. Map to DTO in memory (No database calls inside the loop)
+        return rawTickets.stream()
+                .map(ticket -> {
+                    Order order = orderMap.get(ticket.getOrderId());
+                    if (order == null) return null;
 
-        // Sorts the final list so upcoming events appear first
-        return responseList.stream()
-                .sorted((t1, t2) -> t1.getEventDate().compareTo(t2.getEventDate()))
+                    Event event = eventMap.get(order.getEventId());
+                    TicketTier tier = tierMap.get(ticket.getTierId());
+
+                    if (event != null && tier != null) {
+                        return MyTicketResponse.builder()
+                                .ticketId(ticket.getId())
+                                .ticketReference(ticket.getTicketReference())
+                                .orderReference(order.getOrderReference())
+                                .eventName(event.getTitle())
+                                .eventDate(event.getStartDateTime())
+                                .venue(event.getVenue())
+                                .tierName(tier.getTierName())
+                                .assignedName(ticket.getAssignedName())
+                                .qrCodeHash(ticket.getQrCodeHash())
+                                .isCheckedIn(ticket.isCheckedIn())
+                                .build();
+                    }
+                    return null;
+                })
+                .filter(Objects::nonNull)
+                .sorted(Comparator.comparing(MyTicketResponse::getEventDate))
                 .toList();
     }
 
     public List<AllTicketsDTO> getAllTicketsByEvent(UUID eventId) {
         User currentUser = SecurityUtil.getCurrentUser();
-
-        // Verify ownership
         verifyEventOwnership(eventId, currentUser);
 
-        // 1. Fetch all matching tickets in one database call
+        // 1. Fetch all tickets
         List<AttendeeTicket> tickets = ticketRepository.findAllTicketsByEventId(eventId);
+        if (tickets.isEmpty()) return List.of();
 
-        // Optional check: if empty, stop immediately
-        if (tickets.isEmpty()) {
-            return List.of();
-        }
-
-        // 2. Fetch shared resources once to avoid N+1 lookups
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
 
-        // 3. Map and sort cleanly using Java Streams
+        // 2. Extract unique Order IDs and Tier IDs
+        Set<UUID> orderIds = tickets.stream().map(AttendeeTicket::getOrderId).collect(Collectors.toSet());
+        Set<UUID> tierIds = tickets.stream().map(AttendeeTicket::getTierId).collect(Collectors.toSet());
+
+        // 3. Bulk fetch Orders and Tiers
+        Map<UUID, Order> orderMap = orderRepository.findAllById(orderIds).stream()
+                .collect(Collectors.toMap(Order::getId, order -> order));
+        Map<UUID, TicketTier> tierMap = tierRepository.findAllById(tierIds).stream()
+                .collect(Collectors.toMap(TicketTier::getId, tier -> tier));
+
+        // 4. Map the DTOs in memory
         return tickets.stream()
                 .map(ticket -> {
-                    // Fetch context-specific details safely
-                    Order order = orderRepository.findById(ticket.getOrderId()).orElse(null);
-                    TicketTier tier = tierRepository.findById(ticket.getTierId()).orElse(null);
+                    Order order = orderMap.get(ticket.getOrderId());
+                    TicketTier tier = tierMap.get(ticket.getTierId());
 
-                    if (order == null || tier == null) {
-                        return null; // Skip corrupted or partial records safely
-                    }
+                    if (order == null || tier == null) return null;
 
                     return AllTicketsDTO.builder()
                             .ticketId(ticket.getId())
@@ -249,8 +261,8 @@ public class TicketService {
                             .checkedInTime(ticket.getCheckInTime())
                             .build();
                 })
-                .filter(Objects::nonNull) // Discard any skipped records
-                .sorted(Comparator.comparing(AllTicketsDTO::getEventDate)) // Cleaner sorting syntax
+                .filter(Objects::nonNull)
+                .sorted(Comparator.comparing(AllTicketsDTO::getEventDate))
                 .toList();
     }
 

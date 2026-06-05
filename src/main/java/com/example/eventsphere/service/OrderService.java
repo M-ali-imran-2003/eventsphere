@@ -11,10 +11,8 @@ import com.example.eventsphere.utils.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -99,37 +97,36 @@ public class OrderService {
     }
 
     public List<MyOrdersResponse> getMyOrders() {
+        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername())
+                .orElseThrow(() -> new RuntimeException("User Not Found"));
 
-        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
-
-        // 1. Fetch raw tickets assigned to this email
         List<Order> orders = orderRepository.findByBuyerId(user.getId());
+        if (orders.isEmpty()) return List.of();
 
-        List<MyOrdersResponse> responseList = new ArrayList<>();
+        // 1. Extract unique Event IDs
+        Set<UUID> eventIds = orders.stream().map(Order::getEventId).collect(Collectors.toSet());
 
-        // 2. Map them to the frontend DTO
-        for (Order order : orders) {
-            // Fetch associated data. (In a highly optimized production app,
-            // you might use a custom @Query with JOINs to do this in one database hit,
-            // but for this phase, direct lookups are perfectly fine and clean).
+        // 2. Bulk fetch Events
+        Map<UUID, Event> eventMap = eventRepository.findAllById(eventIds).stream()
+                .collect(Collectors.toMap(Event::getId, event -> event));
 
-            Event event = eventRepository.findById(order.getEventId()).orElse(null);
+        // 3. Map to DTO
+        return orders.stream()
+                .map(order -> {
+                    Event event = eventMap.get(order.getEventId());
+                    if (event == null) return null;
 
-            if (event != null) {
-                responseList.add(MyOrdersResponse.builder()
-                        .orderId(order.getId())
-                        .orderReference(order.getOrderReference())
-                        .eventName(event.getTitle())
-                        .totalAmount(order.getTotalAmount())
-                        .paymentStatus(order.getPaymentStatus())
-                        .createdAt(order.getCreatedAt())
-                        .build());
-            }
-        }
-
-        // Sorts the final list so upcoming events appear first
-        return responseList.stream()
-                .sorted((t1, t2) -> t1.getCreatedAt().compareTo(t2.getCreatedAt()))
+                    return MyOrdersResponse.builder()
+                            .orderId(order.getId())
+                            .orderReference(order.getOrderReference())
+                            .eventName(event.getTitle())
+                            .totalAmount(order.getTotalAmount())
+                            .paymentStatus(order.getPaymentStatus())
+                            .createdAt(order.getCreatedAt())
+                            .build();
+                })
+                .filter(Objects::nonNull)
+                .sorted(Comparator.comparing(MyOrdersResponse::getCreatedAt))
                 .toList();
     }
 
