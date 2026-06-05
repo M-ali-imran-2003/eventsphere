@@ -224,7 +224,7 @@ public class CheckoutService {
         walletTx.setCreatedAt(LocalDateTime.now());
 
         walletRepository.saveAndFlush(walletTx);
-        //ticketService.generateAndSendTickets(savedOrder, buyer, isNewUser, rawTempPassword);
+        ticketService.generateAndSendTickets(savedOrder, buyer, isNewUser, rawTempPassword);
         log.info("Checkout successful! Order ID generated: {}", savedOrder.getId());
 
         return CheckoutResponse.builder()

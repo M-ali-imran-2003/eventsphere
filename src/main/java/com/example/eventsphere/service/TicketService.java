@@ -350,7 +350,6 @@ public class TicketService {
     private byte[] createTicketPdfBytes(Order order, Event event, List<AttendeeTicket> tickets, String greetingMessage) {
         // 1. Fetch Sponsors and Organizer Name
         List<Sponsor> sponsors = sponsorRepository.findByEventId(event.getId());
-log.info("All Sponsors: {} with count {}",sponsors.stream().toList().toString(), sponsors.size());
         // Fetch Organization name (Adjust this based on how you store Organizers!)
         String orgName = "Unknown Organizer";
         var orgOpt = organizationRepository.findById(event.getOrganizationId());
