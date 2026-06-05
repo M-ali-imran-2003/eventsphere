@@ -1,11 +1,9 @@
 package com.example.eventsphere.controller;
 
-import com.example.eventsphere.dto.CheckoutRequest;
-import com.example.eventsphere.dto.CheckoutResponse;
-import com.example.eventsphere.dto.PublicEventCardDTO;
-import com.example.eventsphere.dto.PublicEventResponse;
+import com.example.eventsphere.dto.*;
 import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
+import com.example.eventsphere.service.TicketService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +19,12 @@ public class PublicController {
 
     private final EventService eventService;
     private final CheckoutService checkoutService;
+    private final TicketService ticketService;
 
-    public PublicController(EventService eventService, CheckoutService checkoutService) {
+    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService) {
         this.eventService = eventService;
         this.checkoutService = checkoutService;
+        this.ticketService = ticketService;
     }
 
     @GetMapping("/event/{slug}")
@@ -70,5 +70,13 @@ public class PublicController {
                     "message", e.getMessage()
             ));
         }
+    }
+    @PostMapping("/tickets/recover/{eventId}")
+    public ResponseEntity<Map<String, String>> recoverLostTicket(
+            @PathVariable UUID eventId,
+            @Valid @RequestBody LostTicketRecoveryRequest request) {
+
+        String message = ticketService.recoverLostTickets(eventId,request);
+        return ResponseEntity.ok(Map.of("message", message));
     }
 }

@@ -49,6 +49,9 @@ public class AttendeeTicket {
     @Column(name = "is_checked_in")
     private boolean isCheckedIn;
 
+    @Column(name = "is_transferred")
+    private boolean isTransferred = false;
+
     @Column(name = "check_in_timestamp")
     private LocalDateTime checkInTime;
 

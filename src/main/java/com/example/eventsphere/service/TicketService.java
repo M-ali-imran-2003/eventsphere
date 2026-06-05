@@ -1,6 +1,7 @@
 package com.example.eventsphere.service;
 
 import com.example.eventsphere.dto.AllTicketsDTO;
+import com.example.eventsphere.dto.LostTicketRecoveryRequest;
 import com.example.eventsphere.dto.MyTicketResponse;
 import com.example.eventsphere.dto.TicketTransferRequest;
 import com.example.eventsphere.entity.*;
@@ -18,6 +19,7 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -40,10 +42,12 @@ import java.util.stream.Collectors;
 public class TicketService {
 
     private final EmailService emailService;
+    private final TicketService self; // ADD THIS
     private final SpringTemplateEngine templateEngine;
     private final AttendeeTicketRepository ticketRepository;
     private final EventRepository eventRepository;
     private final OrderRepository orderRepository;
+    private final SponsorRepository sponsorRepository;
     private final TicketTierRepository tierRepository;
     private final OrganizationRepository organizationRepository;
     private final OrganizationMemberRepository organizationMemberRepository;
@@ -51,12 +55,14 @@ public class TicketService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public TicketService(EmailService emailService, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, TicketTierRepository tierRepository, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public TicketService(EmailService emailService, @Lazy TicketService self, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, SponsorRepository sponsorRepository, TicketTierRepository tierRepository, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.emailService = emailService;
+        this.self = self;
         this.templateEngine = templateEngine;
         this.ticketRepository = ticketRepository;
         this.eventRepository = eventRepository;
         this.orderRepository = orderRepository;
+        this.sponsorRepository = sponsorRepository;
         this.tierRepository = tierRepository;
         this.organizationRepository = organizationRepository;
         this.organizationMemberRepository = organizationMemberRepository;
@@ -65,88 +71,71 @@ public class TicketService {
     }
 
     @Async
-    public void generateAndSendTickets(Order order, User buyer,boolean isNewUser, String tempPassword) {
-        log.info("Background Thread started: Generating tickets for Order: {}", order.getId());
-
+    public void generateAndSendTickets(Order order, User buyer, boolean isNewUser, String tempPassword) {
+        log.info("Generating tickets for Checkout Order: {}", order.getId());
         try {
-            // 0. Fetch the extra data needed for the ticket design
-            Event event = eventRepository.findById(order.getEventId())
-                    .orElseThrow(() -> new RuntimeException("Event not found"));
-            List<AttendeeTicket> tickets = ticketRepository.findByOrderId(order.getId())
-                    .orElseThrow(() -> new RuntimeException("Tickets not found"));
+            Event event = eventRepository.findById(order.getEventId()).orElseThrow();
+            List<AttendeeTicket> tickets = ticketRepository.findByOrderId(order.getId()).orElseThrow();
 
-            for (AttendeeTicket ticket : tickets) {
-                try {
-                    // ENCODE ONLY THE RAW UUID HASH STRING
-                    String qrData = ticket.getQrCodeHash();
+            String greeting = "Hi " + buyer.getName() + ", your payment was successful!";
+            byte[] pdfBytes = createTicketPdfBytes(order, event, tickets, greeting);
 
-                    BitMatrix bitMatrix = new MultiFormatWriter().encode(qrData, BarcodeFormat.QR_CODE, 200, 200);
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
-
-                    String base64Qr = "data:image/png;base64," + Base64.getEncoder().encodeToString(baos.toByteArray());
-
-                    // Temporarily change the hash string into the Base64 image data for Thymeleaf to print
-                    ticket.setQrCodeHash(base64Qr);
-                } catch (Exception qrEx) {
-                    log.error("Failed to generate QR code image for ticket reference: {}", ticket.getTicketReference(), qrEx);
-                }
-            }
-
-            // ========================================================
-            // STEP 1: RENDER THE HTML TEMPLATE (Thymeleaf)
-            // ========================================================
-            Context context = new Context();
-            try {
-                String logoPath = new ClassPathResource("static/images/logo.png").getURI().toString();
-                context.setVariable("logoPath", logoPath); // Pass string starting with file:/...
-            } catch (Exception e) {
-                context.setVariable("logoPath", "");
-            }
-            context.setVariable("buyer", buyer);
-            context.setVariable("order", order);
-            context.setVariable("event", event);
-            context.setVariable("tickets", tickets);
-
-            // This looks for a file named "ticket-template.html" in src/main/resources/templates/
-            String htmlContent = templateEngine.process("ticket-template", context);
-
-            // ========================================================
-            // STEP 2: CONVERT HTML TO PRINT-READY PDF
-            // ========================================================
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            ITextRenderer renderer = new ITextRenderer();
-
-            // Load the HTML string into the renderer
-            renderer.setDocumentFromString(htmlContent);
-            renderer.layout();
-
-            // Create the PDF in memory (no need to save to hard drive!)
-            renderer.createPDF(outputStream);
-            byte[] pdfBytes = outputStream.toByteArray();
-
-            // ========================================================
-            // STEP 3: SEND THE EMAIL WITH THE ATTACHMENT
-            // ========================================================
-
-            String to = buyer.getEmail();
-            String subject = "Your Tickets for " + event.getTitle(); // Assuming Event has getTitle()
-            String body = "Hello " + buyer.getName() + ",\n\nThank you for your purchase! Your tickets for "
-                    + event.getTitle() + " are attached to this email as a PDF.\n\nSee you there!";
-
-            emailService.sendEmailWithAttachment(to,subject,body,"EventSphere_Tickets_" + order.getOrderReference() + ".pdf", pdfBytes);
+            String subject = "Your Tickets for " + event.getTitle();
+            String body = "Thank you for your purchase! Your tickets are attached.";
+            emailService.sendEmailWithAttachment(buyer.getEmail(), subject, body, "Tickets_" + order.getOrderReference() + ".pdf", pdfBytes);
 
             if (isNewUser && tempPassword != null) {
-                sendWelcomeEmail(buyer.getEmail(), buyer.getName(), tempPassword, buyer.getUsername());
+                sendWelcomeEmail(buyer.getEmail(), buyer.getName(),tempPassword,buyer.getUsername() );
             }
-
-            log.info("Ticket email successfully dispatched to {} with {} tickets attached.",
-                    buyer.getEmail(), tickets.size());
-
         } catch (Exception e) {
-            log.error("Failed to deliver ticket emails for order {}", order.getId(), e);
+            log.error("Checkout email failed", e);
         }
     }
+
+    @Async
+    public void resendTicketsAsync(List<AttendeeTicket> tickets, Event event, Order order, String email) {
+        log.info("Generating Recovery PDF for {} tickets...", tickets.size());
+        try {
+            String greeting = "Hi " + tickets.get(0).getAssignedName() + ", here are your recovered tickets.";
+
+            // Generate ONE PDF containing ALL their tickets!
+            byte[] pdfBytes = createTicketPdfBytes(order, event, tickets, greeting);
+
+            String subject = "Recovered Tickets: " + event.getTitle();
+            String body = "As requested, please find your recovered tickets attached.";
+            emailService.sendEmailWithAttachment(email, subject, body, "Recovered_Tickets.pdf", pdfBytes);
+
+        } catch (Exception e) {
+            log.error("Recovery email failed", e);
+        }
+    }
+
+    @Async
+    public void sendTransferEmailsAsync(AttendeeTicket ticket, String oldEmail) {
+        log.info("Processing Transfer Emails for Ticket: {}", ticket.getTicketReference());
+        try {
+            Order order = orderRepository.findById(ticket.getOrderId()).orElseThrow();
+            Event event = eventRepository.findById(order.getEventId()).orElseThrow();
+
+            // 1. Send PDF to the NEW owner
+            String greeting = "Hi " + ticket.getAssignedName() + ", you've been transferred a ticket!";
+            byte[] pdfBytes = createTicketPdfBytes(order, event, java.util.Collections.singletonList(ticket), greeting);
+
+            String newSubject = "You received a ticket to " + event.getTitle() + "!";
+            String newBody = "Great news! Someone transferred a ticket to you. See attached.";
+            emailService.sendEmailWithAttachment(ticket.getAssignedEmail(), newSubject, newBody, "Transferred_Ticket-"+ticket.getTicketReference()+".pdf", pdfBytes);
+
+            // 2. Send plain text confirmation to the OLD owner
+            if (!oldEmail.equalsIgnoreCase(ticket.getAssignedEmail())) {
+                String oldSubject = "Transfer Successful: " + ticket.getTicketReference();
+                String oldBody = "Your ticket has been successfully transferred to " + ticket.getAssignedEmail() + ".";
+                emailService.sendEmail(oldEmail, oldSubject, oldBody);
+            }
+        } catch (Exception e) {
+            log.error("Transfer emails failed", e);
+        }
+    }
+
     private void sendWelcomeEmail(String to, String name, String tempPassword, String username) {
         try {
             String subject = "Welcome to EventSphere - Your Account Details";
@@ -206,6 +195,9 @@ public class TicketService {
                                 .venue(event.getVenue())
                                 .tierName(tier.getTierName())
                                 .assignedName(ticket.getAssignedName())
+                                .assignedCnic(ticket.getAssignedCnic())
+                                .assignedPhone(ticket.getAssignedPhone())
+                                .assignedEmail(ticket.getAssignedEmail())
                                 .qrCodeHash(ticket.getQrCodeHash())
                                 .isCheckedIn(ticket.isCheckedIn())
                                 .build();
@@ -269,61 +261,69 @@ public class TicketService {
     @Transactional
     public String transferTicket(UUID ticketId, TicketTransferRequest request) {
 
-        User user = userRepository.findByUsername(Objects.requireNonNull(SecurityUtil.getCurrentUser()).getUsername()).orElseThrow(()-> new RuntimeException("User Not Found"));
+        User currentUser = SecurityUtil.getCurrentUser();
 
         AttendeeTicket ticket = ticketRepository.findById(ticketId)
                 .orElseThrow(() -> new RuntimeException("Ticket not found"));
 
-        if (!ticket.getAssignedEmail().equalsIgnoreCase(user.getEmail())) {
-            throw new RuntimeException("You are not authorized to transfer this ticket.");
+        // SECURITY: Verify the person requesting the transfer actually owns the order!
+        Order order = orderRepository.findById(ticket.getOrderId())
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+        if (!order.getBuyerId().equals(currentUser.getId())) {
+            throw new RuntimeException("You do not have permission to transfer this ticket.");
         }
 
-        if (ticket.isCheckedIn()) {
-            throw new RuntimeException("This ticket has already been scanned at the gate.");
+        // THE ANTI-SCALPING CHECK (1-Time Transfer Limit)
+        if (ticket.isTransferred()) {
+            throw new RuntimeException("This ticket has already been transferred once and cannot be transferred again.");
         }
 
-        // ==========================================
-        // NEW: SILENT REGISTRATION FOR THE FRIEND
-        // ==========================================
-        boolean isNewUser = false;
-        String rawTempPassword = null;
+        // Log the old email so we can send them a confirmation
+        String oldEmail = ticket.getAssignedEmail();
 
-        User friend = userRepository.findByEmail(request.getNewEmail()).orElse(null);
-
-        if (friend == null) {
-            log.info("Friend email not found. Creating silent Attendee account for transfer.");
-            isNewUser = true;
-            friend = new User();
-
-            friend.setEmail(request.getNewEmail());
-            friend.setCnic(request.getNewCnic());
-            friend.setPhoneNo(request.getNewPhone());
-            friend.setName(request.getNewName());
-            String emailPrefix = request.getNewEmail().split("@")[0];
-            String uniqueSuffix = UUID.randomUUID().toString().substring(0, 4);
-            friend.setUsername(emailPrefix + "_" + uniqueSuffix);
-            friend.setStatus(UserStatus.ACTIVE);
-            friend.setCreatedAt(LocalDateTime.now());
-            friend.setModifiedAt(LocalDateTime.now());
-            friend.setRole(UserRole.ATTENDEE); // Or however your roles are defined
-            // A real implementation would generate a random password here
-            rawTempPassword = SecurityUtil.generateTempPassword();
-            friend.setPassword(passwordEncoder.encode(rawTempPassword));
-            userRepository.save(friend);
-        }
-
-        // Update the ticket
+        // Update the ticket to the new person
         ticket.setAssignedName(request.getNewName());
+        ticket.setAssignedCnic(request.getNewCnic());
         ticket.setAssignedEmail(request.getNewEmail());
-        ticketRepository.save(ticket);
+        ticket.setAssignedPhone(request.getNewPhone());
+        ticket.setTransferred(true); // Lock it forever!
 
-        // ==========================================
-        // NEW: TRIGGER BACKGROUND TRANSFER EMAILS
-        // ==========================================
-        // We will call a new method in your TicketFulfillmentService
-        //ticket.processTicketTransferEmails(ticket, user.getEmail(), friend, isNewUser, rawTempPassword);
+        ticketRepository.saveAndFlush(ticket);
 
-        return "Ticket successfully transferred to " + request.getNewName();
+        // TRIGGER THE EMAILS (This should be your @Async email method)
+        // 1. Email the old owner saying "Your ticket was transferred"
+        // 2. Email the PDF to the newAssignedEmail
+        self.sendTransferEmailsAsync(ticket, oldEmail);
+
+        return "Ticket successfully transferred to " + request.getNewEmail();
+    }
+
+    public String recoverLostTickets(UUID eventId, LostTicketRecoveryRequest request) {
+        List<AttendeeTicket> tickets = ticketRepository.findByEventIdAndAssignedEmail(eventId, request.getEmail());
+
+        if (!tickets.isEmpty()) {
+            Event event = eventRepository.findById(eventId).orElseThrow();
+
+            // 1. Group the tickets by their exact Order ID
+            Map<UUID, List<AttendeeTicket>> ticketsByOrder = tickets.stream()
+                    .collect(Collectors.groupingBy(AttendeeTicket::getOrderId));
+
+            // 2. Loop through each separate order
+            for (Map.Entry<UUID, List<AttendeeTicket>> entry : ticketsByOrder.entrySet()) {
+                UUID orderId = entry.getKey();
+                List<AttendeeTicket> orderTickets = entry.getValue();
+
+                // Fetch the exact order for this specific group of tickets
+                Order order = orderRepository.findById(orderId).orElseThrow();
+
+                // 3. Fire the background thread for THIS specific order
+                // (Using 'self.' so the @Async proxy works properly)
+                self.resendTicketsAsync(orderTickets, event, order, request.getEmail());
+            }
+        }
+
+        // Always return the generic message for security
+        return "If tickets exist for this email, they have been sent to your inbox.";
     }
 
     private void verifyEventOwnership(UUID eventId, User user) {
@@ -344,6 +344,70 @@ public class TicketService {
 
         if (member.getRole() != OrgRole.OWNER) {
             throw new RuntimeException("Only Organization Owners can manage.");
+        }
+    }
+
+    private byte[] createTicketPdfBytes(Order order, Event event, List<AttendeeTicket> tickets, String greetingMessage) {
+        // 1. Fetch Sponsors and Organizer Name
+        List<Sponsor> sponsors = sponsorRepository.findByEventId(event.getId());
+log.info("All Sponsors: {} with count {}",sponsors.stream().toList().toString(), sponsors.size());
+        // Fetch Organization name (Adjust this based on how you store Organizers!)
+        String orgName = "Unknown Organizer";
+        var orgOpt = organizationRepository.findById(event.getOrganizationId());
+        if(orgOpt.isPresent()){
+            orgName = orgOpt.get().getName();
+        }
+
+        // NEW: Fetch Tier Names and put them in a Map!
+        List<TicketTier> tiers = tierRepository.findByEventId(event.getId());
+        Map<UUID, String> tierNames = new java.util.HashMap<>();
+        for (TicketTier tier : tiers) {
+            tierNames.put(tier.getId(), tier.getTierName());
+        }
+
+        // 2. Generate QR Codes
+        for (AttendeeTicket ticket : tickets) {
+            try {
+                String qrData = ticket.getQrCodeHash();
+                BitMatrix bitMatrix = new MultiFormatWriter().encode(qrData, BarcodeFormat.QR_CODE, 200, 200);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
+                String base64Qr = "data:image/png;base64," + Base64.getEncoder().encodeToString(baos.toByteArray());
+                ticket.setQrCodeHash(base64Qr); // Temporarily set for Thymeleaf
+            } catch (Exception e) {
+                log.error("QR Code failed for {}", ticket.getTicketReference());
+            }
+        }
+
+        // 3. Render HTML
+        Context context = new Context();
+        try {
+            String logoPath = new ClassPathResource("static/images/logo.png").getURI().toString();
+            context.setVariable("logoPath", logoPath);
+        } catch (Exception e) {
+            context.setVariable("logoPath", "");
+        }
+
+        context.setVariable("greetingMessage", greetingMessage);
+        context.setVariable("order", order);
+        context.setVariable("event", event);
+        context.setVariable("tickets", tickets);
+        context.setVariable("sponsors", sponsors);
+        context.setVariable("organizationName", orgName);
+        context.setVariable("tierNames", tierNames); // PASS THE TIER NAMES TO THYMELEAF!
+
+        String htmlContent = templateEngine.process("ticket-template", context);
+
+        // 4. Convert to PDF
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ITextRenderer renderer = new ITextRenderer();
+            renderer.setDocumentFromString(htmlContent);
+            renderer.layout();
+            renderer.createPDF(outputStream);
+            return outputStream.toByteArray();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to generate PDF", e);
         }
     }
 }

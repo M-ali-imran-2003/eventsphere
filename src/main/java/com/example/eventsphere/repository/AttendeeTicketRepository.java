@@ -30,4 +30,13 @@ public interface AttendeeTicketRepository extends JpaRepository<AttendeeTicket, 
             "WHERE o.eventId = :eventId")
     List<AttendeeTicket> findAllTicketsByEventId(@Param("eventId") UUID eventId);
 
+    Optional<AttendeeTicket> findByTicketReference(String ticketReference);
+
+    @Query(
+            "SELECT t FROM AttendeeTicket t JOIN Order o ON t.orderId = o.id " +
+                    "WHERE o.eventId = :eventId AND t.assignedEmail = :email AND o.paymentStatus = 'SUCCESS'"
+    )
+    List<AttendeeTicket> findByEventIdAndAssignedEmail(
+            @Param("eventId") UUID eventId,
+            @Param("email") String email);
 }

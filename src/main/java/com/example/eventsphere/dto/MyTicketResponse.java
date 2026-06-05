@@ -19,6 +19,7 @@ public class MyTicketResponse {
     private String assignedName;
     private String assignedCnic;
     private String assignedPhone;
+    private String assignedEmail;
     private String qrCodeHash;
     private boolean isCheckedIn;
 }

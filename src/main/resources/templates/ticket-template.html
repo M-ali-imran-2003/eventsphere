@@ -65,30 +65,35 @@
             padding: 12px 20px;
             border-top: 1px solid #eee;
             background-color: #fafafa;
+        }
+
+        .sponsor-section {
+            background-color: #f9f9f9;
             border-bottom-left-radius: 7px;
             border-bottom-right-radius: 7px;
+            padding: 12px 20px;
+            text-align: center;
+            border-top: 1px dashed #ddd;
         }
     </style>
 </head>
 <body>
 
 <p style="font-size: 15px; margin-bottom: 25px; font-weight: bold; color: #333;">
-    Hi <span th:text="${buyer.name}">Buyer</span>, your payment was successful.<br/>
+    <span th:text="${greetingMessage}">Here are your tickets.</span><br/>
     <small style="color:#666; font-weight: normal;">Order Reference: <strong th:text="${order.orderReference}">ORD-123</strong></small>
 </p>
 
 <div th:each="ticket : ${tickets}" class="ticket-wrapper">
 
-    <!-- HEADER SECTION -->
     <div class="ticket-header">
         <table class="header-table">
             <tr>
                 <td style="width: 75%; vertical-align: middle;">
                     <h2 class="event-title" th:text="${event.title}">The Tech Summit 2026</h2>
-                    <p class="org-name" th:text="'Hosted by ' + ${event.organizationId}">Hosted by EventSphere</p>
+                    <p class="org-name" th:text="'Hosted by ' + ${organizationName}">Hosted by EventSphere</p>
                 </td>
                 <td style="width: 25%; text-align: right; vertical-align: middle;">
-                    <!-- Added a stylized container wrapper around logo for improved contrast -->
                     <div th:if="${event.imageUrl != null}" style="background-color: rgba(255,255,255,0.15); padding: 4px; border-radius: 4px; display: inline-block;">
                         <img th:src="${event.imageUrl}" alt="Event Logo" style="height: 45px; max-width: 130px; display: block;" />
                     </div>
@@ -97,21 +102,18 @@
         </table>
     </div>
 
-    <!-- TICKET DATA GRID -->
     <table class="ticket-body">
         <tr>
             <td class="info-section">
-                <div class="tier-badge">GENERAL ADMISSION</div>
+                <div class="tier-badge" th:text="${tierNames[ticket.tierId] ?: 'GENERAL ADMISSION'}">GENERAL ADMISSION</div>
 
                 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                     <tr>
-                        <!-- Total width rebalanced to 100% (30% + 30% + 40%) -->
                         <td style="width: 30%; padding-bottom: 15px; padding-right: 15px;">
                             <div class="label">Name</div>
                             <div class="value" th:text="${ticket.assignedName ?: '—'}">Ali Imran</div>
                         </td>
 
-                        <!-- Added explicit padding-right to create a fixed visual safety gap before the date -->
                         <td style="width: 35%; padding-bottom: 15px; padding-right: 25px;">
                             <div class="label">CNIC</div>
                             <div class="value" th:text="${ticket.assignedCnic != null and !#strings.isEmpty(ticket.assignedCnic) ? ticket.assignedCnic : '—'}">42141245645541</div>
@@ -135,36 +137,54 @@
                 </table>
             </td>
 
-            <!-- QR CODE SECTION -->
             <td class="qr-section">
-                <!-- FIX: Changed from qrCodeBase64 to qrCodeHash -->
                 <img th:if="${ticket.qrCodeHash != null}" th:src="${ticket.qrCodeHash}" alt="QR Code" style="width: 110px; height: 110px; display: block; margin: 0 auto;" />
-
-                <!-- Fallback if it is missing -->
                 <div th:if="${ticket.qrCodeHash == null}" style="width: 110px; height: 110px; border: 1px dashed #ccc; margin: 0 auto; line-height: 110px; font-size: 10px; color: #999;">No QR Generated</div>
-
                 <div class="label" style="margin-top: 8px; letter-spacing: 0.5px;">Scan at Entrance</div>
             </td>
         </tr>
     </table>
 
-    <!-- FOOTER FINE PRINT -->
     <div class="fine-print">
         <table style="width: 100%; border-collapse: collapse; margin: 0; padding: 0;">
             <tr>
                 <td style="vertical-align: top; padding: 0; text-align: justify; font-size: 9px; line-height: 1.35; color: #666;">
                     <strong>Terms &amp; Conditions:</strong> This ticket is proof of purchase of the above event and must be presented at the time of admission.
-                    The Organizer reserves the right to refuse entry. Please bring a valid CNIC or student ID matching the attendee name.
-                    For any technical issues regarding this ticket, please contact support with your Order Reference.
+                    The Organizer reserves the right to refuse entry. Please bring a valid CNIC or ID matching the attendee name.
+                    For any technical issues, please contact support with your Order Reference.
                 </td>
             </tr>
             <tr>
-                <td style="vertical-align: bottom; padding: 0 0 0 20px; white-space: nowrap; text-align: right; width: 1%;">
-                    <img th:if="${logoPath != null}" th:src="${logoPath}" alt="Logo" style="height: 17px; vertical-align: middle;"/>
+                <td style="vertical-align: bottom; padding: 10px 0 0 0; white-space: nowrap; text-align: right; width: 100%;">
+                    <img th:if="${logoPath != null}" th:src="${logoPath}" alt="Logo" style="height: 14px; vertical-align: middle;"/>
                     <em style="font-size: 9px; color: #555;">Powered by EventSphere.</em>
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div class="sponsor-section" style="background-color: #f9f9f9; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; padding: 12px 20px; text-align: center; border-top: 1px dashed #ddd;">
+        <p style="margin: 0 0 8px 0; font-size: 9px; color: #888; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">Proudly Sponsored By</p>
+
+        <table th:if="${sponsors != null and !#lists.isEmpty(sponsors)}" style="margin: 0 auto; border-collapse: collapse;">
+            <tr>
+                <td th:each="sponsor : ${sponsors}" style="padding: 0 10px; text-align: center; vertical-align: middle;">
+                    <img th:if="${sponsor.logoUrl != null and !sponsor.logoUrl.isEmpty()}"
+                         th:src="${sponsor.logoUrl}"
+                         alt="Sponsor Logo"
+                         height="25"
+                         style="display: block; margin: 0 auto;" />
+
+                    <span th:if="${sponsor.logoUrl == null or sponsor.logoUrl.isEmpty()}"
+                          th:text="${sponsor.name}"
+                          style="font-size: 11px; font-weight: bold; color: #444; display: block;"></span>
+                </td>
+            </tr>
+        </table>
+
+        <div th:if="${sponsors == null or #lists.isEmpty(sponsors)}">
+            <span style="font-size: 10px; color: #aaa;">Community Supported Event</span>
+        </div>
     </div>
 
 </div>
