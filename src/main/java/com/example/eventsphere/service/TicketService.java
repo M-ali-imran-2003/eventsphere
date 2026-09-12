@@ -1,29 +1,22 @@
 package com.example.eventsphere.service;
 
-import com.example.eventsphere.dto.AllTicketsDTO;
-import com.example.eventsphere.dto.LostTicketRecoveryRequest;
-import com.example.eventsphere.dto.MyTicketResponse;
-import com.example.eventsphere.dto.TicketTransferRequest;
+import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.*;
 import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.enums.OrgRole;
-import com.example.eventsphere.enums.UserRole;
-import com.example.eventsphere.enums.UserStatus;
+import com.example.eventsphere.enums.PaymentStatus;
 import com.example.eventsphere.repository.*;
+import com.example.eventsphere.utils.LocationUtil;
 import com.example.eventsphere.utils.SecurityUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,7 +25,6 @@ import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -51,11 +43,11 @@ public class TicketService {
     private final TicketTierRepository tierRepository;
     private final OrganizationRepository organizationRepository;
     private final OrganizationMemberRepository organizationMemberRepository;
-
+    private final double radiusDistance;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public TicketService(EmailService emailService, @Lazy TicketService self, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, SponsorRepository sponsorRepository, TicketTierRepository tierRepository, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public TicketService(EmailService emailService, @Lazy TicketService self, SpringTemplateEngine templateEngine, AttendeeTicketRepository ticketRepository, EventRepository eventRepository, OrderRepository orderRepository, SponsorRepository sponsorRepository, TicketTierRepository tierRepository, OrganizationRepository organizationRepository, OrganizationMemberRepository organizationMemberRepository, @Value("${distance.radius}") double radiusDistance, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.emailService = emailService;
         this.self = self;
         this.templateEngine = templateEngine;
@@ -66,6 +58,7 @@ public class TicketService {
         this.tierRepository = tierRepository;
         this.organizationRepository = organizationRepository;
         this.organizationMemberRepository = organizationMemberRepository;
+        this.radiusDistance = radiusDistance;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -85,7 +78,7 @@ public class TicketService {
             emailService.sendEmailWithAttachment(buyer.getEmail(), subject, body, "Tickets_" + order.getOrderReference() + ".pdf", pdfBytes);
 
             if (isNewUser && tempPassword != null) {
-                sendWelcomeEmail(buyer.getEmail(), buyer.getName(),tempPassword,buyer.getUsername() );
+                sendWelcomeEmail(buyer.getEmail(), buyer.getName(), tempPassword, buyer.getUsername());
             }
         } catch (Exception e) {
             log.error("Checkout email failed", e);
@@ -123,7 +116,7 @@ public class TicketService {
 
             String newSubject = "You received a ticket to " + event.getTitle() + "!";
             String newBody = "Great news! Someone transferred a ticket to you. See attached.";
-            emailService.sendEmailWithAttachment(ticket.getAssignedEmail(), newSubject, newBody, "Transferred_Ticket-"+ticket.getTicketReference()+".pdf", pdfBytes);
+            emailService.sendEmailWithAttachment(ticket.getAssignedEmail(), newSubject, newBody, "Transferred_Ticket-" + ticket.getTicketReference() + ".pdf", pdfBytes);
 
             // 2. Send plain text confirmation to the OLD owner
             if (!oldEmail.equalsIgnoreCase(ticket.getAssignedEmail())) {
@@ -139,14 +132,14 @@ public class TicketService {
     private void sendWelcomeEmail(String to, String name, String tempPassword, String username) {
         try {
             String subject = "Welcome to EventSphere - Your Account Details";
-            String body= "Hi " + name + ",\n\n" +
+            String body = "Hi " + name + ",\n\n" +
                     "Thank you for your purchase! An EventSphere account has been automatically created for you so you can manage your tickets.\n\n" +
                     "Login Username: " + username + "\n" +
                     "Temporary Password: " + tempPassword + "\n\n" +
                     "Please log in at your earliest convenience to change your password and view your tickets.\n\n" +
                     "Best regards,\nThe EventSphere Team";
 
-            emailService.sendEmail(to,subject,body);
+            emailService.sendEmail(to, subject, body);
             log.info("Welcome email with temporary credentials sent to {}", to);
         } catch (Exception e) {
             log.error("Failed to send welcome email to {}", to, e);
@@ -333,7 +326,7 @@ public class TicketService {
         Organization org = organizationRepository.findById(event.getOrganizationId())
                 .orElseThrow(() -> new RuntimeException("Organization not found"));
 
-        if(!org.getStatus().equals(AppStatus.ACTIVE)) {
+        if (!org.getStatus().equals(AppStatus.ACTIVE)) {
             throw new RuntimeException("Organization is not active");
         }
 
@@ -353,7 +346,7 @@ public class TicketService {
         // Fetch Organization name (Adjust this based on how you store Organizers!)
         String orgName = "Unknown Organizer";
         var orgOpt = organizationRepository.findById(event.getOrganizationId());
-        if(orgOpt.isPresent()){
+        if (orgOpt.isPresent()) {
             orgName = orgOpt.get().getName();
         }
 
@@ -408,5 +401,51 @@ public class TicketService {
         } catch (Exception e) {
             throw new RuntimeException("Failed to generate PDF", e);
         }
+    }
+
+    @Transactional
+    public ScanTicketResponse checkInTicket(UUID eventId, ScanTicketRequest req) {
+        User currentUser = SecurityUtil.getCurrentUser();
+        verifyEventOwnership(eventId, currentUser); // reuse existing helper — organizer must own this event
+
+        AttendeeTicket ticket = ticketRepository.findByQrCodeHash(req.getQrCodeHash())
+                .orElseThrow(() -> new RuntimeException("Invalid QR code."));
+
+        Order order = orderRepository.findById(ticket.getOrderId())
+                .orElseThrow(() -> new RuntimeException("Order not found."));
+
+        if (!order.getEventId().equals(eventId)) {
+            throw new RuntimeException("This ticket does not belong to this event.");
+        }
+        if (order.getPaymentStatus() != PaymentStatus.SUCCESS) {
+            throw new RuntimeException("Ticket payment not completed.");
+        }
+        if (ticket.isCheckedIn()) {
+            throw new RuntimeException("Already checked in at " + ticket.getCheckInTime());
+        }
+
+        // --- Geofence check ---
+        Event event = eventRepository.findById(eventId).orElseThrow();
+        double distance = LocationUtil.haversineMeters(
+                LocationUtil.getLat(event.getLocation()), LocationUtil.getLon(event.getLocation()),
+                req.getLatitude(), req.getLongitude());
+
+        // tune this per venue size
+        if (distance > radiusDistance) {
+            throw new RuntimeException("Scan location is too far from the venue (" + Math.round(distance) + "m away).");
+        }
+
+        ticket.setCheckedIn(true);
+        ticket.setCheckInTime(LocalDateTime.now());
+        ticketRepository.save(ticket);
+
+        TicketTier tier = tierRepository.findById(ticket.getTierId()).orElse(null);
+
+        return ScanTicketResponse.builder()
+                .assignedName(ticket.getAssignedName())
+                .tierName(tier != null ? tier.getTierName() : null)
+                .checkInTime(ticket.getCheckInTime())
+                .distanceMeters(distance)
+                .build();
     }
 }

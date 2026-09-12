@@ -12,6 +12,8 @@ import java.util.UUID;
 
 @Repository
 public interface AttendeeTicketRepository extends JpaRepository<AttendeeTicket, UUID> {
+    
+    Optional<AttendeeTicket> findByQrCodeHash(String qrCodeHash);
 
     // Fetches all tickets where this user is the assigned attendee
     List<AttendeeTicket> findByAssignedEmail(String email);
