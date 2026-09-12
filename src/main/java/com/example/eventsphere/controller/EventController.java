@@ -2,9 +2,7 @@ package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.*;
 import com.example.eventsphere.entity.*;
-import com.example.eventsphere.enums.AppStatus;
 import com.example.eventsphere.repository.EmailBroadcastHistoryRepository;
-import com.example.eventsphere.service.CheckoutService;
 import com.example.eventsphere.service.EventService;
 import com.example.eventsphere.service.OrderService;
 import com.example.eventsphere.service.TicketService;
@@ -16,9 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -237,7 +233,7 @@ public class EventController {
     @PreAuthorize("hasRole('ORGANIZER')")
     @DeleteMapping("/delete-sponsor/{eventId}/{sponsorId}")
     public ResponseEntity<String> deleteSponsor(@PathVariable UUID eventId, @PathVariable UUID sponsorId) {
-        eventService.deleteSponsor(eventId,sponsorId);
+        eventService.deleteSponsor(eventId, sponsorId);
         return ResponseEntity.ok("Sponsor deleted successfully");
     }
 
@@ -266,22 +262,22 @@ public class EventController {
     // UPDATE
     @PutMapping("/update-discount/{eventId}/{codeId}")
     public ResponseEntity<DiscountCode> updateDiscountCode(
-            @PathVariable UUID eventId,@PathVariable UUID codeId,
+            @PathVariable UUID eventId, @PathVariable UUID codeId,
             @Valid @RequestBody DiscountCodeRequest request) {
-        return ResponseEntity.ok(eventService.updateDiscountCode(eventId,codeId, request));
+        return ResponseEntity.ok(eventService.updateDiscountCode(eventId, codeId, request));
     }
 
     // QUICK STATUS TOGGLE (PATCH is used for partial updates like a single status toggle)
     @PatchMapping("/toggle-discount-status/{eventId}/{codeId}")
-    public ResponseEntity<DiscountCode> toggleStatus(@PathVariable UUID eventId,@PathVariable UUID codeId) {
+    public ResponseEntity<DiscountCode> toggleStatus(@PathVariable UUID eventId, @PathVariable UUID codeId) {
         // Service handles the conditional flip logic
-        return ResponseEntity.ok(eventService.toggleStatus(eventId,codeId));
+        return ResponseEntity.ok(eventService.toggleStatus(eventId, codeId));
     }
 
     // DELETE
     @DeleteMapping("/delete-discount-code/{eventId}/{codeId}")
-    public ResponseEntity<String> deleteDiscountCode(@PathVariable UUID eventId,@PathVariable UUID codeId) {
-        eventService.deleteDiscountCode(eventId,codeId);
+    public ResponseEntity<String> deleteDiscountCode(@PathVariable UUID eventId, @PathVariable UUID codeId) {
+        eventService.deleteDiscountCode(eventId, codeId);
         return ResponseEntity.ok("Discount code deleted successfully");
     }
 
@@ -290,7 +286,7 @@ public class EventController {
     public ResponseEntity<String> sendCustomBroadcast(
             @PathVariable UUID eventId,
             @Valid @RequestBody BroadcastEmailRequest request) {
-        int size = eventService.sendCustomBroadcastEmail(eventId,request);
+        int size = eventService.sendCustomBroadcastEmail(eventId, request);
         return ResponseEntity.ok("Broadcast sent successfully to " + size + " attendees.");
     }
 
@@ -299,7 +295,7 @@ public class EventController {
     public ResponseEntity<String> sendCustomEmail(
             @PathVariable UUID eventId,
             @Valid @RequestBody CustomEmailRequest request) {
-        int size = eventService.sendCustomEmail(eventId,request);
+        int size = eventService.sendCustomEmail(eventId, request);
         return ResponseEntity.ok("Broadcast sent successfully to " + size + " attendees.");
     }
 
@@ -315,6 +311,14 @@ public class EventController {
     public ResponseEntity<List<AllTicketsDTO>> getAllTickts(@PathVariable UUID eventId) {
         List<AllTicketsDTO> tickets = ticketService.getAllTicketsByEvent(eventId);
         return ResponseEntity.ok(tickets);
+    }
+
+    @PreAuthorize("hasRole('ORGANIZER')")
+    @PostMapping("/scan-ticket/{eventId}")
+    public ResponseEntity<ScanTicketResponse> scanTicket(
+            @PathVariable UUID eventId,
+            @RequestBody @Valid ScanTicketRequest request) {
+        return ResponseEntity.ok(ticketService.checkInTicket(eventId, request));
     }
 
 }
