@@ -57,8 +57,10 @@ public class AdminConfig {
                     admin.setCreatedAt(LocalDateTime.now());
                     admin.setModifiedAt(LocalDateTime.now());
 
-                    userRepository.save(admin);
-                    log.info("Default Admin created successfully with username: {}", adminUsername);
+                    if (!userRepository.existsByEmail(adminEmail)) {
+                        userRepository.save(admin);
+                        log.info("Default Admin created successfully with username: {}", adminUsername);
+                    }
                 } else {
                     log.info("Default Admin already exists. Skipping seeding.");
                 }
