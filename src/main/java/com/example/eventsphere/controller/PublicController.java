@@ -7,6 +7,7 @@ import com.example.eventsphere.service.TicketService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.eventsphere.service.ChatbotService;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,11 +21,14 @@ public class PublicController {
     private final EventService eventService;
     private final CheckoutService checkoutService;
     private final TicketService ticketService;
+    private final ChatbotService chatbotService;
 
-    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService) {
+    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService,ChatbotService chatbotService) {
         this.eventService = eventService;
         this.checkoutService = checkoutService;
         this.ticketService = ticketService;
+        this.chatbotService = chatbotService;
+        
     }
 
     @GetMapping("/event/{slug}")
@@ -78,5 +82,19 @@ public class PublicController {
 
         String message = ticketService.recoverLostTickets(eventId,request);
         return ResponseEntity.ok(Map.of("message", message));
+    }
+    @PostMapping("/event/{slug}/chat")
+    public ResponseEntity<ChatResponse> chatWithEvent(
+            @PathVariable String slug,
+            @RequestBody ChatRequest request
+    ) {
+
+        ChatResponse response =
+                chatbotService.chat(
+                        slug,
+                        request
+                );
+
+        return ResponseEntity.ok(response);
     }
 }
