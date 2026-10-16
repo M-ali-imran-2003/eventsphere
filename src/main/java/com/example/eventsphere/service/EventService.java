@@ -17,6 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+
+import com.example.eventsphere.event.RagIndexRequestedEvent;
+import org.springframework.context.ApplicationEventPublisher;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -27,6 +31,7 @@ import java.util.stream.Collectors;
 @Service
 public class EventService {
 
+    private final ApplicationEventPublisher eventPublisher;
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
@@ -45,8 +50,9 @@ public class EventService {
     private final SponsorRepository sponsorRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+
     @Autowired
-    public EventService(EventRepository eventRepository, UserRepository userRepository, OrderRepository orderRepository, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, AttendeeTicketRepository attendeeTicketRepository, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, EmailService emailService, SponsorRepository sponsorRepository) {
+    public EventService(EventRepository eventRepository, UserRepository userRepository, OrderRepository orderRepository, EmailBroadcastHistoryRepository emailBroadcastHistoryRepository, GenericMapper mapper, OrganizationMemberRepository organizationMemberRepository, OrganizationRepository organizationRepository, FileService fileService, AttendeeTicketRepository attendeeTicketRepository, CategoryRepository categoryRepository, SubEventRepository subEventRepository, TicketTierRepository ticketTierRepository, DiscountCodeRepository discountCodeRepository, LandingPageRepository landingPageRepository, EmailService emailService, SponsorRepository sponsorRepository , ApplicationEventPublisher eventPublisher) {
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
@@ -63,6 +69,30 @@ public class EventService {
         this.landingPageRepository = landingPageRepository;
         this.emailService = emailService;
         this.sponsorRepository = sponsorRepository;
+        this.eventPublisher = eventPublisher;
+    }
+
+    // =========================================================
+    // RAG ADDED: Request a background re-index only when the
+    // event is already published and has a valid landing-page slug.
+    // The actual indexing is handled by RagIndexListener after commit.
+    // IMPORTANT: this method is at CLASS LEVEL, not inside the constructor.
+    // =========================================================
+    private void requestRagReindexIfPublished(UUID eventId) {
+        Event event = eventRepository.findById(eventId).orElse(null);
+
+        // Draft/unpublished events do not need public chatbot knowledge.
+        if (event == null || !EventStatus.PUBLISHED.equals(event.getStatus())) {
+            return;
+        }
+
+        landingPageRepository.findByEventId(eventId)
+                .map(LandingPage::getSlug)
+                .filter(slug -> !slug.isBlank())
+                .ifPresent(slug -> {
+                    log.info("Queueing RAG reindex for Event ID: {} | slug: {}", eventId, slug);
+                    eventPublisher.publishEvent(new RagIndexRequestedEvent(slug));
+                });
     }
 
     private void validateThemeConfig(String jsonString) {
@@ -313,6 +343,10 @@ public class EventService {
         event.setModifiedBy(currentUser.getId());
 
         eventRepository.save(event);
+
+        // RAG ADDED: refresh chatbot knowledge if this event is already public.
+        requestRagReindexIfPublished(eventId);
+
         log.info("Event '{}' updated successfully by User ID: {}", event.getTitle(), currentUser.getId());
 
     }
@@ -353,9 +387,13 @@ public class EventService {
 
         try {
             eventRepository.save(event);
-            log.info("Event {} is now LIVE.", eventId);
+
+            // RAG ADDED: first automatic indexing when an event becomes public.
+            requestRagReindexIfPublished(eventId);
+
+            log.info("Event {} is now LIVE and RAG indexing was requested.", eventId);
         } catch (RuntimeException e) {
-            throw new RuntimeException("Couldn't publish the event"+e);
+            throw new RuntimeException("Couldn't publish the event: " + e.getMessage(), e);
         }
     }
 
@@ -410,8 +448,13 @@ public class EventService {
         tier.setModifiedBy(currentUser.getId());
 
 
+        TicketTier savedTier = ticketTierRepository.save(tier);
+
+        // RAG ADDED: ticket data is part of PublicEventResponse.
+        requestRagReindexIfPublished(eventId);
+
         log.info("Ticket Tier '{}' added to Event {} by User {}", tier.getTierName(), eventId, currentUser.getId());
-        return ticketTierRepository.save(tier);
+        return savedTier;
     }
 
     public List<TicketTier> getTicketTiersByEventId(UUID eventId) {
@@ -426,11 +469,11 @@ public class EventService {
         User currentUser = SecurityUtil.getCurrentUser();
         if (currentUser == null) throw new RuntimeException("Unauthorized.");
 
-       TicketTier ticketTier = ticketTierRepository.findById(ticketId)
+        TicketTier ticketTier = ticketTierRepository.findById(ticketId)
                 .orElseThrow(() -> new RuntimeException("Ticket Tier not found."));
 
-       verifyEventOwnership(ticketTier.getEventId(),currentUser);
-       return ticketTier;
+        verifyEventOwnership(ticketTier.getEventId(),currentUser);
+        return ticketTier;
     }
 
     @Transactional
@@ -462,7 +505,12 @@ public class EventService {
         tier.setModifiedBy(currentUser.getId());
 
 
-        return ticketTierRepository.save(tier);
+        TicketTier savedTier = ticketTierRepository.save(tier);
+
+        // RAG ADDED: keep ticket name/price/capacity knowledge current.
+        requestRagReindexIfPublished(eventId);
+
+        return savedTier;
     }
 
     @Transactional
@@ -480,6 +528,10 @@ public class EventService {
         }
 
         ticketTierRepository.delete(tier);
+
+        // RAG ADDED: remove deleted tier from chatbot knowledge after commit.
+        requestRagReindexIfPublished(eventId);
+
         log.info("Ticket Tier '{}' deleted successfully.", tier.getTierName());
     }
 
@@ -537,8 +589,13 @@ public class EventService {
             }
         }
 
+        SubEvent savedSubEvent = subEventRepository.save(subEvent);
+
+        // RAG ADDED: agenda/sub-event data is part of PublicEventResponse.
+        requestRagReindexIfPublished(eventId);
+
         log.info("Sub-event '{}' added to Event {} by User {}", subEvent.getTitle(), eventId, currentUser.getId());
-        return subEventRepository.save(subEvent);
+        return savedSubEvent;
     }
 
     public List<SubEvent> getSubEventsByEventId(UUID eventId) {
@@ -610,7 +667,12 @@ public class EventService {
 
         subEvent.setModifiedBy(currentUser.getId());
 
-        return subEventRepository.save(subEvent);
+        SubEvent savedSubEvent = subEventRepository.save(subEvent);
+
+        // RAG ADDED: refresh agenda information for published events.
+        requestRagReindexIfPublished(eventId);
+
+        return savedSubEvent;
     }
 
     @Transactional
@@ -630,6 +692,9 @@ public class EventService {
         }
 
         subEventRepository.delete(subEvent);
+
+        // RAG ADDED: remove deleted agenda item from chatbot knowledge.
+        requestRagReindexIfPublished(eventId);
     }
 
     //LandingPage
@@ -679,8 +744,13 @@ public class EventService {
             throw new RuntimeException("Cannot create a new landing page without both a URL slug and a theme config.");
         }
 
+        LandingPage savedLandingPage = landingPageRepository.save(landingPage);
+
+        // RAG ADDED: landing-page slug/design is part of indexed public event data.
+        requestRagReindexIfPublished(eventId);
+
         log.info("Landing Page configured for Event ID: {}", eventId);
-        return landingPageRepository.save(landingPage);
+        return savedLandingPage;
     }
 
 
@@ -802,7 +872,12 @@ public class EventService {
         sponsor.setModifiedAt(LocalDateTime.now());
         sponsor.setModifiedBy(currentUser.getId());
 
-        return sponsorRepository.save(sponsor);
+        Sponsor savedSponsor = sponsorRepository.save(sponsor);
+
+        // RAG ADDED: sponsor data is part of PublicEventResponse.
+        requestRagReindexIfPublished(eventId);
+
+        return savedSponsor;
     }
 
     // 2. READ (Fetch all for an event)
@@ -823,6 +898,9 @@ public class EventService {
             throw new RuntimeException("Sponsor not found");
         }
         sponsorRepository.deleteById(sponsorId);
+
+        // RAG ADDED: remove deleted sponsor from chatbot knowledge.
+        requestRagReindexIfPublished(eventId);
     }
 
     public DiscountCode createDiscountCode(UUID eventId, DiscountCodeRequest request) {

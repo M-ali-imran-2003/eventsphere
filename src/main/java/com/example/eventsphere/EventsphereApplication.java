@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
 import java.util.TimeZone;
 
 
@@ -19,6 +18,7 @@ import java.util.TimeZone;
 				description = "API documentation for EventSphere"
 		)
 )
+
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableScheduling

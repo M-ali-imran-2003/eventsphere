@@ -97,4 +97,24 @@ public class PublicController {
 
         return ResponseEntity.ok(response);
     }
+    @PostMapping("/event/{slug}/reindex")
+    public ResponseEntity<?> reindexEvent(
+            @PathVariable String slug
+    ) {
+
+        PublicEventResponse eventData =
+                eventService.getPublicEventDetails(slug);
+
+        chatbotService.indexEvent(
+                slug,
+                eventData
+        );
+
+        return ResponseEntity.ok(
+                Map.of(
+                        "status", "indexed",
+                        "event_slug", slug
+                )
+        );
+    }
 }
