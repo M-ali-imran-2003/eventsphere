@@ -8,6 +8,9 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.eventsphere.service.ChatbotService;
+import com.example.eventsphere.service.ChatbotJobService;
+import com.example.eventsphere.dto.ChatJobStartResponse;
+import com.example.eventsphere.dto.ChatJobStatusResponse;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,12 +25,14 @@ public class PublicController {
     private final CheckoutService checkoutService;
     private final TicketService ticketService;
     private final ChatbotService chatbotService;
+    private final ChatbotJobService chatbotJobService;
 
-    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService,ChatbotService chatbotService) {
+    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService,ChatbotService chatbotService,ChatbotJobService chatbotJobService) {
         this.eventService = eventService;
         this.checkoutService = checkoutService;
         this.ticketService = ticketService;
         this.chatbotService = chatbotService;
+        this.chatbotJobService = chatbotJobService;
         
     }
 
@@ -83,20 +88,38 @@ public class PublicController {
         String message = ticketService.recoverLostTickets(eventId,request);
         return ResponseEntity.ok(Map.of("message", message));
     }
+
     @PostMapping("/event/{slug}/chat")
-    public ResponseEntity<ChatResponse> chatWithEvent(
+    public ResponseEntity<ChatJobStartResponse> chatWithEvent(
             @PathVariable String slug,
             @RequestBody ChatRequest request
     ) {
 
-        ChatResponse response =
-                chatbotService.chat(
+        ChatJobStartResponse response =
+                chatbotJobService.startChatJob(
                         slug,
                         request
                 );
 
+        return ResponseEntity
+                .accepted()
+                .body(response);
+    }
+
+    @GetMapping("/event/chat/jobs/{jobId}")
+    public ResponseEntity<ChatJobStatusResponse> getChatJob(
+            @PathVariable UUID jobId
+    ) {
+
+        ChatJobStatusResponse response =
+                chatbotJobService.getJob(
+                        jobId
+                );
+
         return ResponseEntity.ok(response);
     }
+
+
     @PostMapping("/event/{slug}/reindex")
     public ResponseEntity<?> reindexEvent(
             @PathVariable String slug
