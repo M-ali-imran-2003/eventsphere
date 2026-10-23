@@ -11,6 +11,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
+import com.example.eventsphere.repository.LandingPageRepository;
+import com.example.eventsphere.entity.LandingPage;
+
+import java.util.UUID;
 
 
 @Slf4j
@@ -20,6 +24,7 @@ public class RagIndexListener {
 
     private final EventService eventService;
     private final ChatbotService chatbotService;
+    private final LandingPageRepository landingPageRepository;
 
 
     @Async
@@ -33,34 +38,47 @@ public class RagIndexListener {
 
         try {
 
-            log.info(
-                    "Starting RAG indexing for event: {}",
-                    event.eventSlug()
-            );
+            UUID eventId =
+                    event.eventId();
+
+
+            LandingPage landingPage =
+                    landingPageRepository
+                            .findByEventId(eventId)
+                            .orElseThrow(
+                                    () -> new RuntimeException(
+                                            "Landing page not found."
+                                    )
+                            );
+
+
+            String eventSlug =
+                    landingPage.getSlug();
 
 
             PublicEventResponse eventData =
                     eventService.getPublicEventDetails(
-                            event.eventSlug()
+                            eventSlug
                     );
 
 
             chatbotService.indexEvent(
-                    event.eventSlug(),
+                    eventId,
+                    eventSlug,
                     eventData
             );
 
 
             log.info(
-                    "RAG indexing completed for event: {}",
-                    event.eventSlug()
+                    "RAG indexing completed for Event ID: {}",
+                    eventId
             );
 
         } catch (Exception e) {
 
             log.error(
-                    "RAG indexing failed for event: {}",
-                    event.eventSlug(),
+                    "RAG indexing failed for Event ID: {}",
+                    event.eventId(),
                     e
             );
         }

@@ -89,15 +89,15 @@ public class PublicController {
         return ResponseEntity.ok(Map.of("message", message));
     }
 
-    @PostMapping("/event/{slug}/chat")
+    @PostMapping("/event/{eventId}/chat")
     public ResponseEntity<ChatJobStartResponse> chatWithEvent(
-            @PathVariable String slug,
+            @PathVariable UUID eventId,
             @RequestBody ChatRequest request
     ) {
 
         ChatJobStartResponse response =
                 chatbotJobService.startChatJob(
-                        slug,
+                        eventId,
                         request
                 );
 
@@ -120,23 +120,31 @@ public class PublicController {
     }
 
 
-    @PostMapping("/event/{slug}/reindex")
+    @PostMapping("/event/{eventId}/reindex")
     public ResponseEntity<?> reindexEvent(
-            @PathVariable String slug
+            @PathVariable UUID eventId
     ) {
 
         PublicEventResponse eventData =
-                eventService.getPublicEventDetails(slug);
+                eventService.getPublicEventDetailsByEventId(
+                        eventId
+                );
+
+        String eventSlug =
+                eventService.getEventSlugById(
+                        eventId
+                );
 
         chatbotService.indexEvent(
-                slug,
+                eventId,
+                eventSlug,
                 eventData
         );
 
         return ResponseEntity.ok(
                 Map.of(
                         "status", "indexed",
-                        "event_slug", slug
+                        "event_id", eventId.toString()
                 )
         );
     }
