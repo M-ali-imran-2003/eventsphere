@@ -1,16 +1,10 @@
 package com.example.eventsphere.controller;
 
 import com.example.eventsphere.dto.*;
-import com.example.eventsphere.service.CheckoutService;
-import com.example.eventsphere.service.EventService;
-import com.example.eventsphere.service.TicketService;
+import com.example.eventsphere.service.*;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.eventsphere.service.ChatbotService;
-import com.example.eventsphere.service.ChatbotJobService;
-import com.example.eventsphere.dto.ChatJobStartResponse;
-import com.example.eventsphere.dto.ChatJobStatusResponse;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,13 +21,13 @@ public class PublicController {
     private final ChatbotService chatbotService;
     private final ChatbotJobService chatbotJobService;
 
-    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService,ChatbotService chatbotService,ChatbotJobService chatbotJobService) {
+    public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService, ChatbotService chatbotService, ChatbotJobService chatbotJobService) {
         this.eventService = eventService;
         this.checkoutService = checkoutService;
         this.ticketService = ticketService;
         this.chatbotService = chatbotService;
         this.chatbotJobService = chatbotJobService;
-        
+
     }
 
     @GetMapping("/event/{slug}")
@@ -80,12 +74,13 @@ public class PublicController {
             ));
         }
     }
+
     @PostMapping("/tickets/recover/{eventId}")
     public ResponseEntity<Map<String, String>> recoverLostTicket(
             @PathVariable UUID eventId,
             @Valid @RequestBody LostTicketRecoveryRequest request) {
 
-        String message = ticketService.recoverLostTickets(eventId,request);
+        String message = ticketService.recoverLostTickets(eventId, request);
         return ResponseEntity.ok(Map.of("message", message));
     }
 
@@ -114,6 +109,19 @@ public class PublicController {
         ChatJobStatusResponse response =
                 chatbotJobService.getJob(
                         jobId
+                );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/event/chat/history/{sessionId}")
+    public ResponseEntity<List<ChatMessagesResponse>> getChatHistory(
+            @PathVariable UUID sessionId
+    ) {
+
+        List<ChatMessagesResponse> response =
+                chatbotService.getChatHistory(
+                        sessionId
                 );
 
         return ResponseEntity.ok(response);
