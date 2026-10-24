@@ -6,9 +6,7 @@ import com.example.eventsphere.dto.ChatRequest;
 import com.example.eventsphere.entity.ChatbotJob;
 import com.example.eventsphere.enums.ChatJobStatus;
 import com.example.eventsphere.repository.ChatbotJobRepository;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -82,8 +80,6 @@ public class ChatbotJobService {
 //    }
 
 
-
-
     public ChatJobStartResponse startChatJob(
             UUID eventId,
             ChatRequest request
@@ -120,7 +116,7 @@ public class ChatbotJobService {
         chatbotJobRepository.save(job);
 
         chatbotJobProcessor.processJob(
-                job.getEventId()
+                job.getId()
         );
 
         return new ChatJobStartResponse(
