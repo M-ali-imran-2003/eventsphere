@@ -6,9 +6,7 @@ import com.example.eventsphere.dto.ChatRequest;
 import com.example.eventsphere.entity.ChatbotJob;
 import com.example.eventsphere.enums.ChatJobStatus;
 import com.example.eventsphere.repository.ChatbotJobRepository;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -26,22 +24,77 @@ public class ChatbotJobService {
     // START NEW CHAT JOB
     // =====================================================
 
+//    public ChatJobStartResponse startChatJob(
+//            String eventSlug,
+//            ChatRequest request
+//    ) {
+//
+//        UUID jobId =
+//                UUID.randomUUID();
+//
+//
+//        ChatbotJob job =
+//                new ChatbotJob();
+//
+//        job.setId(jobId);
+//
+//        job.setEventSlug(
+//                eventSlug
+//        );
+//
+//        job.setSessionId(
+//                request.getSessionId()
+//        );
+//
+//        job.setMessage(
+//                request.getMessage()
+//        );
+//
+//        job.setStatus(
+//                ChatJobStatus.PENDING
+//        );
+//
+//        job.setCreatedAt(
+//                Instant.now()
+//        );
+//
+//
+//        // Save first.
+//        //
+//        // Repository save finishes before we start
+//        // the background processor.
+//        chatbotJobRepository.save(job);
+//
+//
+//        // Run Gemini/RAG in background
+//        chatbotJobProcessor.processJob(
+//                jobId
+//        );
+//
+//
+//        // Return immediately
+//        return new ChatJobStartResponse(
+//                jobId,
+//                ChatJobStatus.PENDING.name()
+//        );
+//    }
+
+
     public ChatJobStartResponse startChatJob(
-            String eventSlug,
+            UUID eventId,
             ChatRequest request
     ) {
 
         UUID jobId =
                 UUID.randomUUID();
 
-
         ChatbotJob job =
                 new ChatbotJob();
 
         job.setId(jobId);
 
-        job.setEventSlug(
-                eventSlug
+        job.setEventId(
+                eventId
         );
 
         job.setSessionId(
@@ -60,27 +113,17 @@ public class ChatbotJobService {
                 Instant.now()
         );
 
-
-        // Save first.
-        //
-        // Repository save finishes before we start
-        // the background processor.
         chatbotJobRepository.save(job);
 
-
-        // Run Gemini/RAG in background
         chatbotJobProcessor.processJob(
-                jobId
+                job.getId()
         );
 
-
-        // Return immediately
         return new ChatJobStartResponse(
                 jobId,
                 ChatJobStatus.PENDING.name()
         );
     }
-
 
     // =====================================================
     // POLLING

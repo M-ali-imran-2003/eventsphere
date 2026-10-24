@@ -55,7 +55,7 @@ public class ChatbotJobProcessor {
             log.info(
                     "Processing chatbot job {} for event {}",
                     jobId,
-                    job.getEventSlug()
+                    job.getEventId()
             );
 
 
@@ -86,7 +86,7 @@ public class ChatbotJobProcessor {
 
             ChatResponse chatbotResponse =
                     chatbotService.chat(
-                            job.getEventSlug(),
+                            job.getEventId(),
                             request
                     );
 

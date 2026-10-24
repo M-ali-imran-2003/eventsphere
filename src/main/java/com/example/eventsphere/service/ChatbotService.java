@@ -11,7 +11,7 @@ import org.springframework.web.client.RestClient;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.UUID;
 
 @Service
 public class ChatbotService {
@@ -36,17 +36,16 @@ public class ChatbotService {
     // ===========================================
 
     public ChatResponse chat(
-            String slug,
+            UUID eventId,
             ChatRequest request
     ) {
 
         Map<String, Object> pythonRequest =
                 new HashMap<>();
 
-
         pythonRequest.put(
-                "event_slug",
-                slug
+                "event_id",
+                eventId.toString()
         );
 
         pythonRequest.put(
@@ -89,20 +88,26 @@ public class ChatbotService {
     // ===========================================
 
     public void indexEvent(
-            String slug,
+            UUID eventId,
+            String eventSlug,
             PublicEventResponse eventData
     ) {
 
-        Map<String, Object> pythonRequest =
+        Map<String, Object> request =
                 new HashMap<>();
 
-
-        pythonRequest.put(
-                "event_slug",
-                slug
+        request.put(
+                "event_id",
+                eventId.toString()
         );
 
-        pythonRequest.put(
+        // Temporary compatibility only
+        request.put(
+                "event_slug",
+                eventSlug
+        );
+
+        request.put(
                 "event_data",
                 eventData
         );
@@ -114,8 +119,9 @@ public class ChatbotService {
                 .contentType(
                         MediaType.APPLICATION_JSON
                 )
-                .body(pythonRequest)
+                .body(request)
                 .retrieve()
                 .toBodilessEntity();
+
     }
 }

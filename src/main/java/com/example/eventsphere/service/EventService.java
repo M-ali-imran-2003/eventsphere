@@ -27,6 +27,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import java.util.UUID;
+
 @Slf4j
 @Service
 public class EventService {
@@ -85,13 +87,23 @@ public class EventService {
         if (event == null || !EventStatus.PUBLISHED.equals(event.getStatus())) {
             return;
         }
+        log.info(
+                "Queueing RAG reindex for Event ID: {}",
+                eventId
+        );
+
+        eventPublisher.publishEvent(
+                new RagIndexRequestedEvent(
+                        eventId
+                )
+        );
 
         landingPageRepository.findByEventId(eventId)
                 .map(LandingPage::getSlug)
                 .filter(slug -> !slug.isBlank())
                 .ifPresent(slug -> {
                     log.info("Queueing RAG reindex for Event ID: {} | slug: {}", eventId, slug);
-                    eventPublisher.publishEvent(new RagIndexRequestedEvent(slug));
+                    eventPublisher.publishEvent(new RagIndexRequestedEvent(eventId));
                 });
     }
 
@@ -148,6 +160,34 @@ public class EventService {
 
         return eventRepository.findEventDetailsById(id).orElseThrow(()-> new RuntimeException("Event Not Found With ID: "+ id));
 
+    }
+// kashan Add
+    public String getEventSlugById(
+            UUID eventId
+    ) {
+
+        LandingPage landingPage =
+                landingPageRepository
+                        .findByEventId(eventId)
+                        .orElseThrow(
+                                () -> new RuntimeException(
+                                        "Landing page not found."
+                                )
+                        );
+
+        return landingPage.getSlug();
+    }
+
+    public PublicEventResponse getPublicEventDetailsByEventId(
+            UUID eventId
+    ) {
+
+        String slug =
+                getEventSlugById(eventId);
+
+        return getPublicEventDetails(
+                slug
+        );
     }
 
     public List<EventMapMarkerDTO> getAllEventsLocation(){

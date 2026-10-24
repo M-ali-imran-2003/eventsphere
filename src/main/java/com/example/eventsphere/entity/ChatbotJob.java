@@ -1,13 +1,16 @@
 package com.example.eventsphere.entity;
 
 import com.example.eventsphere.enums.ChatJobStatus;
+
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
 import java.util.UUID;
+
 
 @Entity
 @Table(name = "chatbot_jobs")
@@ -16,30 +19,54 @@ import java.util.UUID;
 @NoArgsConstructor
 public class ChatbotJob {
 
+
     @Id
     private UUID id;
 
-    @Column(name = "event_slug", nullable = false)
-    private String eventSlug;
 
-    @Column(name = "session_id")
+    @Column(
+            name = "event_id",
+            nullable = false
+    )
+    private UUID eventId;
+
+
+    @Column(
+            name = "session_id",
+            nullable = false
+    )
     private String sessionId;
 
-    @Column(nullable = false, columnDefinition = "text")
+
+    @Column(
+            nullable = false,
+            columnDefinition = "text"
+    )
     private String message;
+
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ChatJobStatus status;
 
+
     @Column(columnDefinition = "text")
     private String answer;
 
-    @Column(name = "error_message", columnDefinition = "text")
+
+    @Column(
+            name = "error_message",
+            columnDefinition = "text"
+    )
     private String errorMessage;
 
-    @Column(name = "created_at", nullable = false)
+
+    @Column(
+            name = "created_at",
+            nullable = false
+    )
     private Instant createdAt;
+
 
     @Column(name = "completed_at")
     private Instant completedAt;
