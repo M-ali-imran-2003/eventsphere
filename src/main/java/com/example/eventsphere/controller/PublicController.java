@@ -5,6 +5,11 @@ import com.example.eventsphere.service.*;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.eventsphere.prediction.DemandPredictionService;
+
+
+
+
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,6 +25,8 @@ public class PublicController {
     private final TicketService ticketService;
     private final ChatbotService chatbotService;
     private final ChatbotJobService chatbotJobService;
+//    private final DemandPredictionService predictionService;
+
 
     public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService, ChatbotService chatbotService, ChatbotJobService chatbotJobService) {
         this.eventService = eventService;
@@ -27,7 +34,6 @@ public class PublicController {
         this.ticketService = ticketService;
         this.chatbotService = chatbotService;
         this.chatbotJobService = chatbotJobService;
-
     }
 
     @GetMapping("/event/{slug}")
@@ -156,4 +162,6 @@ public class PublicController {
                 )
         );
     }
+
+
 }
