@@ -7,6 +7,11 @@ import com.example.eventsphere.service.TicketService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.eventsphere.prediction.DemandPredictionService;
+
+
+
+
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,6 +25,8 @@ public class PublicController {
     private final EventService eventService;
     private final CheckoutService checkoutService;
     private final TicketService ticketService;
+//    private final DemandPredictionService predictionService;
+
 
     public PublicController(EventService eventService, CheckoutService checkoutService, TicketService ticketService) {
         this.eventService = eventService;
@@ -79,4 +86,6 @@ public class PublicController {
         String message = ticketService.recoverLostTickets(eventId,request);
         return ResponseEntity.ok(Map.of("message", message));
     }
+
+
 }
