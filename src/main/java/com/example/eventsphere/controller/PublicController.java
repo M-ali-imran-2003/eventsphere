@@ -129,9 +129,21 @@ public class PublicController {
                 chatbotService.getChatHistory(
                         sessionId
                 );
-
         return ResponseEntity.ok(response);
     }
+
+
+//    @GetMapping("/event/chat/history/{sessionId}")
+//    public ResponseEntity<List<ChatResponse>> getChatHistory(
+//            @PathVariable UUID sessionId
+//    ) {
+//        List<ChatMessagesResponse> response = chatbotService.getChatHistory(sessionId);
+//        return ResponseEntity.ok(response);
+//    }
+
+
+
+
 
 
     @PostMapping("/event/{eventId}/reindex")
