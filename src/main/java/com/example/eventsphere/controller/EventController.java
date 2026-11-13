@@ -260,6 +260,7 @@ public class EventController {
     }
 
     // UPDATE
+    @PreAuthorize("hasRole('ORGANIZER')")
     @PutMapping("/update-discount/{eventId}/{codeId}")
     public ResponseEntity<DiscountCode> updateDiscountCode(
             @PathVariable UUID eventId, @PathVariable UUID codeId,
@@ -268,6 +269,7 @@ public class EventController {
     }
 
     // QUICK STATUS TOGGLE (PATCH is used for partial updates like a single status toggle)
+    @PreAuthorize("hasRole('ORGANIZER')")
     @PatchMapping("/toggle-discount-status/{eventId}/{codeId}")
     public ResponseEntity<DiscountCode> toggleStatus(@PathVariable UUID eventId, @PathVariable UUID codeId) {
         // Service handles the conditional flip logic
@@ -275,6 +277,7 @@ public class EventController {
     }
 
     // DELETE
+    @PreAuthorize("hasRole('ORGANIZER')")
     @DeleteMapping("/delete-discount-code/{eventId}/{codeId}")
     public ResponseEntity<String> deleteDiscountCode(@PathVariable UUID eventId, @PathVariable UUID codeId) {
         eventService.deleteDiscountCode(eventId, codeId);

@@ -11,12 +11,11 @@ import com.example.eventsphere.utils.SecurityUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.eventsphere.event.RagIndexRequestedEvent;
 import org.springframework.context.ApplicationEventPublisher;
@@ -455,6 +454,13 @@ public class EventService {
         }
     }
 
+    @Transactional(readOnly = true)
+    public boolean isEventPublished(UUID eventId) {
+        return eventRepository.findById(eventId)
+                .map(e -> EventStatus.PUBLISHED.equals(e.getStatus()))
+                .orElse(false);
+    }
+
     //Tickets
     @Transactional
     public TicketTier addTicketTier(UUID eventId, CreateTicketTierRequest request) {
@@ -525,7 +531,9 @@ public class EventService {
         verifyEventOwnership(eventId, currentUser);
 
         TicketTier tier = getTicketTierById(ticketId);
-
+        if (!tier.getEventId().equals(eventId)) {
+            throw new RuntimeException("Ticket tier does not belong to this event.");
+        }
         if (request.getTierName() != null && !tier.getTierName().equals(request.getTierName())) {
             if (ticketTierRepository.existsByEventIdAndTierNameIgnoreCase(eventId, request.getTierName())) {
                 throw new RuntimeException("A ticket tier with this name already exists.");
@@ -561,7 +569,9 @@ public class EventService {
         verifyEventOwnership(eventId, currentUser);
 
         TicketTier tier = getTicketTierById(ticketId);
-
+        if (!tier.getEventId().equals(eventId)) {
+            throw new RuntimeException("Ticket tier does not belong to this event.");
+        }
         // Crucial Business Logic: Prevent deleting a tier if people paid for it
         if (tier.getQuantitySold() > 0) {
             throw new RuntimeException("Cannot delete this ticket tier because tickets have already been sold.");
@@ -665,6 +675,9 @@ public class EventService {
 
         SubEvent subEvent = getSubEventById(subEventId);
 
+        if (!subEvent.getEventId().equals(eventId)) {
+            throw new RuntimeException("Sub-event does not belong to this event.");
+        }
 
         Event event = eventRepository.findById(subEvent.getEventId()).orElseThrow(() -> new RuntimeException("Event not found."));
 
@@ -721,6 +734,10 @@ public class EventService {
         verifyEventOwnership(eventId, currentUser);
 
         SubEvent subEvent = getSubEventById(subEventId);
+
+        if (!subEvent.getEventId().equals(eventId)) {
+            throw new RuntimeException("Sub-event does not belong to this event.");
+        }
 
         // Delete associated image from storage
         if (subEvent.getImageUrl() != null && !subEvent.getImageUrl().isBlank()) {
@@ -934,10 +951,9 @@ public class EventService {
         User currentUser = SecurityUtil.getCurrentUser();
         if (currentUser == null) throw new RuntimeException("Unauthorized.");
         verifyEventOwnership(eventId, currentUser);
-        if (!sponsorRepository.existsById(sponsorId)) {
-            throw new RuntimeException("Sponsor not found");
-        }
-        sponsorRepository.deleteById(sponsorId);
+        Sponsor sponsor = sponsorRepository.findByIdAndEventId(sponsorId, eventId)
+                .orElseThrow(() -> new RuntimeException("Sponsor not found"));
+        sponsorRepository.delete(sponsor);
 
         // RAG ADDED: remove deleted sponsor from chatbot knowledge.
         requestRagReindexIfPublished(eventId);
@@ -987,7 +1003,7 @@ public class EventService {
         if (currentUser == null) throw new RuntimeException("Unauthorized.");
         verifyEventOwnership(eventId, currentUser);
 
-        DiscountCode discount = discountCodeRepository.findById(codeId)
+        DiscountCode discount = discountCodeRepository.findByIdAndEventId(codeId, eventId)
                 .orElseThrow(() -> new RuntimeException("Discount Code not found"));
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event Not Found"));
@@ -1013,8 +1029,8 @@ public class EventService {
         verifyEventOwnership(eventId, currentUser);
 
         // 1. Fetch the discount or throw an error if missing
-        DiscountCode discount = discountCodeRepository.findById(codeId)
-                .orElseThrow(() -> new RuntimeException("Discount Code not found with ID: " + codeId));
+        DiscountCode discount = discountCodeRepository.findByIdAndEventId(codeId, eventId)
+                .orElseThrow(() -> new RuntimeException("Discount Code not found: " + codeId));
 
         // 2. Safely read current status and toggle it
         AppStatus currentStatus = discount.getStatus();
@@ -1033,10 +1049,9 @@ public class EventService {
         if (currentUser == null) throw new RuntimeException("Unauthorized.");
         verifyEventOwnership(eventId, currentUser);
 
-        if (!discountCodeRepository.existsById(codeId)) {
-            throw new RuntimeException("Discount Code not found");
-        }
-        discountCodeRepository.deleteById(codeId);
+        DiscountCode discount = discountCodeRepository.findByIdAndEventId(codeId, eventId)
+                .orElseThrow(() -> new RuntimeException("Discount Code not found"));
+        discountCodeRepository.delete(discount);
     }
     public BigDecimal validatePromoCodeForPublic(UUID eventId, String code) {
         DiscountCode discount = discountCodeRepository.findByCodeAndEventId(code.toUpperCase(), eventId)

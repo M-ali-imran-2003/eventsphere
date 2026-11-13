@@ -11,6 +11,7 @@ import java.util.UUID;
 @Repository
 public interface DiscountCodeRepository extends JpaRepository<DiscountCode, UUID> {
    List<DiscountCode> findByEventId(UUID eventId);
+   Optional<DiscountCode> findByIdAndEventId(UUID id, UUID eventId);
    boolean existsByCodeAndEventId(String code, UUID eventId); // Prevents duplicate codes!
    Optional<DiscountCode> findByCodeAndEventId(String code, UUID eventId);
 }

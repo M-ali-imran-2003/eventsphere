@@ -11,7 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.context.ApplicationEventPublisher;
+import com.example.eventsphere.event.RagIndexRequestedEvent;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -23,7 +24,6 @@ public class CheckoutService {
 
     private final PaymentProcessor paymentProcessor;
     private final PasswordEncoder passwordEncoder;
-    // Repositories mapped to your DDL tables
     private final OrderRepository orderRepository;
     private final TicketTierRepository tierRepository;
     private final AttendeeTicketRepository attendeeTicketRepository;
@@ -31,12 +31,12 @@ public class CheckoutService {
     private final SubEventRegistrationRepository subEventRegRepository;
     private final WalletTransactionRepository walletRepository;
     private final TicketService ticketService;
-
+    private final ApplicationEventPublisher eventPublisher;
     // We need these to fetch the Workspace ID and handle Silent Registration
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
 
-    public CheckoutService(PaymentProcessor paymentProcessor, PasswordEncoder passwordEncoder, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, TicketService ticketService, EventRepository eventRepository, UserRepository userRepository) {
+    public CheckoutService(PaymentProcessor paymentProcessor, PasswordEncoder passwordEncoder, OrderRepository orderRepository, TicketTierRepository tierRepository, AttendeeTicketRepository attendeeTicketRepository, DiscountCodeRepository discountCodeRepository, SubEventRegistrationRepository subEventRegRepository, WalletTransactionRepository walletRepository, TicketService ticketService, ApplicationEventPublisher eventPublisher, EventRepository eventRepository, UserRepository userRepository) {
         this.paymentProcessor = paymentProcessor;
         this.passwordEncoder = passwordEncoder;
         this.orderRepository = orderRepository;
@@ -46,12 +46,14 @@ public class CheckoutService {
         this.subEventRegRepository = subEventRegRepository;
         this.walletRepository = walletRepository;
         this.ticketService = ticketService;
+        this.eventPublisher = eventPublisher;
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
     }
 
     @Transactional
     public CheckoutResponse processCheckout(UUID eventId, CheckoutRequest request) {
+        boolean tierSoldOut = false;
         log.info("Starting checkout for user {} on event {}", request.getBuyerEmail(), eventId);
 
         // Fetch the event to get the workspace_id later for the wallet
@@ -104,13 +106,20 @@ public class CheckoutService {
             }
 
             // UPDATE DB: Lock in the quantity so no one else can buy them during this transaction
-            tier.setQuantitySold(tier.getQuantitySold() + selection.getQuantity());
+            int newSold = tier.getQuantitySold() + selection.getQuantity();
+            if (newSold >= tier.getTotalCapacity()) {
+                tierSoldOut = true;
+            }
+            tier.setQuantitySold(newSold);
             tierRepository.saveAndFlush(tier);
 
             // Calculate cost
             BigDecimal selectionQuantity = BigDecimal.valueOf(selection.getQuantity());
             BigDecimal selectionCost = tier.getPrice().multiply(selectionQuantity);
             totalAmount = totalAmount.add(selectionCost);
+        }
+        if (tierSoldOut) {
+            eventPublisher.publishEvent(new RagIndexRequestedEvent(eventId));
         }
 
         // 2. Apply Discount Code (If provided)

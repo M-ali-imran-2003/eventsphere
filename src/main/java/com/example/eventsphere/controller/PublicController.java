@@ -294,7 +294,9 @@ public class PublicController {
             @Valid @RequestBody ChatRequest request,
             HttpServletRequest http
     ) {
-
+        if (!eventService.isEventPublished(eventId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         if (!chatRateLimiter.allow(http, request.getSessionId())) {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
                     .header("Retry-After", "30")
@@ -320,7 +322,9 @@ public class PublicController {
             @Valid @RequestBody ChatRequest request,
             HttpServletRequest http
     ) {
-
+        if (!eventService.isEventPublished(eventId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         if (!chatRateLimiter.allow(http, request.getSessionId())) {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
                     .header("Retry-After", "30")
